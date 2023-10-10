@@ -1,0 +1,601 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[many]{tcolorbox}}
+\makeatother
+\makeatletter
+\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
+\makeatother
+\makeatletter
+\makeatother
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Proportion of stops 2011},
+  pdfauthor={Schwab},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Proportion of stops 2011}
+\author{Schwab}
+\date{}
+
+\begin{document}
+\maketitle
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[frame hidden, sharp corners, breakable, interior hidden, enhanced, borderline west={3pt}{0pt}{shadecolor}, boxrule=0pt]}{\end{tcolorbox}}\fi
+
+\hypertarget{envelope-2011}{%
+\subsection{Envelope 2011}\label{envelope-2011}}
+
+\hypertarget{guide}{%
+\section{Guide}\label{guide}}
+
+These materials were made for the NECOMMIT 2023 conference keynote.
+
+This document is meant to be cut up and put into envelopes to distribute
+to participants. One envelope per group.
+
+This guiding questions is ``Are Black, Hispanic, groups more likely to
+be stopped by police officers than other groups in 2011? Does this
+change as the total counts of stops decreases to 2021 levels?''
+
+\hypertarget{start-2011}{%
+\section{Start 2011}\label{start-2011}}
+
+\newpage
+
+Basic Data Frame
+
+\begin{table}
+\centering
+\begin{tabular}{rrrrrlllrlrlllllllrrlllllllllllllllllllllllllllllllllllllllllllllllllllllrrlllllllrrrrrllllllllllllllllrllrrrlrr}
+\toprule
+year & pct & ser\_num & datestop & timestop & recstat & inout & trhsloc & perobs & crimsusp & perstop & typeofid & explnstp & othpers & arstmade & arstoffn & sumissue & sumoffen & compyear & comppct & offunif & officrid & frisked & searched & contrabn & adtlrept & pistol & riflshot & asltweap & knifcuti & machgun & othrweap & pf\_hands & pf\_wall & pf\_grnd & pf\_drwep & pf\_ptwep & pf\_baton & pf\_hcuff & pf\_pepsp & pf\_other & radio & ac\_rept & ac\_inves & rf\_vcrim & rf\_othsw & ac\_proxm & rf\_attir & cs\_objcs & cs\_descr & cs\_casng & cs\_lkout & rf\_vcact & cs\_cloth & cs\_drgtr & ac\_evasv & ac\_assoc & cs\_furtv & rf\_rfcmp & ac\_cgdir & rf\_verbl & cs\_vcrim & cs\_bulge & cs\_other & ac\_incid & ac\_time & rf\_knowl & ac\_stsnd & ac\_other & sb\_hdobj & sb\_outln & sb\_admis & sb\_other & repcmd & revcmd & rf\_furt & rf\_bulg & offverb & offshld & forceuse & sex & race & dob & age & ht\_feet & ht\_inch & weight & haircolr & eyecolor & build & othfeatr & addrtyp & rescode & premtype & premname & addrnum & stname & stinter & crossst & aptnum & city & state & zip & addrpct & sector & beat & post & xcoord & ycoord & dettypcm & linecm & detailcm\\
+\midrule
+\cellcolor{gray!6}{2011} & \cellcolor{gray!6}{102} & \cellcolor{gray!6}{185} & \cellcolor{gray!6}{1012011} & \cellcolor{gray!6}{0} & \cellcolor{gray!6}{A} & \cellcolor{gray!6}{O} & \cellcolor{gray!6}{P} & \cellcolor{gray!6}{1} & \cellcolor{gray!6}{BURGLARY} & \cellcolor{gray!6}{6} & \cellcolor{gray!6}{V} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{0} & \cellcolor{gray!6}{0} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{102} & \cellcolor{gray!6}{102} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{S} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{M} & \cellcolor{gray!6}{A} & \cellcolor{gray!6}{9121989} & \cellcolor{gray!6}{21} & \cellcolor{gray!6}{5} & \cellcolor{gray!6}{8} & \cellcolor{gray!6}{182} & \cellcolor{gray!6}{BK} & \cellcolor{gray!6}{BR} & \cellcolor{gray!6}{M} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{R} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{STREET} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{JAMAICA AVENUE} & \cellcolor{gray!6}{117 STREET} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{QUEENS} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{102} & \cellcolor{gray!6}{B} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{1030708} & \cellcolor{gray!6}{194185} & \cellcolor{gray!6}{CM} & \cellcolor{gray!6}{1} & \cellcolor{gray!6}{14}\\
+2011 & 115 & 50 & 1012011 & 5 & A & O & P & 1 & FEL & 2 & V & Y & N & N & NA & N & NA & 0 & 0 & N & NA & Y & N & N & N & N & N & N & N & N & N & N & N & N & N & N & N & N & N & N & N & N & N & N & N & N & N & N & N & Y & N & N & N & N & N & N & Y & N & N & N & N & N & N & Y & N & N & N & N & N & N & N & N & 115 & 115 & Y & N & V & S & NA & M & B & 7011995 & 15 & 5 & 6 & 140 & BK & BR & M & NA & R & NA & NA & STREET & NA & NA & 37 AVENUE & 101 STREET & NA & QUEENS & NA & NA & 115 & I & NA & NA & 1021302 & 213563 & CM & 1 & 85\\
+\cellcolor{gray!6}{2011} & \cellcolor{gray!6}{100} & \cellcolor{gray!6}{4} & \cellcolor{gray!6}{1012011} & \cellcolor{gray!6}{7} & \cellcolor{gray!6}{1} & \cellcolor{gray!6}{O} & \cellcolor{gray!6}{H} & \cellcolor{gray!6}{1} & \cellcolor{gray!6}{CPW} & \cellcolor{gray!6}{2} & \cellcolor{gray!6}{V} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{0} & \cellcolor{gray!6}{0} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{100} & \cellcolor{gray!6}{100} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{M} & \cellcolor{gray!6}{B} & \cellcolor{gray!6}{3151993} & \cellcolor{gray!6}{17} & \cellcolor{gray!6}{5} & \cellcolor{gray!6}{7} & \cellcolor{gray!6}{130} & \cellcolor{gray!6}{BK} & \cellcolor{gray!6}{BR} & \cellcolor{gray!6}{T} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{R} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{NYCHA} & \cellcolor{gray!6}{81-04} & \cellcolor{gray!6}{ROCKAWAY BEACH} & \cellcolor{gray!6}{BEACH 81 STREET} & \cellcolor{gray!6}{BEACH 81 STREET} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{QUEENS} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{100} & \cellcolor{gray!6}{B} & \cellcolor{gray!6}{4} & \cellcolor{gray!6}{34} & \cellcolor{gray!6}{1037668} & \cellcolor{gray!6}{153549} & \cellcolor{gray!6}{CM} & \cellcolor{gray!6}{1} & \cellcolor{gray!6}{20}\\
+2011 & 100 & 3 & 1012011 & 7 & 1 & O & H & 1 & CPW & 2 & V & Y & Y & N & NA & N & NA & 0 & 0 & Y & NA & Y & N & N & N & N & N & N & N & N & N & Y & N & N & N & N & N & N & N & N & N & N & N & Y & N & Y & N & N & N & N & N & N & N & N & N & N & Y & N & Y & N & N & N & Y & N & Y & N & N & N & N & N & N & N & 100 & 100 & N & N & NA & NA & NA & M & B & 3201993 & 17 & 5 & 7 & 130 & BK & BR & T & NA & R & NA & NA & NYCHA & 81-04 & ROCKAWAY BEACH & BEACH 81 STREET & BEACH 81 STREET & NA & QUEENS & NA & NA & 100 & B & 4 & 34 & 1037668 & 153549 & CM & 1 & 20\\
+\cellcolor{gray!6}{2011} & \cellcolor{gray!6}{100} & \cellcolor{gray!6}{1} & \cellcolor{gray!6}{1012011} & \cellcolor{gray!6}{7} & \cellcolor{gray!6}{1} & \cellcolor{gray!6}{O} & \cellcolor{gray!6}{H} & \cellcolor{gray!6}{1} & \cellcolor{gray!6}{CPW} & \cellcolor{gray!6}{2} & \cellcolor{gray!6}{V} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{0} & \cellcolor{gray!6}{0} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{100} & \cellcolor{gray!6}{100} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{M} & \cellcolor{gray!6}{B} & \cellcolor{gray!6}{9011990} & \cellcolor{gray!6}{20} & \cellcolor{gray!6}{6} & \cellcolor{gray!6}{3} & \cellcolor{gray!6}{185} & \cellcolor{gray!6}{BK} & \cellcolor{gray!6}{BR} & \cellcolor{gray!6}{M} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{R} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{NYCHA} & \cellcolor{gray!6}{81-04} & \cellcolor{gray!6}{ROCKAWAY BEACH} & \cellcolor{gray!6}{BEACH 81 STREET} & \cellcolor{gray!6}{BEACH 81 STREET} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{QUEENS} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{100} & \cellcolor{gray!6}{B} & \cellcolor{gray!6}{4} & \cellcolor{gray!6}{34} & \cellcolor{gray!6}{1037668} & \cellcolor{gray!6}{153549} & \cellcolor{gray!6}{CM} & \cellcolor{gray!6}{1} & \cellcolor{gray!6}{20}\\
+\addlinespace
+2011 & 100 & 2 & 1012011 & 7 & 1 & O & H & 1 & CPW & 2 & V & Y & Y & N & NA & N & NA & 0 & 0 & Y & NA & Y & N & N & N & N & N & N & N & N & N & Y & Y & N & N & N & N & N & N & N & N & N & N & Y & N & Y & N & N & N & N & N & N & N & N & N & N & Y & N & Y & N & N & N & Y & N & Y & Y & N & N & N & N & N & N & 100 & 100 & N & N & NA & NA & NA & M & B & 9161993 & 17 & 5 & 6 & 150 & BK & BR & T & NA & R & NA & NA & NYCHA & 81-04 & ROCKAWAY BEACH & BEACH 81 STREET & BEACH 81 STREET & NA & QUEENS & NA & NA & 100 & B & 4 & 34 & 1037668 & 153549 & CM & 1 & 20\\
+\cellcolor{gray!6}{2011} & \cellcolor{gray!6}{101} & \cellcolor{gray!6}{8} & \cellcolor{gray!6}{1012011} & \cellcolor{gray!6}{10} & \cellcolor{gray!6}{A} & \cellcolor{gray!6}{O} & \cellcolor{gray!6}{P} & \cellcolor{gray!6}{1} & \cellcolor{gray!6}{FEL} & \cellcolor{gray!6}{5} & \cellcolor{gray!6}{V} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{0} & \cellcolor{gray!6}{0} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{101} & \cellcolor{gray!6}{101} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{M} & \cellcolor{gray!6}{B} & \cellcolor{gray!6}{3031994} & \cellcolor{gray!6}{16} & \cellcolor{gray!6}{5} & \cellcolor{gray!6}{4} & \cellcolor{gray!6}{140} & \cellcolor{gray!6}{BK} & \cellcolor{gray!6}{BR} & \cellcolor{gray!6}{T} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{R} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{STREET} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{MOTT AVENUE} & \cellcolor{gray!6}{MCBRIDE STREET} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{QUEENS} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{101} & \cellcolor{gray!6}{C} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{1051507} & \cellcolor{gray!6}{160090} & \cellcolor{gray!6}{CM} & \cellcolor{gray!6}{1} & \cellcolor{gray!6}{20}\\
+2011 & 70 & 1 & 1012011 & 10 & A & O & P & 1 & FEL & 5 & P & Y & N & N & NA & N & NA & 0 & 0 & Y & NA & Y & N & N & N & N & N & N & N & N & N & N & N & N & Y & N & N & N & N & N & N & N & N & N & N & Y & N & N & N & N & N & N & N & N & N & N & Y & N & N & N & N & N & N & N & N & N & N & N & N & N & N & N & 70 & 70 & Y & N & NA & NA & NA & M & B & 12311900 & 19 & 5 & 10 & 150 & BK & BR & M & NA & R & NA & NA & STREET & 520 & EAST 21 STREET & DITMAS AVENUE & DORCHESTER ROAD & NA & BROOKLYN & NA & NA & 70 & H & 18 & NA & 995824 & 172912 & CM & 1 & 20\\
+\cellcolor{gray!6}{2011} & \cellcolor{gray!6}{73} & \cellcolor{gray!6}{6348} & \cellcolor{gray!6}{1012011} & \cellcolor{gray!6}{10} & \cellcolor{gray!6}{1} & \cellcolor{gray!6}{O} & \cellcolor{gray!6}{P} & \cellcolor{gray!6}{1} & \cellcolor{gray!6}{CRIMINAL TRESPASS} & \cellcolor{gray!6}{2} & \cellcolor{gray!6}{P} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{0} & \cellcolor{gray!6}{0} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{165} & \cellcolor{gray!6}{165} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{M} & \cellcolor{gray!6}{B} & \cellcolor{gray!6}{12311900} & \cellcolor{gray!6}{35} & \cellcolor{gray!6}{6} & \cellcolor{gray!6}{0} & \cellcolor{gray!6}{200} & \cellcolor{gray!6}{BK} & \cellcolor{gray!6}{BR} & \cellcolor{gray!6}{M} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{R} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{CRIMINAL TRES} & \cellcolor{gray!6}{240} & \cellcolor{gray!6}{LOTT AVENUE} & \cellcolor{gray!6}{STONE AVENUE} & \cellcolor{gray!6}{WATKINS STREET} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{BROOKLYN} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{73} & \cellcolor{gray!6}{Q} & \cellcolor{gray!6}{15} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{1010711} & \cellcolor{gray!6}{179162} & \cellcolor{gray!6}{CM} & \cellcolor{gray!6}{1} & \cellcolor{gray!6}{31}\\
+2011 & 52 & 2 & 1012011 & 15 & A & O & P & 2 & ROBBERY & 2 & V & Y & N & N & NA & N & NA & 0 & 0 & Y & NA & Y & N & N & N & N & N & N & N & N & N & Y & N & N & N & N & N & N & N & N & N & N & Y & Y & N & N & N & N & N & Y & Y & Y & N & N & Y & N & Y & Y & Y & N & Y & N & N & Y & Y & N & N & N & N & N & N & N & 163 & 163 & Y & N & NA & NA & NA & M & Q & 12261990 & 20 & 5 & 8 & 160 & BK & BR & M & NA & R & NA & NA & SIDEWALK & 65 & EAST 193 STREET & CRESTON AVENUE & MORRIS AVENUE & NA & BRONX & NA & NA & 52 & D & NA & NA & 1012873 & 254829 & CM & 1 & 85\\
+\addlinespace
+\cellcolor{gray!6}{2011} & \cellcolor{gray!6}{23} & \cellcolor{gray!6}{118} & \cellcolor{gray!6}{1012011} & \cellcolor{gray!6}{20} & \cellcolor{gray!6}{1} & \cellcolor{gray!6}{O} & \cellcolor{gray!6}{H} & \cellcolor{gray!6}{1} & \cellcolor{gray!6}{MISD} & \cellcolor{gray!6}{2} & \cellcolor{gray!6}{V} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{0} & \cellcolor{gray!6}{0} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{805} & \cellcolor{gray!6}{805} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{F} & \cellcolor{gray!6}{Q} & \cellcolor{gray!6}{12311900} & \cellcolor{gray!6}{17} & \cellcolor{gray!6}{5} & \cellcolor{gray!6}{6} & \cellcolor{gray!6}{120} & \cellcolor{gray!6}{BK} & \cellcolor{gray!6}{BR} & \cellcolor{gray!6}{M} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{R} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{STEPS} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{PARK AVENUE} & \cellcolor{gray!6}{EAST 109 STREET} & \cellcolor{gray!6}{EAST 108 STREET} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{MANHATTAN} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{23} & \cellcolor{gray!6}{E} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{998940} & \cellcolor{gray!6}{228642} & \cellcolor{gray!6}{CM} & \cellcolor{gray!6}{1} & \cellcolor{gray!6}{20}\\
+2011 & 75 & 8 & 1012011 & 20 & A & I & P & 1 & CPW & 10 & P & Y & N & N & NA & Y & 10-125 & 0 & 0 & Y & NA & Y & N & N & N & N & N & N & N & N & N & N & N & N & N & N & N & N & N & N & Y & N & N & Y & N & Y & Y & N & N & N & N & N & N & N & N & N & Y & N & Y & N & Y & N & Y & Y & Y & N & Y & N & N & N & N & N & 75 & 75 & Y & N & NA & NA & NA & M & B & 6081992 & 17 & 5 & 8 & 155 & BK & BR & M & NA & R & NA & NA & APT BLDG & 510 & RIVERDALE AVENU & ALABAMA AVENUE & WILLIAMS AVENUE & NA & BROOKLYN & NA & NA & 75 & F & NA & NA & 1012795 & 180734 & CM & 1 & 20\\
+\cellcolor{gray!6}{2011} & \cellcolor{gray!6}{30} & \cellcolor{gray!6}{23} & \cellcolor{gray!6}{1012011} & \cellcolor{gray!6}{20} & \cellcolor{gray!6}{1} & \cellcolor{gray!6}{I} & \cellcolor{gray!6}{T} & \cellcolor{gray!6}{2} & \cellcolor{gray!6}{ASSAULT} & \cellcolor{gray!6}{8} & \cellcolor{gray!6}{P} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{0} & \cellcolor{gray!6}{0} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{862} & \cellcolor{gray!6}{862} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{M} & \cellcolor{gray!6}{B} & \cellcolor{gray!6}{6281969} & \cellcolor{gray!6}{41} & \cellcolor{gray!6}{5} & \cellcolor{gray!6}{6} & \cellcolor{gray!6}{145} & \cellcolor{gray!6}{BK} & \cellcolor{gray!6}{BR} & \cellcolor{gray!6}{T} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{R} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{MEZZANINE} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{SAINT NICHOLAS AVENUE} & \cellcolor{gray!6}{WEST 145 STREET} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{MANHATTAN} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{30} & \cellcolor{gray!6}{C} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{999539} & \cellcolor{gray!6}{239499} & \cellcolor{gray!6}{CM} & \cellcolor{gray!6}{1} & \cellcolor{gray!6}{9}\\
+2011 & 75 & 17 & 1012011 & 20 & A & I & P & 1 & CPW & 10 & V & Y & N & N & NA & N & NA & 0 & 0 & Y & NA & Y & N & N & N & N & N & N & N & N & N & N & N & N & N & N & N & N & N & N & Y & N & N & Y & N & Y & Y & N & N & N & N & N & N & N & Y & N & Y & N & N & N & Y & N & Y & Y & Y & N & Y & N & N & N & N & N & 75 & 75 & Y & N & NA & NA & NA & M & B & 7141991 & 18 & 5 & 6 & 145 & BK & BR & M & NA & R & NA & NA & APT BUILDING & 510 & RIVERDALE AVENU & ALABAMA AVENUE & WILLIAMS AVENUE & NA & BROOKLYN & NA & NA & 75 & F & NA & NA & 1012795 & 180734 & CM & 1 & 20\\
+\cellcolor{gray!6}{2011} & \cellcolor{gray!6}{30} & \cellcolor{gray!6}{24} & \cellcolor{gray!6}{1012011} & \cellcolor{gray!6}{20} & \cellcolor{gray!6}{1} & \cellcolor{gray!6}{I} & \cellcolor{gray!6}{T} & \cellcolor{gray!6}{2} & \cellcolor{gray!6}{ASSAULT} & \cellcolor{gray!6}{8} & \cellcolor{gray!6}{P} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{0} & \cellcolor{gray!6}{0} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{862} & \cellcolor{gray!6}{862} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{M} & \cellcolor{gray!6}{B} & \cellcolor{gray!6}{12041975} & \cellcolor{gray!6}{35} & \cellcolor{gray!6}{5} & \cellcolor{gray!6}{8} & \cellcolor{gray!6}{215} & \cellcolor{gray!6}{BK} & \cellcolor{gray!6}{BR} & \cellcolor{gray!6}{H} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{R} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{MEZZANINE} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{SAINT NICHOLAS AVENUE} & \cellcolor{gray!6}{WEST 145 STREET} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{MANHATTAN} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{30} & \cellcolor{gray!6}{C} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{NA} & \cellcolor{gray!6}{999539} & \cellcolor{gray!6}{239499} & \cellcolor{gray!6}{CM} & \cellcolor{gray!6}{1} & \cellcolor{gray!6}{9}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\newpage
+
+\begin{table}
+\centering
+\begin{tabular}{llr}
+\toprule
+sex & race & age\\
+\midrule
+\cellcolor{gray!6}{M} & \cellcolor{gray!6}{A} & \cellcolor{gray!6}{21}\\
+M & B & 15\\
+\cellcolor{gray!6}{M} & \cellcolor{gray!6}{B} & \cellcolor{gray!6}{\vphantom{3} 17}\\
+M & B & \vphantom{2} 17\\
+\cellcolor{gray!6}{M} & \cellcolor{gray!6}{B} & \cellcolor{gray!6}{\vphantom{1} 20}\\
+\addlinespace
+M & B & \vphantom{1} 17\\
+\cellcolor{gray!6}{M} & \cellcolor{gray!6}{B} & \cellcolor{gray!6}{16}\\
+M & B & 19\\
+\cellcolor{gray!6}{M} & \cellcolor{gray!6}{B} & \cellcolor{gray!6}{\vphantom{1} 35}\\
+M & Q & \vphantom{1} 20\\
+\addlinespace
+\cellcolor{gray!6}{F} & \cellcolor{gray!6}{Q} & \cellcolor{gray!6}{17}\\
+M & B & 17\\
+\cellcolor{gray!6}{M} & \cellcolor{gray!6}{B} & \cellcolor{gray!6}{41}\\
+M & B & 18\\
+\cellcolor{gray!6}{M} & \cellcolor{gray!6}{B} & \cellcolor{gray!6}{35}\\
+\addlinespace
+M & B & 20\\
+\cellcolor{gray!6}{M} & \cellcolor{gray!6}{B} & \cellcolor{gray!6}{21}\\
+M & B & 22\\
+\cellcolor{gray!6}{M} & \cellcolor{gray!6}{Q} & \cellcolor{gray!6}{17}\\
+M & Q & 20\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\newpage
+
+\begin{table}
+\centering
+\begin{tabular}{llr}
+\toprule
+sex & race & age\\
+\midrule
+\cellcolor{gray!6}{M} & \cellcolor{gray!6}{API} & \cellcolor{gray!6}{21}\\
+M & Black & 15\\
+\cellcolor{gray!6}{M} & \cellcolor{gray!6}{Black} & \cellcolor{gray!6}{\vphantom{3} 17}\\
+M & Black & \vphantom{2} 17\\
+\cellcolor{gray!6}{M} & \cellcolor{gray!6}{Black} & \cellcolor{gray!6}{\vphantom{1} 20}\\
+\addlinespace
+M & Black & \vphantom{1} 17\\
+\cellcolor{gray!6}{M} & \cellcolor{gray!6}{Black} & \cellcolor{gray!6}{16}\\
+M & Black & 19\\
+\cellcolor{gray!6}{M} & \cellcolor{gray!6}{Black} & \cellcolor{gray!6}{\vphantom{1} 35}\\
+M & Hispanic & \vphantom{1} 20\\
+\addlinespace
+\cellcolor{gray!6}{F} & \cellcolor{gray!6}{Hispanic} & \cellcolor{gray!6}{17}\\
+M & Black & 17\\
+\cellcolor{gray!6}{M} & \cellcolor{gray!6}{Black} & \cellcolor{gray!6}{41}\\
+M & Black & 18\\
+\cellcolor{gray!6}{M} & \cellcolor{gray!6}{Black} & \cellcolor{gray!6}{35}\\
+\addlinespace
+M & Black & 20\\
+\cellcolor{gray!6}{M} & \cellcolor{gray!6}{Black} & \cellcolor{gray!6}{21}\\
+M & Black & 22\\
+\cellcolor{gray!6}{M} & \cellcolor{gray!6}{Hispanic} & \cellcolor{gray!6}{17}\\
+M & Hispanic & 20\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\newpage
+
+\begin{table}
+\centering
+\begin{tabular}{lr}
+\toprule
+race & n\\
+\midrule
+\cellcolor{gray!6}{API} & \cellcolor{gray!6}{23932}\\
+American Indian/Alaskan Native & 2897\\
+\cellcolor{gray!6}{Black} & \cellcolor{gray!6}{350743}\\
+Hispanic & 223740\\
+\cellcolor{gray!6}{Other} & \cellcolor{gray!6}{16867}\\
+\addlinespace
+White & 61805\\
+\cellcolor{gray!6}{NA} & \cellcolor{gray!6}{5740}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\newpage
+
+\begin{table}
+\centering
+\begin{tabular}{lr}
+\toprule
+race & total\\
+\midrule
+\cellcolor{gray!6}{API} & \cellcolor{gray!6}{23932}\\
+American Indian/Alaskan Native & 2897\\
+\cellcolor{gray!6}{Black} & \cellcolor{gray!6}{350743}\\
+Hispanic & 223740\\
+\cellcolor{gray!6}{Other} & \cellcolor{gray!6}{16867}\\
+\addlinespace
+White & 61805\\
+\cellcolor{gray!6}{NA} & \cellcolor{gray!6}{5740}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\newpage
+
+\begin{table}
+\centering
+\begin{tabular}{lrr}
+\toprule
+race & total & percentage\\
+\midrule
+\cellcolor{gray!6}{API} & \cellcolor{gray!6}{23932} & \cellcolor{gray!6}{3.4900339}\\
+American Indian/Alaskan Native & 2897 & 0.4224732\\
+\cellcolor{gray!6}{Black} & \cellcolor{gray!6}{350743} & \cellcolor{gray!6}{51.1492962}\\
+Hispanic & 223740 & 32.6282878\\
+\cellcolor{gray!6}{Other} & \cellcolor{gray!6}{16867} & \cellcolor{gray!6}{2.4597360}\\
+\addlinespace
+White & 61805 & 9.0131015\\
+\cellcolor{gray!6}{NA} & \cellcolor{gray!6}{5740} & \cellcolor{gray!6}{0.8370715}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\newpage
+
+\begin{table}
+\centering
+\begin{tabular}{lrr}
+\toprule
+race & total & percentage\\
+\midrule
+\cellcolor{gray!6}{Black} & \cellcolor{gray!6}{350743} & \cellcolor{gray!6}{51.1492962}\\
+Hispanic & 223740 & 32.6282878\\
+\cellcolor{gray!6}{White} & \cellcolor{gray!6}{61805} & \cellcolor{gray!6}{9.0131015}\\
+API & 23932 & 3.4900339\\
+\cellcolor{gray!6}{Other} & \cellcolor{gray!6}{16867} & \cellcolor{gray!6}{2.4597360}\\
+\addlinespace
+NA & 5740 & 0.8370715\\
+\cellcolor{gray!6}{American Indian/Alaskan Native} & \cellcolor{gray!6}{2897} & \cellcolor{gray!6}{0.4224732}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\newpage
+
+\hypertarget{start-2021}{%
+\section{Start 2021}\label{start-2021}}
+
+The documentation for years after 2019 is non-existent, but the
+variables are well named.
+
+\newpage
+
+\begin{table}
+
+\caption{2021 data}
+\centering
+\begin{tabular}[t]{rllrllllllllllllrlrllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll}
+\toprule
+STOP\_ID & STOP\_FRISK\_DATE & STOP\_FRISK\_TIME & YEAR2 & MONTH2 & DAY2 & STOP\_WAS\_INITIATED & RECORD\_STATUS\_CODE & ISSUING\_OFFICER\_RANK & ISSUING\_OFFICER\_COMMAND\_CODE & SUPERVISING\_OFFICER\_RANK & SUPERVISING\_OFFICER\_COMMAND\_CODE & SUPERVISING\_ACTION\_CORRESPONDING\_ACTIVITY\_LOG\_ENTRY\_REVIEWED & LOCATION\_IN\_OUT\_CODE & JURISDICTION\_CODE & JURISDICTION\_DESCRIPTION & OBSERVED\_DURATION\_MINUTES & SUSPECTED\_CRIME\_DESCRIPTION & STOP\_DURATION\_MINUTES & OFFICER\_EXPLAINED\_STOP\_FLAG & OFFICER\_NOT\_EXPLAINED\_STOP\_DESCRIPTION & OTHER\_PERSON\_STOPPED\_FLAG & SUSPECT\_ARRESTED\_FLAG & SUSPECT\_ARREST\_OFFENSE & SUMMONS\_ISSUED\_FLAG & SUMMONS\_OFFENSE\_DESCRIPTION & OFFICER\_IN\_UNIFORM\_FLAG & ID\_CARD\_IDENTIFIES\_OFFICER\_FLAG & SHIELD\_IDENTIFIES\_OFFICER\_FLAG & VERBAL\_IDENTIFIES\_OFFICER\_FLAG & FRISKED\_FLAG & SEARCHED\_FLAG & ASK\_FOR\_CONSENT\_FLG & CONSENT\_GIVEN\_FLG & OTHER\_CONTRABAND\_FLAG & FIREARM\_FLAG & KNIFE\_CUTTER\_FLAG & OTHER\_WEAPON\_FLAG & WEAPON\_FOUND\_FLAG & PHYSICAL\_FORCE\_CEW\_FLAG & PHYSICAL\_FORCE\_DRAW\_POINT\_FIREARM\_FLAG & PHYSICAL\_FORCE\_HANDCUFF\_SUSPECT\_FLAG & PHYSICAL\_FORCE\_OC\_SPRAY\_USED\_FLAG & PHYSICAL\_FORCE\_OTHER\_FLAG & PHYSICAL\_FORCE\_RESTRAINT\_USED\_FLAG & PHYSICAL\_FORCE\_VERBAL\_INSTRUCTION\_FLAG & PHYSICAL\_FORCE\_WEAPON\_IMPACT\_FLAG & BACKROUND\_CIRCUMSTANCES\_VIOLENT\_CRIME\_FLAG & BACKROUND\_CIRCUMSTANCES\_SUSPECT\_KNOWN\_TO\_CARRY\_WEAPON\_FLAG & SUSPECTS\_ACTIONS\_CASING\_FLAG & SUSPECTS\_ACTIONS\_CONCEALED\_POSSESSION\_WEAPON\_FLAG & SUSPECTS\_ACTIONS\_DECRIPTION\_FLAG & SUSPECTS\_ACTIONS\_DRUG\_TRANSACTIONS\_FLAG & SUSPECTS\_ACTIONS\_IDENTIFY\_CRIME\_PATTERN\_FLAG & SUSPECTS\_ACTIONS\_LOOKOUT\_FLAG & SUSPECTS\_ACTIONS\_OTHER\_FLAG & SUSPECTS\_ACTIONS\_PROXIMITY\_TO\_SCENE\_FLAG & SEARCH\_BASIS\_ADMISSION\_FLAG & SEARCH\_BASIS\_CONSENT\_FLAG & SEARCH\_BASIS\_HARD\_OBJECT\_FLAG & SEARCH\_BASIS\_INCIDENTAL\_TO\_ARREST\_FLAG & SEARCH\_BASIS\_OTHER\_FLAG & SEARCH\_BASIS\_OUTLINE\_FLAG & DEMEANOR\_CODE & DEMEANOR\_OF\_PERSON\_STOPPED & SUSPECT\_REPORTED\_AGE & SUSPECT\_SEX & SUSPECT\_RACE\_DESCRIPTION & SUSPECT\_HEIGHT & SUSPECT\_WEIGHT & SUSPECT\_BODY\_BUILD\_TYPE & SUSPECT\_EYE\_COLOR & SUSPECT\_HAIR\_COLOR & SUSPECT\_OTHER\_DESCRIPTION & STOP\_LOCATION\_PRECINCT & STOP\_LOCATION\_SECTOR\_CODE & STOP\_LOCATION\_APARTMENT & STOP\_LOCATION\_FULL\_ADDRESS & STOP\_LOCATION\_STREET\_NAME & STOP\_LOCATION\_X & STOP\_LOCATION\_Y & STOP\_LOCATION\_PATROL\_BORO\_NAME & STOP\_LOCATION\_BORO\_NAME\\
+\midrule
+\cellcolor{gray!6}{1} & \cellcolor{gray!6}{2021-01-01} & \cellcolor{gray!6}{01:50:00} & \cellcolor{gray!6}{2021} & \cellcolor{gray!6}{January} & \cellcolor{gray!6}{Friday} & \cellcolor{gray!6}{Based on C/W on Scene} & \cellcolor{gray!6}{APP} & \cellcolor{gray!6}{SGT} & \cellcolor{gray!6}{042} & \cellcolor{gray!6}{POM} & \cellcolor{gray!6}{042} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{I} & \cellcolor{gray!6}{P} & \cellcolor{gray!6}{PSB} & \cellcolor{gray!6}{0} & \cellcolor{gray!6}{CPW} & \cellcolor{gray!6}{2} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{ASSAULT} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{DE} & \cellcolor{gray!6}{APP NORMAL} & \cellcolor{gray!6}{40} & \cellcolor{gray!6}{MALE} & \cellcolor{gray!6}{BLACK} & \cellcolor{gray!6}{6.2} & \cellcolor{gray!6}{200} & \cellcolor{gray!6}{THN} & \cellcolor{gray!6}{BRO} & \cellcolor{gray!6}{BLD} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{042} & \cellcolor{gray!6}{B} & \cellcolor{gray!6}{2C} & \cellcolor{gray!6}{850 JENNINGS ST} & \cellcolor{gray!6}{JENNINGS ST} & \cellcolor{gray!6}{1013737} & \cellcolor{gray!6}{242476} & \cellcolor{gray!6}{PBBX} & \cellcolor{gray!6}{BRONX}\\
+2 & 2021-01-01 & 10:55:00 & 2021 & January & Friday & Based on Radio Run & APP & POM & 105 & SGT & 105 & Y & (null) & P & PSB & 1 & ROBBERY & 10 & Y & (null) & N & Y & ROBBERY & N & (null) & Y & (null) & (null) & (null) & N & Y & N & N & N & (null) & (null) & (null) & N & (null) & (null) & (null) & (null) & (null) & (null) & Y & (null) & (null) & (null) & (null) & (null) & Y & (null) & (null) & (null) & (null) & Y & (null) & (null) & (null) & Y & (null) & (null) & DE & NERVOUS & 19 & MALE & BLACK & 5.11 & 160 & THN & BRO & BLK & NA & 105 & B & (null) & 219 ST \&\& 139 AVE & 219 ST & 1052511 & 184460 & PBQS & QUEENS\\
+\cellcolor{gray!6}{3} & \cellcolor{gray!6}{2021-01-01} & \cellcolor{gray!6}{10:10:00} & \cellcolor{gray!6}{2021} & \cellcolor{gray!6}{January} & \cellcolor{gray!6}{Friday} & \cellcolor{gray!6}{Based on C/W on Scene} & \cellcolor{gray!6}{APP} & \cellcolor{gray!6}{POM} & \cellcolor{gray!6}{106} & \cellcolor{gray!6}{SGT} & \cellcolor{gray!6}{106} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{P} & \cellcolor{gray!6}{PSB} & \cellcolor{gray!6}{1} & \cellcolor{gray!6}{OTHER} & \cellcolor{gray!6}{1} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{ASSAULT} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{DE} & \cellcolor{gray!6}{INTOXICATED} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{MALE} & \cellcolor{gray!6}{ASIAN / PACIFIC ISLANDER} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{MED} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{YELLOW SWEATER} & \cellcolor{gray!6}{106} & \cellcolor{gray!6}{A} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{151 AVE \&\& 84 ST} & \cellcolor{gray!6}{151 AVE} & \cellcolor{gray!6}{1025662} & \cellcolor{gray!6}{182632} & \cellcolor{gray!6}{PBQS} & \cellcolor{gray!6}{QUEENS}\\
+4 & 2021-01-01 & 20:17:00 & 2021 & January & Friday & Based on C/W on Scene & APP & POM & 083 & LT & 083 & Y & O & (null) & (null) & 1 & ASSAULT & 5 & Y & (null) & N & N & (null) & N & (null) & Y & (null) & (null) & (null) & Y & Y & Y & Y & N & (null) & (null) & (null) & N & (null) & (null) & (null) & (null) & (null) & (null) & Y & (null) & Y & (null) & (null) & (null) & (null) & (null) & (null) & (null) & Y & (null) & (null) & (null) & (null) & Y & (null) & (null) & DE & CALM & 28 & MALE & BLACK & 6.0 & 180 & MED & BRO & BLK & (null) & 073 & A & (null) & BROADWAY \&\& MAC DOUGAL ST & BROADWAY & 1010122 & 187312 & PBBN & BROOKLYN\\
+\cellcolor{gray!6}{5} & \cellcolor{gray!6}{2021-01-01} & \cellcolor{gray!6}{19:59:00} & \cellcolor{gray!6}{2021} & \cellcolor{gray!6}{January} & \cellcolor{gray!6}{Friday} & \cellcolor{gray!6}{Based on Radio Run} & \cellcolor{gray!6}{APP} & \cellcolor{gray!6}{POM} & \cellcolor{gray!6}{026} & \cellcolor{gray!6}{SGT} & \cellcolor{gray!6}{026} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{I} & \cellcolor{gray!6}{P} & \cellcolor{gray!6}{PSB} & \cellcolor{gray!6}{1} & \cellcolor{gray!6}{RAPE} & \cellcolor{gray!6}{30} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{DE} & \cellcolor{gray!6}{CONFUSED} & \cellcolor{gray!6}{19} & \cellcolor{gray!6}{MALE} & \cellcolor{gray!6}{BLACK} & \cellcolor{gray!6}{6.2} & \cellcolor{gray!6}{185} & \cellcolor{gray!6}{MED} & \cellcolor{gray!6}{BRO} & \cellcolor{gray!6}{BLK} & \cellcolor{gray!6}{UNKNOWN} & \cellcolor{gray!6}{026} & \cellcolor{gray!6}{C} & \cellcolor{gray!6}{4D} & \cellcolor{gray!6}{439 W 125 ST} & \cellcolor{gray!6}{W 125 ST} & \cellcolor{gray!6}{996623} & \cellcolor{gray!6}{235311} & \cellcolor{gray!6}{PBMN} & \cellcolor{gray!6}{MANHATTAN}\\
+\addlinespace
+6 & 2021-01-01 & 21:29:00 & 2021 & January & Friday & Based on Radio Run & APP & POM & 042 & SGT & 042 & Y & O & (null) & (null) & 0 & ASSAULT & 6 & Y & (null) & N & Y & ASSAULT & N & (null) & Y & (null) & (null) & (null) & Y & Y & Y & Y & Y & (null) & Y & (null) & Y & (null) & (null) & (null) & (null) & (null) & (null) & Y & (null) & Y & (null) & (null) & (null) & Y & (null) & (null) & (null) & (null) & Y & (null) & Y & (null) & (null) & (null) & (null) & DE & NERVOUS & 32 & MALE & WHITE HISPANIC & 5.10 & 160 & THN & BRO & BLK & (null) & 042 & B & (null) & 1440 BOSTON RD & BOSTON RD & 1013048 & 242983 & PBBX & BRONX\\
+\cellcolor{gray!6}{7} & \cellcolor{gray!6}{2021-01-01} & \cellcolor{gray!6}{16:33:00} & \cellcolor{gray!6}{2021} & \cellcolor{gray!6}{January} & \cellcolor{gray!6}{Friday} & \cellcolor{gray!6}{Based on Self Initiated} & \cellcolor{gray!6}{APP} & \cellcolor{gray!6}{POM} & \cellcolor{gray!6}{076} & \cellcolor{gray!6}{SGT} & \cellcolor{gray!6}{076} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{O} & \cellcolor{gray!6}{P} & \cellcolor{gray!6}{PSB} & \cellcolor{gray!6}{30} & \cellcolor{gray!6}{PETIT LARCENY} & \cellcolor{gray!6}{5} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{DE} & \cellcolor{gray!6}{IRATE} & \cellcolor{gray!6}{32} & \cellcolor{gray!6}{MALE} & \cellcolor{gray!6}{BLACK} & \cellcolor{gray!6}{5.11} & \cellcolor{gray!6}{170} & \cellcolor{gray!6}{THN} & \cellcolor{gray!6}{BRO} & \cellcolor{gray!6}{BLK} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{076} & \cellcolor{gray!6}{A} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{HICKS STREET \&\& KANE STREET} & \cellcolor{gray!6}{HICKS STREET} & \cellcolor{gray!6}{984160} & \cellcolor{gray!6}{188429} & \cellcolor{gray!6}{PBBS} & \cellcolor{gray!6}{BROOKLYN}\\
+8 & 2021-01-02 & 20:48:00 & 2021 & January & Saturday & Based on Radio Run & APP & POM & 042 & LT & 042 & Y & O & P & PSB & 1 & CPW & 5 & Y & (null) & N & N & (null) & N & (null) & Y & (null) & (null) & (null) & Y & N & Y & N & N & (null) & (null) & (null) & N & (null) & (null) & (null) & (null) & (null) & (null) & Y & (null) & Y & (null) & (null) & (null) & Y & (null) & (null) & (null) & (null) & (null) & (null) & (null) & (null) & (null) & (null) & (null) & DE & CALM & 45 & MALE & WHITE HISPANIC & 5.10 & 170 & MED & BRO & BLK & BLACK HAT BLACK JACKET GRAY SHIRT BLUE JEANS & 042 & B & (null) & 1016 E 174 ST & E 174 ST & 1016413 & 243830 & PBBX & BRONX\\
+\cellcolor{gray!6}{9} & \cellcolor{gray!6}{2021-01-02} & \cellcolor{gray!6}{19:50:00} & \cellcolor{gray!6}{2021} & \cellcolor{gray!6}{January} & \cellcolor{gray!6}{Saturday} & \cellcolor{gray!6}{Based on Self Initiated} & \cellcolor{gray!6}{APP} & \cellcolor{gray!6}{POM} & \cellcolor{gray!6}{808} & \cellcolor{gray!6}{SGT} & \cellcolor{gray!6}{808} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{I} & \cellcolor{gray!6}{H} & \cellcolor{gray!6}{Housing} & \cellcolor{gray!6}{1} & \cellcolor{gray!6}{CPW} & \cellcolor{gray!6}{5} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{N} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{Y} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{DE} & \cellcolor{gray!6}{NERVOUS} & \cellcolor{gray!6}{27} & \cellcolor{gray!6}{MALE} & \cellcolor{gray!6}{BLACK} & \cellcolor{gray!6}{5.9} & \cellcolor{gray!6}{160} & \cellcolor{gray!6}{THN} & \cellcolor{gray!6}{BRO} & \cellcolor{gray!6}{BLK} & \cellcolor{gray!6}{N/A} & \cellcolor{gray!6}{043} & \cellcolor{gray!6}{B} & \cellcolor{gray!6}{(null)} & \cellcolor{gray!6}{2140 SEWARD AVE} & \cellcolor{gray!6}{SEWARD AVE} & \cellcolor{gray!6}{1025585} & \cellcolor{gray!6}{238179} & \cellcolor{gray!6}{PBBX} & \cellcolor{gray!6}{BRONX}\\
+10 & 2021-01-02 & 22:34:00 & 2021 & January & Saturday & Based on Self Initiated & APP & POM & 076 & SGT & 076 & Y & (null) & P & PSB & 1 & BURGLARY & 4 & Y & (null) & Y & N & (null) & N & (null) & Y & (null) & (null) & (null) & Y & Y & N & Y & N & (null) & (null) & (null) & N & (null) & (null) & (null) & (null) & (null) & (null) & Y & (null) & (null) & (null) & Y & (null) & (null) & (null) & (null) & (null) & (null) & (null) & (null) & Y & (null) & (null) & (null) & (null) & BC & NA & 57 & MALE & WHITE HISPANIC & 5.3 & 150 & THN & BRO & BRO & (null) & 076 & A & (null) & 147 COLUMBIA ST & COLUMBIA ST & 983789 & 189522 & PBBS & BROOKLYN\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\newpage
+
+\begin{table}
+
+\caption{2021 data}
+\centering
+\begin{tabular}[t]{lll}
+\toprule
+SUSPECT\_SEX & SUSPECT\_RACE\_DESCRIPTION & SUSPECT\_REPORTED\_AGE\\
+\midrule
+\cellcolor{gray!6}{MALE} & \cellcolor{gray!6}{BLACK} & \cellcolor{gray!6}{40}\\
+MALE & BLACK & \vphantom{1} 19\\
+\cellcolor{gray!6}{MALE} & \cellcolor{gray!6}{ASIAN / PACIFIC ISLANDER} & \cellcolor{gray!6}{(null)}\\
+MALE & BLACK & 28\\
+\cellcolor{gray!6}{MALE} & \cellcolor{gray!6}{BLACK} & \cellcolor{gray!6}{19}\\
+\addlinespace
+MALE & WHITE HISPANIC & 32\\
+\cellcolor{gray!6}{MALE} & \cellcolor{gray!6}{BLACK} & \cellcolor{gray!6}{32}\\
+MALE & WHITE HISPANIC & 45\\
+\cellcolor{gray!6}{MALE} & \cellcolor{gray!6}{BLACK} & \cellcolor{gray!6}{27}\\
+MALE & WHITE HISPANIC & 57\\
+\addlinespace
+\cellcolor{gray!6}{MALE} & \cellcolor{gray!6}{BLACK} & \cellcolor{gray!6}{(null)}\\
+MALE & BLACK & 45\\
+\cellcolor{gray!6}{MALE} & \cellcolor{gray!6}{WHITE HISPANIC} & \cellcolor{gray!6}{17}\\
+MALE & WHITE & 42\\
+\cellcolor{gray!6}{MALE} & \cellcolor{gray!6}{WHITE HISPANIC} & \cellcolor{gray!6}{43}\\
+\addlinespace
+MALE & BLACK & 65\\
+\cellcolor{gray!6}{MALE} & \cellcolor{gray!6}{WHITE HISPANIC} & \cellcolor{gray!6}{30}\\
+MALE & BLACK & \vphantom{1} 20\\
+\cellcolor{gray!6}{MALE} & \cellcolor{gray!6}{BLACK} & \cellcolor{gray!6}{20}\\
+MALE & BLACK & 50\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\newpage
+
+\begin{table}
+
+\caption{2021 data}
+\centering
+\begin{tabular}[t]{lll}
+\toprule
+sex & race & age\\
+\midrule
+\cellcolor{gray!6}{MALE} & \cellcolor{gray!6}{BLACK} & \cellcolor{gray!6}{40}\\
+MALE & BLACK & \vphantom{1} 19\\
+\cellcolor{gray!6}{MALE} & \cellcolor{gray!6}{ASIAN / PACIFIC ISLANDER} & \cellcolor{gray!6}{(null)}\\
+MALE & BLACK & 28\\
+\cellcolor{gray!6}{MALE} & \cellcolor{gray!6}{BLACK} & \cellcolor{gray!6}{19}\\
+\addlinespace
+MALE & WHITE HISPANIC & 32\\
+\cellcolor{gray!6}{MALE} & \cellcolor{gray!6}{BLACK} & \cellcolor{gray!6}{32}\\
+MALE & WHITE HISPANIC & 45\\
+\cellcolor{gray!6}{MALE} & \cellcolor{gray!6}{BLACK} & \cellcolor{gray!6}{27}\\
+MALE & WHITE HISPANIC & 57\\
+\addlinespace
+\cellcolor{gray!6}{MALE} & \cellcolor{gray!6}{BLACK} & \cellcolor{gray!6}{(null)}\\
+MALE & BLACK & 45\\
+\cellcolor{gray!6}{MALE} & \cellcolor{gray!6}{WHITE HISPANIC} & \cellcolor{gray!6}{17}\\
+MALE & WHITE & 42\\
+\cellcolor{gray!6}{MALE} & \cellcolor{gray!6}{WHITE HISPANIC} & \cellcolor{gray!6}{43}\\
+\addlinespace
+MALE & BLACK & 65\\
+\cellcolor{gray!6}{MALE} & \cellcolor{gray!6}{WHITE HISPANIC} & \cellcolor{gray!6}{30}\\
+MALE & BLACK & \vphantom{1} 20\\
+\cellcolor{gray!6}{MALE} & \cellcolor{gray!6}{BLACK} & \cellcolor{gray!6}{20}\\
+MALE & BLACK & 50\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\newpage
+
+\begin{table}
+
+\caption{2021 data}
+\centering
+\begin{tabular}[t]{lll}
+\toprule
+sex & race & age\\
+\midrule
+\cellcolor{gray!6}{MALE} & \cellcolor{gray!6}{Black} & \cellcolor{gray!6}{40}\\
+MALE & Black & \vphantom{1} 19\\
+\cellcolor{gray!6}{MALE} & \cellcolor{gray!6}{Asain Pacific Islander} & \cellcolor{gray!6}{(null)}\\
+MALE & Black & 28\\
+\cellcolor{gray!6}{MALE} & \cellcolor{gray!6}{Black} & \cellcolor{gray!6}{19}\\
+\addlinespace
+MALE & Hispanic & 32\\
+\cellcolor{gray!6}{MALE} & \cellcolor{gray!6}{Black} & \cellcolor{gray!6}{32}\\
+MALE & Hispanic & 45\\
+\cellcolor{gray!6}{MALE} & \cellcolor{gray!6}{Black} & \cellcolor{gray!6}{27}\\
+MALE & Hispanic & 57\\
+\addlinespace
+\cellcolor{gray!6}{MALE} & \cellcolor{gray!6}{Black} & \cellcolor{gray!6}{(null)}\\
+MALE & Black & 45\\
+\cellcolor{gray!6}{MALE} & \cellcolor{gray!6}{Hispanic} & \cellcolor{gray!6}{17}\\
+MALE & White & 42\\
+\cellcolor{gray!6}{MALE} & \cellcolor{gray!6}{Hispanic} & \cellcolor{gray!6}{43}\\
+\addlinespace
+MALE & Black & 65\\
+\cellcolor{gray!6}{MALE} & \cellcolor{gray!6}{Hispanic} & \cellcolor{gray!6}{30}\\
+MALE & Black & \vphantom{1} 20\\
+\cellcolor{gray!6}{MALE} & \cellcolor{gray!6}{Black} & \cellcolor{gray!6}{20}\\
+MALE & Black & 50\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\newpage
+
+\begin{table}
+
+\caption{2021 data}
+\centering
+\begin{tabular}[t]{lr}
+\toprule
+race & n\\
+\midrule
+\cellcolor{gray!6}{American Indian Alaskan Native} & \cellcolor{gray!6}{8}\\
+Asain Pacific Islander & 192\\
+\cellcolor{gray!6}{Black} & \cellcolor{gray!6}{5404}\\
+Hispanic & 2457\\
+\cellcolor{gray!6}{Middle Eastern Southwest Asain} & \cellcolor{gray!6}{71}\\
+\addlinespace
+White & 732\\
+\cellcolor{gray!6}{NA} & \cellcolor{gray!6}{83}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\newpage
+
+\begin{table}
+
+\caption{2021 data}
+\centering
+\begin{tabular}[t]{lr}
+\toprule
+race & total\\
+\midrule
+\cellcolor{gray!6}{American Indian Alaskan Native} & \cellcolor{gray!6}{8}\\
+Asain Pacific Islander & 192\\
+\cellcolor{gray!6}{Black} & \cellcolor{gray!6}{5404}\\
+Hispanic & 2457\\
+\cellcolor{gray!6}{Middle Eastern Southwest Asain} & \cellcolor{gray!6}{71}\\
+\addlinespace
+White & 732\\
+\cellcolor{gray!6}{NA} & \cellcolor{gray!6}{83}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\newpage
+
+\begin{table}
+
+\caption{2021 data}
+\centering
+\begin{tabular}[t]{lrr}
+\toprule
+race & total & percentage\\
+\midrule
+\cellcolor{gray!6}{American Indian Alaskan Native} & \cellcolor{gray!6}{8} & \cellcolor{gray!6}{0.0894154}\\
+Asain Pacific Islander & 192 & 2.1459707\\
+\cellcolor{gray!6}{Black} & \cellcolor{gray!6}{5404} & \cellcolor{gray!6}{60.4001341}\\
+Hispanic & 2457 & 27.4617190\\
+\cellcolor{gray!6}{Middle Eastern Southwest Asain} & \cellcolor{gray!6}{71} & \cellcolor{gray!6}{0.7935621}\\
+\addlinespace
+White & 732 & 8.1815134\\
+\cellcolor{gray!6}{NA} & \cellcolor{gray!6}{83} & \cellcolor{gray!6}{0.9276853}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\newpage
+
+\begin{table}
+
+\caption{2021 data}
+\centering
+\begin{tabular}[t]{lrr}
+\toprule
+race & total & percentage\\
+\midrule
+\cellcolor{gray!6}{American Indian Alaskan Native} & \cellcolor{gray!6}{8} & \cellcolor{gray!6}{0.0894154}\\
+Middle Eastern Southwest Asain & 71 & 0.7935621\\
+\cellcolor{gray!6}{NA} & \cellcolor{gray!6}{83} & \cellcolor{gray!6}{0.9276853}\\
+Asain Pacific Islander & 192 & 2.1459707\\
+\cellcolor{gray!6}{White} & \cellcolor{gray!6}{732} & \cellcolor{gray!6}{8.1815134}\\
+\addlinespace
+Hispanic & 2457 & 27.4617190\\
+\cellcolor{gray!6}{Black} & \cellcolor{gray!6}{5404} & \cellcolor{gray!6}{60.4001341}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+
+\end{document}

@@ -1,0 +1,252 @@
+---
+title: "Proportion of stops 2011"
+author: "Schwab"
+format: pdf
+editor: visual
+execute: 
+  echo: false
+---
+
+## Envelope 2011
+
+```{r libraries-and-data}
+#| include: FALSE
+#| echo: FALSE
+
+library(tidyverse)
+library(readr)
+library(readxl)
+library(knitr)
+library(kableExtra)
+
+sqf_2011 <- read_csv("../data/2003_2015_csv_files/2011.csv")
+sqf_2021 <- read_excel("../data/2016_2022_xl_files/sqf-2021.xlsx")
+
+
+```
+
+# Guide
+
+These materials were made for the NECOMMIT 2023 conference keynote.
+
+This document is meant to be cut up and put into envelopes to distribute to participants. One envelope per group.
+
+This guiding questions is "Are Black, Hispanic, groups more likely to be stopped by police officers than other groups in 2011? Does this change as the total counts of stops decreases to 2021 levels?"
+
+
+
+# Start 2011
+
+\newpage
+
+Basic Data Frame
+
+```{r}
+sqf_2011 |>
+  head(15) |>
+  kable(format="latex", booktabs = TRUE) |>
+  kable_styling(latex_options = "striped")
+```
+
+\newpage
+
+```{r select}
+sqf_2011 <- sqf_2011  |>
+  select(sex, race, age
+         #contrabn, pistol,riflshot,asltweap,knifcuti,machgun,othrweap 
+         )
+
+sqf_2011 |> 
+  head(20) |>
+  kable(format="latex", booktabs = TRUE) |>
+  kable_styling(latex_options = "striped")
+```
+
+\newpage
+
+```{r name}
+# If we are just looking at sex, age and race, this is a bit silly
+
+# names(sqf_2011) <- c("sex","race","age") 
+# 
+# sqf_2011 |> 
+#   kable(format="latex", booktabs = TRUE) |>
+#   kable_styling(latex_options = "striped")
+```
+
+
+
+```{r recode}
+
+sqf_2011$race<-
+  recode(
+    sqf_2011$race, 
+    "A" =	"API",
+    "B"	= "Black",
+    "I"=	"American Indian/Alaskan Native",
+    "P"=	"Hispanic",
+    "Q"=	"Hispanic",
+    "W"=	"White",
+    "X"=	"Unknown",
+    "Z"=	"Other",
+    .default = NA_character_
+  )
+
+sqf_2011 |> 
+  head(20) |>
+ kable(format="latex", booktabs = TRUE) |>
+  kable_styling(latex_options = "striped")
+```
+
+\newpage
+
+```{r count }
+
+sqf_2011<- sqf_2011 |> 
+  count(race) 
+
+sqf_2011  |>
+  kable(format="latex", booktabs = TRUE) |>
+  kable_styling(latex_options = "striped")
+```
+
+\newpage
+
+```{r}
+sqf_2011 <- sqf_2011 |>
+  rename( total = n)
+
+sqf_2011  |>
+  kable(format="latex", booktabs = TRUE) |>
+  kable_styling(latex_options = "striped")
+```
+
+\newpage
+
+```{r proportions}
+
+sqf_2011 <- sqf_2011 |> 
+  mutate(percentage = total/sum(total) * 100) 
+
+sqf_2011 |> 
+  kable(format="latex", booktabs = TRUE) |>
+  kable_styling(latex_options = "striped")
+```
+
+\newpage
+
+```{r arrange}
+
+sqf_2011 <- sqf_2011 |> 
+  arrange(data = desc(percentage))
+
+sqf_2011 |>
+  kable(format="latex", booktabs = TRUE) |>
+  kable_styling(latex_options = "striped")
+```
+
+\newpage
+
+# Start 2021
+
+The documentation for years after 2019 is non-existent, but the variables are well named.
+
+\newpage
+```{r}
+sqf_2021 |>
+  head(10)|>
+  kable(format="latex", booktabs = TRUE, caption = " 2021 data") |>
+  kable_styling(latex_options = "striped")
+```
+
+\newpage
+
+```{r select21}
+sqf_2021 <- sqf_2021 |>
+  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE)
+
+sqf_2021 |>
+  head(20) |>
+  kable(format="latex", booktabs = TRUE, caption = " 2021 data") |>
+  kable_styling(latex_options = "striped")
+```
+
+\newpage
+
+```{r name21}
+names(sqf_2021) <- c("sex","race","age") 
+
+sqf_2021 |> 
+  head(20) |>
+  kable(format="latex", booktabs = TRUE, caption = " 2021 data") |>
+  kable_styling(latex_options = "striped")
+```
+
+\newpage
+
+```{r recode21}
+
+sqf_2021$race<-
+  recode(
+    sqf_2021$race,
+    "BLACK HISPANIC" =	"Hispanic",
+    "WHITE HISPANIC"	= "Hispanic",
+    "BLACK"=	"Black",
+    "WHITE"=	"White",
+    "MIDDLE EASTERN/SOUTHWEST ASIAN"=	"Middle Eastern Southwest Asain",
+    "ASIAN / PACIFIC ISLANDER"=	"Asain Pacific Islander",
+    "AMERICAN INDIAN/ALASKAN NATIVE"=	"American Indian Alaskan Native",
+    "no data"=	"no data",
+    .default = NA_character_
+  )
+
+sqf_2021 |> 
+  head(20) |>
+  kable(format="latex", booktabs = TRUE, caption = " 2021 data") |>
+  kable_styling(latex_options = "striped")
+```
+
+\newpage
+
+```{r count21 }
+
+sqf_2021<- sqf_2021 |> 
+  count(race) 
+
+sqf_2021 |>
+  kable(format="latex", booktabs = TRUE, caption = " 2021 data") |>
+  kable_styling(latex_options = "striped")
+```
+
+\newpage
+
+```{r rename21}
+sqf_2021 <- sqf_2021 |>
+  rename(total = n)
+
+sqf_2021 |>
+  kable(format="latex", booktabs = TRUE, caption = " 2021 data") |>
+  kable_styling(latex_options = "striped")
+```
+
+\newpage
+
+```{r proportions21}
+
+sqf_2021 <- sqf_2021 |> 
+  mutate(percentage = total/sum(total) * 100) 
+
+sqf_2021 |>
+  kable(format="latex", booktabs = TRUE, caption = " 2021 data") |>
+  kable_styling(latex_options = "striped")
+```
+
+\newpage
+
+```{r arrange21}
+
+sqf_2021 |> 
+  arrange(percentage = total/sum(total) * 100) |>
+  kable(format="latex", booktabs = TRUE, caption = " 2021 data") |>
+  kable_styling(latex_options = "striped")
+```

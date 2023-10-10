@@ -1,0 +1,34 @@
+---
+title: "Websites and Articles"
+author: "Schwab"
+format: html
+editor: visual
+---
+
+## Websites
+
+In doing research on the topic of stop and frisk in NYC between the years 2003 and 2022 I came across these sites, which I found useful.
+
+## ACLU
+
+[Sitution under Bill De Blasio, 2019](https://www.aclu.org/news/criminal-law-reform/stop-and-frisks-plummeted-under-new-york-mayor)
+
+## The Economist
+
+[Background, 2012](https://www.economist.com/united-states/2012/06/02/spread-em)
+
+[Background, 2012](https://www.economist.com/democracy-in-america/2013/08/13/stopped-and-tsked)
+
+[Background, 2012](https://www.economist.com/united-states/2013/04/27/too-frisky)
+
+## New York Times
+
+## New York Civil Liberties Union
+
+[Data Graphics, 2022](https://www.nyclu.org/en/stop-and-frisk-data)
+
+[Data Graphics, 2022](https://www.nyclu.org/en/closer-look-stop-and-frisk-nyc)
+
+## Vera
+
+[On youth trust of the police](https://www.vera.org/newsroom/study-reveals-stop-and-frisk-significantly-impacts-trust-in-new-york-city-police)
