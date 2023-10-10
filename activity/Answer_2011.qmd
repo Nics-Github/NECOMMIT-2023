@@ -19,8 +19,8 @@ library(readxl)
 library(knitr)
 library(kableExtra)
 
-sqf_2011 <- read_csv("../data/2003_2015_csv_files/2011.csv")
-sqf_2021 <- read_excel("../data/2016_2022_xl_files/sqf-2021.xlsx")
+sqf_2011 <- read_csv("../data/2011.csv")
+sqf_2021 <- read_excel("../data/sqf-2021.xlsx")
 
 
 ```
@@ -32,8 +32,6 @@ These materials were made for the NECOMMIT 2023 conference keynote.
 This document is meant to be cut up and put into envelopes to distribute to participants. One envelope per group.
 
 This guiding questions is "Are Black, Hispanic, groups more likely to be stopped by police officers than other groups in 2011? Does this change as the total counts of stops decreases to 2021 levels?"
-
-
 
 # Start 2011
 
@@ -73,8 +71,6 @@ sqf_2011 |>
 #   kable(format="latex", booktabs = TRUE) |>
 #   kable_styling(latex_options = "striped")
 ```
-
-
 
 ```{r recode}
 
@@ -152,6 +148,7 @@ sqf_2011 |>
 The documentation for years after 2019 is non-existent, but the variables are well named.
 
 \newpage
+
 ```{r}
 sqf_2021 |>
   head(10)|>
