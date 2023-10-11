@@ -190,9 +190,9 @@ sqf_2021$race<-
     "WHITE HISPANIC"	= "Hispanic",
     "BLACK"=	"Black",
     "WHITE"=	"White",
-    "MIDDLE EASTERN/SOUTHWEST ASIAN"=	"Middle Eastern Southwest Asain",
-    "ASIAN / PACIFIC ISLANDER"=	"Asain Pacific Islander",
-    "AMERICAN INDIAN/ALASKAN NATIVE"=	"American Indian Alaskan Native",
+    "MIDDLE EASTERN/SOUTHWEST ASIAN"=	"MESA",
+    "ASIAN / PACIFIC ISLANDER"=	"API",
+    "AMERICAN INDIAN/ALASKAN NATIVE"=	"AMAN",
     "no data"=	"no data",
     .default = NA_character_
   )

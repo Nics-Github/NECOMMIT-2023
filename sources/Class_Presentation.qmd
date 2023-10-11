@@ -9,17 +9,11 @@ editor: visual
 
 -   New York City Police Practice
 
--   Many articles about the targeting of Black and Latino young men.
+-   Many articles about the targeting of Black and Latio young men.
 
 -   Studies have shown that this has led to mistrust in the police.
 
 # A bit about me
-
-My name is Nic
-
-I currently teach data science at Smith College.
-
-I normally teach math/data science at Holyoke Community College.
 
 I'm not Black.
 
@@ -32,6 +26,8 @@ I am not from New York City.
 # Race Exists
 
 Let's acknowledge that Race exists and plays a part in the way human being interact with each other.
+
+We might get a bit uncomfortable.
 
 # Schedule:
 
@@ -46,11 +42,11 @@ Let's acknowledge that Race exists and plays a part in the way human being inter
 
     ii. You'll make up puesdo code to explain data transformations.
 
-    iii. I'll give you the real code.
+    iii. I'll give you the real code arrows.
 
 4.  We'll repeat the process of data transformation with the real code.
 
-5.  Time for questions
+5.  Time for questions.
 :::
 
 # Questions so far?
@@ -69,7 +65,7 @@ Data Dictionaries exist for older data.
 
 New Data variables are more clear.
 
-The variable names are inconsistent.
+The variable names are inconsistent across years.
 
 # A Question
 
@@ -155,8 +151,47 @@ sqf |>
 
 # Here are your data frames
 
-Little envelopes Data 2011
-
 Little envelopes Data 2021
 
 Little envelopes Functions
+
+# Conclusions from 2021 data
+
+# For comparison:
+
+Here's the demographics of NYC[^1]:
+
+[^1]: https://www.census.gov/quickfacts/fact/table/newyorkcitynewyork/PST045222
+
+-   Black: 23.4 %
+
+-   Latino: 28.9%
+
+-   White: 39.8%
+
+# Summarize functions:
+
+New functions:
+
+select(), mutate(), arrange(), rename()
+
+Old funtions:
+
+names(), recode(), count()
+
+# Let's compare to 2011. 
+
+Make a new r project.
+
+Download 2011 csv from [this site.](https://www.nyc.gov/site/nypd/stats/reports-analysis/stopfrisk.page) Extract it to the same folder as your rproj.
+
+Make a new document and put this in a chunk.
+
+`read_csv("2011.csv")`
+
+# Answer the question.
+
+> Are Black, Hispanic, groups more likely to be stopped by police officers than other groups in 2011? Does this change as the total counts of stops decreases to 2021 levels?
+
+# What other questions do you have about the data?
+
