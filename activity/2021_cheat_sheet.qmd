@@ -1,0 +1,219 @@
+---
+title: "NECOMMIT cheat sheet"
+author: "Nic Schwab"
+format: 
+  html:
+    code-fold: true
+    code-summary: "Show the code"
+    number-sections: true
+    toc: true
+editor: visual
+execute: 
+  eval: false
+---
+
+## Introduction
+
+This is the 2021 sqf cheat sheet for the 2023 NECOMMIT keynote given on Oct 21,2023.
+
+Below you will find hints and code to mimic the data analysis we did with the sqf 2021 data. Hints are labeled **hints** and the optional code is folded so it cannot be seen until clicked. While in general it is preferable to work in a quarto or RScript, for this keynote it probably makes the most sense to work in the console.
+
+::: {.callout-tip collapse="false"}
+# Tip: The up arrow
+
+When working in the console to bring back your most recently executed code use the up arrow.
+:::
+
+## Setup
+
+Go to [posit cloud](https://posit.cloud/) and set up an account.
+
+Then click New RStudio Project ![](images/new-rstudio-project-02.png){width="200"} and give it a title.
+
+## Install and Load
+
+First we need to install the `tidyverse`. This is where our functions come from.
+
+```{r install-tidyverse}
+#| code-fold: false
+#| code-summary: "Install the tools we need"
+
+
+install.packages("tidyverse")
+
+
+```
+
+```{r get-2011-data}
+#| code-fold: false
+#| code-summary: "Load the tools we need"
+
+library(tidyverse)
+library(readxl)
+```
+
+## Get the 2021 stop and frisk data
+
+```{r get2021-data}
+#| code-fold: false
+#| code-summary: "Download and load and save the data"
+
+
+url_2021 <- "https://www.nyc.gov/assets/nypd/downloads/excel/analysis_and_planning/stop-question-frisk/sqf-2021.xlsx"
+download.file(url_2021, "sqf-2021.xlsx")
+sqf_2021 <- read_excel("sqf-2021.xlsx")
+```
+
+## Now we can start. 
+
+I'd like to the recreate the data analysis we did on paper but in R. There are suggested next steps below. If you click on the code you can copy it into the console.
+
+## Recode your variables
+
+This is probably the trickiest part:
+
+```{r}
+#| code-fold: true
+#| code-summary: "recode to the race column"
+
+sqf_2021$SUSPECT_RACE_DESCRIPTION<-
+  recode(
+    sqf_2021$SUSPECT_RACE_DESCRIPTION,
+    "BLACK HISPANIC" =	"Hispanic",
+    "WHITE HISPANIC"	= "Hispanic",
+    "BLACK"=	"Black",
+    "WHITE"=	"White",
+    "MIDDLE EASTERN/SOUTHWEST ASIAN"=	"MESA",
+    "ASIAN / PACIFIC ISLANDER"=	"API",
+    "AMERICAN INDIAN/ALASKAN NATIVE"=	"AMAN",
+    "no data"=	"no data",
+    .default = NA_character_
+  )
+```
+
+## Take a look at the data with `head(10)`
+
+```{r}
+
+sqf_2021 |>
+  head(10)
+
+# To see only the variable names you can  use 
+sqf_2021 |>
+  names() 
+
+
+  
+```
+
+## Select the variables
+
+::: {.callout-note collapse="true"}
+# hint
+
+**hint:** select() the variables we're interested `SUSPECT_RACE_DESCRIPTION` and `SUSPECT_REPORTED_AGE`
+:::
+
+
+```{r select21}
+sqf_2021 |>
+  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE)
+
+```
+
+## Rename the variables
+
+`rename()` the variables to yell less (optional)
+
+```{r name21}
+sqf_2021 |>
+  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE)|>
+  rename("sex" = "SUSPECT_SEX",
+         "race" = "SUSPECT_RACE_DESCRIPTION",
+         "age" = "SUSPECT_REPORTED_AGE") 
+
+```
+
+## Tally up all of the people by race.
+
+::: {.callout-note collapse="true"}
+# hint
+
+**hint:** Make a `count()` of `race`
+:::
+
+```{r count21 }
+
+sqf_2021 |>
+  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE)|>
+  rename("sex" = "SUSPECT_SEX",
+         "race" = "SUSPECT_RACE_DESCRIPTION",
+         "age" = "SUSPECT_REPORTED_AGE") |>
+  count(race) 
+
+```
+
+## Make your variables more readable 
+
+::: {.callout-note collapse="true"}
+# hint
+
+**hint:** `rename` the column `n` to `total`
+:::
+
+
+```{r rename21}
+sqf_2021 |>
+  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE)|>
+  rename("sex" = "SUSPECT_SEX",
+         "race" = "SUSPECT_RACE_DESCRIPTION",
+         "age" = "SUSPECT_REPORTED_AGE") |>
+  count(race) |>
+  rename("total" = "n")
+
+```
+
+## Add in the percent colummn
+
+::: {.callout-note collapse="true"}
+# hint
+
+**hint:** Add a `percentage` column with `mutate()`
+:::
+
+
+
+```{r proportions21}
+
+sqf_2021 |>
+  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE)|>
+  rename("sex" = "SUSPECT_SEX",
+         "race" = "SUSPECT_RACE_DESCRIPTION",
+         "age" = "SUSPECT_REPORTED_AGE") |>
+  count(race) |>
+  rename("total" = "n") |>
+  mutate(percentage = total/sum(total) * 100) 
+
+```
+
+## Order the percent column
+
+::: {.callout-note collapse="true"}
+# hint
+
+**hint:** `arrange()` the percent column so that they are in order.
+:::
+
+
+
+```{r arrange21}
+sqf_2021 |>
+  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE)|>
+  rename("sex" = "SUSPECT_SEX",
+         "race" = "SUSPECT_RACE_DESCRIPTION",
+         "age" = "SUSPECT_REPORTED_AGE") |>
+  count(race) |>
+  rename("total" = "n") |>
+  mutate(percentage = total/sum(total) * 100) |>
+  arrange(percentage)
+```

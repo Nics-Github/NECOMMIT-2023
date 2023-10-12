@@ -207,7 +207,7 @@ sqf_2021 |>
 
 ```{r count21 }
 
-sqf_2021<- sqf_2021 |> 
+sqf_2021 <- sqf_2021 |> 
   count(race) 
 
 sqf_2021 |>

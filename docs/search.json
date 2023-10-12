@@ -1,0 +1,156 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "NECOMMIT Keynote",
+    "section": "",
+    "text": "Presentation\nPaper Activity Wrangle 2011 data.\nTechnology Activity Wrangle 2021 data."
+  },
+  {
+    "objectID": "sources/websites.html",
+    "href": "sources/websites.html",
+    "title": "Websites and Articles",
+    "section": "",
+    "text": "In doing research on the topic of stop and frisk in NYC between the years 2003 and 2022 I came across these sites, which I found useful."
+  },
+  {
+    "objectID": "sources/websites.html#websites",
+    "href": "sources/websites.html#websites",
+    "title": "Websites and Articles",
+    "section": "",
+    "text": "In doing research on the topic of stop and frisk in NYC between the years 2003 and 2022 I came across these sites, which I found useful."
+  },
+  {
+    "objectID": "sources/websites.html#aclu",
+    "href": "sources/websites.html#aclu",
+    "title": "Websites and Articles",
+    "section": "ACLU",
+    "text": "ACLU\nSituationunder Bill De Blasio, 2019\nBackground, 2008\nLawsuit, 2019"
+  },
+  {
+    "objectID": "sources/websites.html#the-economist",
+    "href": "sources/websites.html#the-economist",
+    "title": "Websites and Articles",
+    "section": "The Economist",
+    "text": "The Economist\nBackground, 2012\nBackground, 2012\nBackground, 2012"
+  },
+  {
+    "objectID": "sources/websites.html#new-york-times",
+    "href": "sources/websites.html#new-york-times",
+    "title": "Websites and Articles",
+    "section": "New York Times",
+    "text": "New York Times"
+  },
+  {
+    "objectID": "sources/websites.html#new-york-civil-liberties-union",
+    "href": "sources/websites.html#new-york-civil-liberties-union",
+    "title": "Websites and Articles",
+    "section": "New York Civil Liberties Union",
+    "text": "New York Civil Liberties Union\nData Graphics, 2022\nData Graphics, 2022"
+  },
+  {
+    "objectID": "sources/websites.html#vera",
+    "href": "sources/websites.html#vera",
+    "title": "Websites and Articles",
+    "section": "Vera",
+    "text": "Vera\nOn youth trust of the police"
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html",
+    "href": "activity/2021_cheat_sheet.html",
+    "title": "NECOMMIT cheat sheet",
+    "section": "",
+    "text": "This is the 2021 sqf cheat sheet for the 2023 NECOMMIT keynote given on Oct 21,2023.\nBelow you will find hints and code to mimic the data analysis we did with the sqf 2021 data. Hints are labeled hints and the optional code is folded so it cannot be seen until clicked. While in general it is preferable to work in a quarto or RScript, for this keynote it probably makes the most sense to work in the console.\n\n\n\n\n\n\nTip: The up arrow\n\n\n\n\n\nWhen working in the console to bring back your most recently executed code use the up arrow."
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#introduction",
+    "href": "activity/2021_cheat_sheet.html#introduction",
+    "title": "NECOMMIT cheat sheet",
+    "section": "",
+    "text": "This is the 2021 sqf cheat sheet for the 2023 NECOMMIT keynote given on Oct 21,2023.\nBelow you will find hints and code to mimic the data analysis we did with the sqf 2021 data. Hints are labeled hints and the optional code is folded so it cannot be seen until clicked. While in general it is preferable to work in a quarto or RScript, for this keynote it probably makes the most sense to work in the console.\n\n\n\n\n\n\nTip: The up arrow\n\n\n\n\n\nWhen working in the console to bring back your most recently executed code use the up arrow."
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#setup",
+    "href": "activity/2021_cheat_sheet.html#setup",
+    "title": "NECOMMIT cheat sheet",
+    "section": "2 Setup",
+    "text": "2 Setup\nGo to posit cloud and set up an account.\nThen click New RStudio Project  and give it a title."
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#install-and-load",
+    "href": "activity/2021_cheat_sheet.html#install-and-load",
+    "title": "NECOMMIT cheat sheet",
+    "section": "3 Install and Load",
+    "text": "3 Install and Load\nFirst we need to install the tidyverse. This is where our functions come from.\n\ninstall.packages(\"tidyverse\")\n\n\nlibrary(tidyverse)\nlibrary(readxl)"
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#get-the-2021-stop-and-frisk-data",
+    "href": "activity/2021_cheat_sheet.html#get-the-2021-stop-and-frisk-data",
+    "title": "NECOMMIT cheat sheet",
+    "section": "4 Get the 2021 stop and frisk data",
+    "text": "4 Get the 2021 stop and frisk data\n\nurl_2021 &lt;- \"https://www.nyc.gov/assets/nypd/downloads/excel/analysis_and_planning/stop-question-frisk/sqf-2021.xlsx\"\ndownload.file(url_2021, \"sqf-2021.xlsx\")\nsqf_2021 &lt;- read_excel(\"sqf-2021.xlsx\")"
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#now-we-can-start.",
+    "href": "activity/2021_cheat_sheet.html#now-we-can-start.",
+    "title": "NECOMMIT cheat sheet",
+    "section": "5 Now we can start.",
+    "text": "5 Now we can start.\nI’d like to the recreate the data analysis we did on paper but in R. There are suggested next steps below. If you click on the code you can copy it into the console."
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#recode-your-variables",
+    "href": "activity/2021_cheat_sheet.html#recode-your-variables",
+    "title": "NECOMMIT cheat sheet",
+    "section": "6 Recode your variables",
+    "text": "6 Recode your variables\nThis is probably the trickiest part:\n\n\nrecode to the race column\nsqf_2021$SUSPECT_RACE_DESCRIPTION&lt;-\n  recode(\n    sqf_2021$SUSPECT_RACE_DESCRIPTION,\n    \"BLACK HISPANIC\" =  \"Hispanic\",\n    \"WHITE HISPANIC\"    = \"Hispanic\",\n    \"BLACK\"=    \"Black\",\n    \"WHITE\"=    \"White\",\n    \"MIDDLE EASTERN/SOUTHWEST ASIAN\"=   \"MESA\",\n    \"ASIAN / PACIFIC ISLANDER\"= \"API\",\n    \"AMERICAN INDIAN/ALASKAN NATIVE\"=   \"AMAN\",\n    \"no data\"=  \"no data\",\n    .default = NA_character_\n  )"
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#take-a-look-at-the-data-with-head10",
+    "href": "activity/2021_cheat_sheet.html#take-a-look-at-the-data-with-head10",
+    "title": "NECOMMIT cheat sheet",
+    "section": "7 Take a look at the data with head(10)",
+    "text": "7 Take a look at the data with head(10)\n\n\nShow the code\nsqf_2021 |&gt;\n  head(10)\n\n# To see only the variable names you can  use \nsqf_2021 |&gt;\n  names()"
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#select-the-variables",
+    "href": "activity/2021_cheat_sheet.html#select-the-variables",
+    "title": "NECOMMIT cheat sheet",
+    "section": "8 Select the variables",
+    "text": "8 Select the variables\n\n\n\n\n\n\nhint\n\n\n\n\n\nhint: select() the variables we’re interested SUSPECT_RACE_DESCRIPTION and SUSPECT_REPORTED_AGE\n\n\n\n\n\nShow the code\nsqf_2021 |&gt;\n  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE)"
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#rename-the-variables",
+    "href": "activity/2021_cheat_sheet.html#rename-the-variables",
+    "title": "NECOMMIT cheat sheet",
+    "section": "9 Rename the variables",
+    "text": "9 Rename the variables\nrename() the variables to yell less (optional)\n\n\nShow the code\nsqf_2021 |&gt;\n  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE)|&gt;\n  rename(\"sex\" = \"SUSPECT_SEX\",\n         \"race\" = \"SUSPECT_RACE_DESCRIPTION\",\n         \"age\" = \"SUSPECT_REPORTED_AGE\")"
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#tally-up-all-of-the-people-by-race.",
+    "href": "activity/2021_cheat_sheet.html#tally-up-all-of-the-people-by-race.",
+    "title": "NECOMMIT cheat sheet",
+    "section": "10 Tally up all of the people by race.",
+    "text": "10 Tally up all of the people by race.\n\n\n\n\n\n\nhint\n\n\n\n\n\nhint: Make a count() of race\n\n\n\n\n\nShow the code\nsqf_2021 |&gt;\n  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE)|&gt;\n  rename(\"sex\" = \"SUSPECT_SEX\",\n         \"race\" = \"SUSPECT_RACE_DESCRIPTION\",\n         \"age\" = \"SUSPECT_REPORTED_AGE\") |&gt;\n  count(race)"
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#make-your-variables-more-readable",
+    "href": "activity/2021_cheat_sheet.html#make-your-variables-more-readable",
+    "title": "NECOMMIT cheat sheet",
+    "section": "11 Make your variables more readable",
+    "text": "11 Make your variables more readable\n\n\n\n\n\n\nhint\n\n\n\n\n\nhint: rename the column n to total\n\n\n\n\n\nShow the code\nsqf_2021 |&gt;\n  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE)|&gt;\n  rename(\"sex\" = \"SUSPECT_SEX\",\n         \"race\" = \"SUSPECT_RACE_DESCRIPTION\",\n         \"age\" = \"SUSPECT_REPORTED_AGE\") |&gt;\n  count(race) |&gt;\n  rename(\"total\" = \"n\")"
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#add-in-the-percent-colummn",
+    "href": "activity/2021_cheat_sheet.html#add-in-the-percent-colummn",
+    "title": "NECOMMIT cheat sheet",
+    "section": "12 Add in the percent colummn",
+    "text": "12 Add in the percent colummn\n\n\n\n\n\n\nhint\n\n\n\n\n\nhint: Add a percentage column with mutate()\n\n\n\n\n\nShow the code\nsqf_2021 |&gt;\n  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE)|&gt;\n  rename(\"sex\" = \"SUSPECT_SEX\",\n         \"race\" = \"SUSPECT_RACE_DESCRIPTION\",\n         \"age\" = \"SUSPECT_REPORTED_AGE\") |&gt;\n  count(race) |&gt;\n  rename(\"total\" = \"n\") |&gt;\n  mutate(percentage = total/sum(total) * 100)"
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#order-the-percent-column",
+    "href": "activity/2021_cheat_sheet.html#order-the-percent-column",
+    "title": "NECOMMIT cheat sheet",
+    "section": "13 Order the percent column",
+    "text": "13 Order the percent column\n\n\n\n\n\n\nhint\n\n\n\n\n\nhint: arrange() the percent column so that they are in order.\n\n\n\n\n\nShow the code\nsqf_2021 |&gt;\n  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE)|&gt;\n  rename(\"sex\" = \"SUSPECT_SEX\",\n         \"race\" = \"SUSPECT_RACE_DESCRIPTION\",\n         \"age\" = \"SUSPECT_REPORTED_AGE\") |&gt;\n  count(race) |&gt;\n  rename(\"total\" = \"n\") |&gt;\n  mutate(percentage = total/sum(total) * 100) |&gt;\n  arrange(percentage)"
+  }
+]

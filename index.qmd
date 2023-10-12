@@ -1,0 +1,12 @@
+---
+title: "NECOMMIT Keynote"
+subtitle: "Wrangling Stop and Frisk Data"
+date: "Oct 21,2023"
+
+---
+
+[Presentation](/sources/Presentation.qmd)
+
+Paper Activity Wrangle 2011 data.
+
+[Technology Activity Wrangle 2021 data.](activity/2021_cheat_sheet.qmd)
