@@ -20,7 +20,7 @@ website:
   navbar:
  
     left:
-    - text: NYC 
+    - text: NYC data
       href: https://www.nyc.gov/site/nypd/stats/reports-analysis/stopfrisk.page
     - text: R
       href: https://posit.cloud/
