@@ -19,9 +19,17 @@ library(readxl)
 library(knitr)
 library(kableExtra)
 
-sqf_2011 <- read_csv("../data/2011.csv")
-sqf_2021 <- read_excel("../data/sqf-2021.xlsx")
+library(tidyverse)
 
+sqf_url <- "https://www1.nyc.gov/assets/nypd/downloads/zip/analysis_and_planning/stop-question-frisk/sqf-2011-csv.zip"
+temp <- tempfile()
+download.file(sqf_url, temp)
+sqf_zip <- unzip(temp, "2011.csv")
+sqf_2011 <- read.csv(sqf_zip, stringsAsFactors = FALSE) 
+sqf_2011_race_cat <- read.csv("https://raw.githubusercontent.com/lindsaypoirier/STS-101/master/Data/SQF/sqf_race_categories.csv", stringsAsFactors = FALSE) 
+rm(sqf_url)
+rm(temp)
+rm(sqf_zip)
 
 ```
 
@@ -31,16 +39,27 @@ These materials were made for the NECOMMIT 2023 conference keynote.
 
 This document is meant to be cut up and put into envelopes to distribute to participants. One envelope per group.
 
-This guiding questions is "Are Black, Hispanic, groups more likely to be stopped by police officers than other groups in 2011? Does this change as the total counts of stops decreases to 2021 levels?"
+This guiding questions is :
+
+> 1.  Which racial groups were most likely to be stopped by police officers 2011?
+>
+> 2.  What percent of the stops resulted in an arrest in 2011?
+>
+> 3.  How do the answers to these questions change in 2021?
 
 # Start 2011
 
 \newpage
 
+```{r}
+total_stops <-nrow(sqf_2011)
+```
+
 Basic Data Frame
 
 ```{r}
 sqf_2011 |>
+  select(year,sex,race,arstmade,crimsusp,sumissue,frisked,searched,pistol)|>
   head(15) |>
   kable(format="latex", booktabs = TRUE) |>
   kable_styling(latex_options = "striped")
@@ -50,8 +69,7 @@ sqf_2011 |>
 
 ```{r select}
 sqf_2011 <- sqf_2011  |>
-  select(sex, race, age
-         #contrabn, pistol,riflshot,asltweap,knifcuti,machgun,othrweap 
+  select(sex,race, arstmade 
          )
 
 sqf_2011 |> 
@@ -62,24 +80,15 @@ sqf_2011 |>
 
 \newpage
 
-```{r name}
-# If we are just looking at sex, age and race, this is a bit silly
 
-# names(sqf_2011) <- c("sex","race","age") 
-# 
-# sqf_2011 |> 
-#   kable(format="latex", booktabs = TRUE) |>
-#   kable_styling(latex_options = "striped")
-```
-
-```{r recode}
+```{r recode_race}
 
 sqf_2011$race<-
   recode(
     sqf_2011$race, 
     "A" =	"API",
     "B"	= "Black",
-    "I"=	"American Indian/Alaskan Native",
+    "I"=	"Am Indian",
     "P"=	"Hispanic",
     "Q"=	"Hispanic",
     "W"=	"White",
@@ -96,35 +105,78 @@ sqf_2011 |>
 
 \newpage
 
-```{r count }
 
-sqf_2011<- sqf_2011 |> 
-  count(race) 
+```{r recode_arstmade}
+# There is no missing data for arrestmade. 
 
-sqf_2011  |>
-  kable(format="latex", booktabs = TRUE) |>
+sqf_2011$arstmade<-
+  recode(
+    sqf_2011$arstmade, 
+    "Y" =	1,
+    "N"	= 0
+  )
+
+sqf_2011 |> 
+  head(20) |>
+ kable(format="latex", booktabs = TRUE) |>
   kable_styling(latex_options = "striped")
+```
+
+\newpage
+
+```{r count }
+# This removed NAs I should leave this out of the conference.  
+
+# sqf_2011 |> 
+#   filter(!is.na(race) & race != "Other") |>
+#   rename(race_na_removed = race)
+# 
+# sqf_2011  |>
+#   kable(format="latex", booktabs = TRUE) |>
+#   kable_styling(latex_options = "striped")
 ```
 
 \newpage
 
 ```{r}
-sqf_2011 <- sqf_2011 |>
-  rename( total = n)
+#count the total stops
+sqf_2011 |>
+  group_by(race) |>
+  summarise(stops_by_race = n() ) |>
+  
 
-sqf_2011  |>
   kable(format="latex", booktabs = TRUE) |>
   kable_styling(latex_options = "striped")
 ```
 
 \newpage
 
-```{r proportions}
+```{r percent_stopped}
 
-sqf_2011 <- sqf_2011 |> 
-  mutate(percentage = total/sum(total) * 100) 
+#This code finds the percent stopped
 
 sqf_2011 |> 
+  group_by(race) |>
+  summarise(stops_by_race = n(),
+            percent_stopped = n() / total_stops *100
+  )|>
+  
+  kable(format="latex", booktabs = TRUE) |>
+  kable_styling(latex_options = "striped")
+```
+
+\newpage
+
+```{r percent_arrested_of_stopped}
+#This code finds of the percent stopped how many are arrested. 
+
+sqf_2011 |> 
+  group_by(race) |>
+  summarise(stops_by_race = n(),
+            percent_stopped = n() / total_stops *100,
+            percent_arrested = sum(arstmade)/n() *100
+  )|>
+  
   kable(format="latex", booktabs = TRUE) |>
   kable_styling(latex_options = "striped")
 ```
@@ -132,118 +184,50 @@ sqf_2011 |>
 \newpage
 
 ```{r arrange}
+#This code arranges by percent stopped. 
 
-sqf_2011 <- sqf_2011 |> 
-  arrange(data = desc(percentage))
-
-sqf_2011 |>
+sqf_2011 |> 
+  group_by(race) |>
+  summarise(stops_by_race = n(),
+            percent_stopped = n() / total_stops *100,
+            percent_arrested = sum(arstmade)/n() *100
+  )|>
+  arrange(percent_arrested) |>
+  
   kable(format="latex", booktabs = TRUE) |>
   kable_styling(latex_options = "striped")
 ```
 
-\newpage
+```{r graph}
+sqf_2011 |> 
+  group_by(race) |>
+  summarise(stops_by_race = n(),
+            percent_stopped = n() / total_stops *100,
+            percent_arrested = sum(arstmade)/n() *100
+  )|>
+  arrange(percent_arrested) |>
+  ggplot(aes(x=race,y=percent_stopped)) +
+  geom_col(fill="red")+
+  theme_minimal()
 
-# Start 2021
-
-The documentation for years after 2019 is non-existent, but the variables are well named.
-
-\newpage
-
-```{r}
-sqf_2021 |>
-  head(10)|>
-  kable(format="latex", booktabs = TRUE) |>
-  kable_styling(latex_options = "striped")
 ```
 
-\newpage
+```{r graph2}
+sqf_2011 |> 
+  group_by(race) |>
+  summarise(stops_by_race = n(),
+            percent_stopped = n() / total_stops *100,
+            percent_arrested = sum(arstmade)/n() *100
+  )|>
+  arrange(percent_arrested) |>
+  ggplot()+
+  geom_col(aes(x=race,y=percent_arrested),   fill="blue", width = 0.25, position = position_nudge(x=0.15))+
+  geom_col(aes(x=race,y=percent_stopped), fill="red",width = 0.25, position = position_nudge(x=-0.15))+
+  labs(
+        y="", 
+       title = "Percent Stopped and Percent Arrested",
+       subtitle = "NYC SQF 2011 Data",
+       caption = "The red bars show percent of people stopped of the total.\n The blue bars show the percent arrested by stop.")+
+  theme_minimal()
 
-```{r select21}
-sqf_2021 <- sqf_2021 |>
-  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE)
-
-sqf_2021 |>
-  head(20) |>
-  kable(format="latex", booktabs = TRUE) |>
-  kable_styling(latex_options = "striped")
-```
-
-\newpage
-
-```{r name21}
-names(sqf_2021) <- c("sex","race","age") 
-
-sqf_2021 |> 
-  head(20) |>
-  kable(format="latex", booktabs = TRUE) |>
-  kable_styling(latex_options = "striped")
-```
-
-\newpage
-
-```{r recode21}
-
-sqf_2021$race<-
-  recode(
-    sqf_2021$race,
-    "BLACK HISPANIC" =	"Hispanic",
-    "WHITE HISPANIC"	= "Hispanic",
-    "BLACK"=	"Black",
-    "WHITE"=	"White",
-    "MIDDLE EASTERN/SOUTHWEST ASIAN"=	"MESA",
-    "ASIAN / PACIFIC ISLANDER"=	"API",
-    "AMERICAN INDIAN/ALASKAN NATIVE"=	"AMAN",
-    "no data"=	"no data",
-    .default = NA_character_
-  )
-
-sqf_2021 |> 
-  head(20) |>
-  kable(format="latex", booktabs = TRUE) |>
-  kable_styling(latex_options = "striped")
-```
-
-\newpage
-
-```{r count21 }
-
-sqf_2021 <- sqf_2021 |> 
-  count(race) 
-
-sqf_2021 |>
-  kable(format="latex", booktabs = TRUE) |>
-  kable_styling(latex_options = "striped")
-```
-
-\newpage
-
-```{r rename21}
-sqf_2021 <- sqf_2021 |>
-  rename(total = n)
-
-sqf_2021 |>
-  kable(format="latex", booktabs = TRUE) |>
-  kable_styling(latex_options = "striped")
-```
-
-\newpage
-
-```{r proportions21}
-
-sqf_2021 <- sqf_2021 |> 
-  mutate(percentage = total/sum(total) * 100) 
-
-sqf_2021 |>
-  kable(format="latex", booktabs = TRUE) |>
-  kable_styling(latex_options = "striped")
-```
-
-\newpage
-
-```{r arrange21}
-
-sqf_2021 |> 
-  arrange(percentage = total/sum(total) * 100) |>
-  kable(format="latex", booktabs = TRUE) |>
-  kable_styling(latex_options = "striped")
 ```

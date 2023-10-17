@@ -4,3 +4,6 @@
 .Ruserdata
 
 /.quarto/
+
+#The csv file is too big! See readme in data
+activity/2011.csv

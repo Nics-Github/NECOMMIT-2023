@@ -136,6 +136,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="//sources/resources.html" rel="" target="">
+ <span class="menu-text">Resources</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="//sources/websites.html" rel="" target="">
  <span class="menu-text">Sources</span></a>
   </li>  
@@ -162,16 +166,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
   <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup"><span class="header-section-number">2</span> Setup</a></li>
   <li><a href="#install-and-load" id="toc-install-and-load" class="nav-link" data-scroll-target="#install-and-load"><span class="header-section-number">3</span> Install and Load</a></li>
-  <li><a href="#get-the-2021-stop-and-frisk-data" id="toc-get-the-2021-stop-and-frisk-data" class="nav-link" data-scroll-target="#get-the-2021-stop-and-frisk-data"><span class="header-section-number">4</span> Get the 2021 stop and frisk data</a></li>
-  <li><a href="#now-we-can-start." id="toc-now-we-can-start." class="nav-link" data-scroll-target="#now-we-can-start."><span class="header-section-number">5</span> Now we can start.</a></li>
-  <li><a href="#recode-your-variables" id="toc-recode-your-variables" class="nav-link" data-scroll-target="#recode-your-variables"><span class="header-section-number">6</span> Recode your variables</a></li>
-  <li><a href="#take-a-look-at-the-data-with-head10" id="toc-take-a-look-at-the-data-with-head10" class="nav-link" data-scroll-target="#take-a-look-at-the-data-with-head10"><span class="header-section-number">7</span> Take a look at the data with <code>head(10)</code></a></li>
-  <li><a href="#select-the-variables" id="toc-select-the-variables" class="nav-link" data-scroll-target="#select-the-variables"><span class="header-section-number">8</span> Select the variables</a></li>
-  <li><a href="#rename-the-variables" id="toc-rename-the-variables" class="nav-link" data-scroll-target="#rename-the-variables"><span class="header-section-number">9</span> Rename the variables</a></li>
-  <li><a href="#tally-up-all-of-the-people-by-race." id="toc-tally-up-all-of-the-people-by-race." class="nav-link" data-scroll-target="#tally-up-all-of-the-people-by-race."><span class="header-section-number">10</span> Tally up all of the people by race.</a></li>
-  <li><a href="#make-your-variables-more-readable" id="toc-make-your-variables-more-readable" class="nav-link" data-scroll-target="#make-your-variables-more-readable"><span class="header-section-number">11</span> Make your variables more readable</a></li>
-  <li><a href="#add-in-the-percent-colummn" id="toc-add-in-the-percent-colummn" class="nav-link" data-scroll-target="#add-in-the-percent-colummn"><span class="header-section-number">12</span> Add in the percent colummn</a></li>
-  <li><a href="#order-the-percent-column" id="toc-order-the-percent-column" class="nav-link" data-scroll-target="#order-the-percent-column"><span class="header-section-number">13</span> Order the percent column</a></li>
+  <li><a href="#open-an-rscript" id="toc-open-an-rscript" class="nav-link" data-scroll-target="#open-an-rscript"><span class="header-section-number">4</span> Open an RScript</a></li>
+  <li><a href="#load-the-libraries" id="toc-load-the-libraries" class="nav-link" data-scroll-target="#load-the-libraries"><span class="header-section-number">5</span> Load the libraries</a></li>
+  <li><a href="#get-the-2021-stop-and-frisk-data" id="toc-get-the-2021-stop-and-frisk-data" class="nav-link" data-scroll-target="#get-the-2021-stop-and-frisk-data"><span class="header-section-number">6</span> Get the 2021 stop and frisk data</a></li>
+  <li><a href="#now-we-can-start." id="toc-now-we-can-start." class="nav-link" data-scroll-target="#now-we-can-start."><span class="header-section-number">7</span> Now we can start.</a></li>
+  <li><a href="#recode-your-variables" id="toc-recode-your-variables" class="nav-link" data-scroll-target="#recode-your-variables"><span class="header-section-number">8</span> Recode your variables</a></li>
+  <li><a href="#take-a-look-at-the-data-with-head10" id="toc-take-a-look-at-the-data-with-head10" class="nav-link" data-scroll-target="#take-a-look-at-the-data-with-head10"><span class="header-section-number">9</span> Take a look at the data with <code>head(10)</code></a></li>
+  <li><a href="#select-the-variables" id="toc-select-the-variables" class="nav-link" data-scroll-target="#select-the-variables"><span class="header-section-number">10</span> Select the variables</a></li>
+  <li><a href="#rename-the-variables" id="toc-rename-the-variables" class="nav-link" data-scroll-target="#rename-the-variables"><span class="header-section-number">11</span> Rename the variables</a></li>
+  <li><a href="#tally-up-all-of-the-stops-by-race." id="toc-tally-up-all-of-the-stops-by-race." class="nav-link" data-scroll-target="#tally-up-all-of-the-stops-by-race."><span class="header-section-number">12</span> Tally up all of the stops by race.</a></li>
+  <li><a href="#find-the-percent-stopped-by-race" id="toc-find-the-percent-stopped-by-race" class="nav-link" data-scroll-target="#find-the-percent-stopped-by-race"><span class="header-section-number">13</span> Find the percent stopped by race</a></li>
+  <li><a href="#find-the-percent-arrested" id="toc-find-the-percent-arrested" class="nav-link" data-scroll-target="#find-the-percent-arrested"><span class="header-section-number">14</span> Find the percent arrested</a></li>
+  <li><a href="#order-the-percent_arrested-column" id="toc-order-the-percent_arrested-column" class="nav-link" data-scroll-target="#order-the-percent_arrested-column"><span class="header-section-number">15</span> Order the <code>percent_arrested</code> column</a></li>
+  <li><a href="#make-a-bar-graph" id="toc-make-a-bar-graph" class="nav-link" data-scroll-target="#make-a-bar-graph"><span class="header-section-number">16</span> Make a bar graph</a></li>
+  <li><a href="#extra-2-add-a-bar-that-shows-the-percent-stopped" id="toc-extra-2-add-a-bar-that-shows-the-percent-stopped" class="nav-link" data-scroll-target="#extra-2-add-a-bar-that-shows-the-percent-stopped"><span class="header-section-number">17</span> Extra 2: Add a bar that shows the percent stopped</a></li>
+  <li><a href="#extra-3-add-titles-axis-labels-and-a-caption.-also-add-some-text-to-the-black-bar-for-context." id="toc-extra-3-add-titles-axis-labels-and-a-caption.-also-add-some-text-to-the-black-bar-for-context." class="nav-link" data-scroll-target="#extra-3-add-titles-axis-labels-and-a-caption.-also-add-some-text-to-the-black-bar-for-context."><span class="header-section-number">18</span> Extra 3: Add titles, axis labels, and a caption. Also add some text to the black bar for context.</a></li>
   </ul>
 </nav>
     </div>
@@ -204,90 +213,149 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="introduction" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
 <p>This is the 2021 sqf cheat sheet for the 2023 NECOMMIT keynote given on Oct 21,2023.</p>
-<p>Below you will find hints and code to mimic the data analysis we did with the sqf 2021 data. Hints are labeled <strong>hints</strong> and the optional code is folded so it cannot be seen until clicked. While in general it is preferable to work in a quarto or RScript, for this keynote it probably makes the most sense to work in the console.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip: The up arrow
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<p>When working in the console to bring back your most recently executed code use the up arrow.</p>
-</div>
-</div>
-</div>
+<p>Below you will find hints and code to mimic the data analysis we did with the sqf 2021 data. Hints are labeled <strong>hints</strong> and the optional code is folded so it cannot be seen until clicked. We will work in a RScript file.</p>
 </section>
 <section id="setup" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="setup"><span class="header-section-number">2</span> Setup</h2>
-<p>Go to <a href="https://posit.cloud/">posit cloud</a> and set up an account.</p>
-<p>Then click New RStudio Project <img src="images/new-rstudio-project-02.png" class="img-fluid" width="200"> and give it a title.</p>
+<ul>
+<li><p>Go to <a href="https://posit.cloud/">posit cloud</a> and set up an account.</p></li>
+<li><p>Then click New RStudio Project <img src="images/new-rstudio-project-02.png" class="img-fluid" width="200"> and give it a title.</p></li>
+</ul>
 </section>
 <section id="install-and-load" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="install-and-load"><span class="header-section-number">3</span> Install and Load</h2>
-<p>First we need to install the <code>tidyverse</code>. This is where our functions come from.</p>
+<p>First we need to install the <code>tidyverse</code>. This is where our functions come from. Do this in the console pane.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="open-an-rscript" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="open-an-rscript"><span class="header-section-number">4</span> Open an RScript</h2>
+<ul>
+<li>File &gt; New File &gt; R Script</li>
+<li>To run code in the R script you can highlight it and click <img src="./images/Run.png" class="img-fluid"></li>
+<li>All of the following code will be entered into your RScript</li>
+</ul>
+</section>
+<section id="load-the-libraries" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="load-the-libraries"><span class="header-section-number">5</span> Load the libraries</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="get-the-2021-stop-and-frisk-data" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="get-the-2021-stop-and-frisk-data"><span class="header-section-number">4</span> Get the 2021 stop and frisk data</h2>
+<section id="get-the-2021-stop-and-frisk-data" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="get-the-2021-stop-and-frisk-data"><span class="header-section-number">6</span> Get the 2021 stop and frisk data</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>url_2021 <span class="ot">&lt;-</span> <span class="st">"https://www.nyc.gov/assets/nypd/downloads/excel/analysis_and_planning/stop-question-frisk/sqf-2021.xlsx"</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(url_2021, <span class="st">"sqf-2021.xlsx"</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>sqf_2021 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"sqf-2021.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>sqf_2021 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"sqf-2021.xlsx"</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># This line read the total number of rows for the document. </span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#. The total number of rows is the total number of stops. </span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>total_stops <span class="ot">&lt;-</span> <span class="fu">nrow</span>(sqf_2021)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="now-we-can-start." class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="now-we-can-start."><span class="header-section-number">5</span> Now we can start.</h2>
-<p>I’d like to the recreate the data analysis we did on paper but in R. There are suggested next steps below. If you click on the code you can copy it into the console.</p>
+<section id="now-we-can-start." class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="now-we-can-start."><span class="header-section-number">7</span> Now we can start.</h2>
+<p>I’d like to the recreate the data analysis we did on paper for 2011 but in R. There are suggested next steps below. You can always copy code to your RScript.</p>
 </section>
-<section id="recode-your-variables" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="recode-your-variables"><span class="header-section-number">6</span> Recode your variables</h2>
+<section id="recode-your-variables" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="recode-your-variables"><span class="header-section-number">8</span> Recode your variables</h2>
 <p>This is probably the trickiest part:</p>
 <div class="cell">
 <details>
 <summary>recode to the race column</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sqf_2021<span class="sc">$</span>SUSPECT_RACE_DESCRIPTION<span class="ot">&lt;-</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">recode</span>(</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    sqf_2021<span class="sc">$</span>SUSPECT_RACE_DESCRIPTION,</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"BLACK HISPANIC"</span> <span class="ot">=</span>  <span class="st">"Hispanic"</span>,</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"WHITE HISPANIC"</span>    <span class="ot">=</span> <span class="st">"Hispanic"</span>,</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"BLACK"</span><span class="ot">=</span>    <span class="st">"Black"</span>,</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"WHITE"</span><span class="ot">=</span>    <span class="st">"White"</span>,</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"MIDDLE EASTERN/SOUTHWEST ASIAN"</span><span class="ot">=</span>   <span class="st">"MESA"</span>,</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ASIAN / PACIFIC ISLANDER"</span><span class="ot">=</span> <span class="st">"API"</span>,</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"AMERICAN INDIAN/ALASKAN NATIVE"</span><span class="ot">=</span>   <span class="st">"AMAN"</span>,</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"no data"</span><span class="ot">=</span>  <span class="st">"no data"</span>,</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">.default =</span> <span class="cn">NA_character_</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Recode Suspect_Race_Description to group hispanic</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>sqf_2021<span class="sc">$</span>SUSPECT_RACE_DESCRIPTION<span class="ot">&lt;-</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">recode</span>(</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    sqf_2021<span class="sc">$</span>SUSPECT_RACE_DESCRIPTION,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"BLACK HISPANIC"</span> <span class="ot">=</span>  <span class="st">"Hispanic"</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"WHITE HISPANIC"</span>    <span class="ot">=</span> <span class="st">"Hispanic"</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"BLACK"</span><span class="ot">=</span>    <span class="st">"Black"</span>,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"WHITE"</span><span class="ot">=</span>    <span class="st">"White"</span>,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"MIDDLE EASTERN/SOUTHWEST ASIAN"</span><span class="ot">=</span>   <span class="st">"MESA"</span>,</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ASIAN / PACIFIC ISLANDER"</span><span class="ot">=</span> <span class="st">"API"</span>,</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"AMERICAN INDIAN/ALASKAN NATIVE"</span><span class="ot">=</span>   <span class="st">"AMAN"</span>,</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"no data"</span><span class="ot">=</span>  <span class="st">"no data"</span>,</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">.default =</span> <span class="cn">NA_character_</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details>
+<summary>recode to the race column</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This will recode wether or not someone has been arrested. 1 is yes, 0 is no. </span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#This will help us sum values later. </span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>sqf_2021<span class="sc">$</span>SUSPECT_ARRESTED_FLAG<span class="ot">&lt;-</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">recode</span>(</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    sqf_2021<span class="sc">$</span>SUSPECT_ARRESTED_FLAG,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Y"</span> <span class="ot">=</span>   <span class="dv">1</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"N"</span> <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
-<section id="take-a-look-at-the-data-with-head10" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="take-a-look-at-the-data-with-head10"><span class="header-section-number">7</span> Take a look at the data with <code>head(10)</code></h2>
+<section id="take-a-look-at-the-data-with-head10" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="take-a-look-at-the-data-with-head10"><span class="header-section-number">9</span> Take a look at the data with <code>head(10)</code></h2>
 <div class="cell">
 <details>
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sqf_2021 <span class="sc">|&gt;</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># To see only the variable names you can  use </span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>sqf_2021 <span class="sc">|&gt;</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sqf_2021 <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># To see only the variable names you can  use </span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>sqf_2021 <span class="sc">|&gt;</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
-<section id="select-the-variables" class="level2" data-number="8">
-<h2 data-number="8" class="anchored" data-anchor-id="select-the-variables"><span class="header-section-number">8</span> Select the variables</h2>
+<section id="select-the-variables" class="level2" data-number="10">
+<h2 data-number="10" class="anchored" data-anchor-id="select-the-variables"><span class="header-section-number">10</span> Select the variables</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>hint:</strong> select() the variables we’re interested <code>SUSPECT_RACE_DESCRIPTION</code> and <code>SUSPECT_REPORTED_AGE</code></p>
+</div>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sqf_2021 <span class="sc">|&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="rename-the-variables" class="level2" data-number="11">
+<h2 data-number="11" class="anchored" data-anchor-id="rename-the-variables"><span class="header-section-number">11</span> Rename the variables</h2>
+<p><code>rename()</code> the variables to yell less (optional)</p>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>sqf_2021 <span class="sc">|&gt;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)<span class="sc">|&gt;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"sex"</span> <span class="ot">=</span> <span class="st">"SUSPECT_SEX"</span>,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>         <span class="st">"race"</span> <span class="ot">=</span> <span class="st">"SUSPECT_RACE_DESCRIPTION"</span>,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>         <span class="st">"age"</span> <span class="ot">=</span> <span class="st">"SUSPECT_REPORTED_AGE"</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>         <span class="st">"arrested"</span> <span class="ot">=</span> <span class="st">"SUSPECT_ARRESTED_FLAG"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="tally-up-all-of-the-stops-by-race." class="level2" data-number="12">
+<h2 data-number="12" class="anchored" data-anchor-id="tally-up-all-of-the-stops-by-race."><span class="header-section-number">12</span> Tally up all of the stops by race.</h2>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -300,34 +368,26 @@ hint
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>hint:</strong> select() the variables we’re interested <code>SUSPECT_RACE_DESCRIPTION</code> and <code>SUSPECT_REPORTED_AGE</code></p>
+<p><strong>hint:</strong> <code>group_by(race)</code> and use <code>summarize()</code> to count all of the stops with <code>n()</code>.</p>
 </div>
 </div>
 </div>
 <div class="cell">
 <details>
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sqf_2021 <span class="sc">|&gt;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>sqf_2021 <span class="sc">|&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)<span class="sc">|&gt;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"sex"</span> <span class="ot">=</span> <span class="st">"SUSPECT_SEX"</span>,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>         <span class="st">"race"</span> <span class="ot">=</span> <span class="st">"SUSPECT_RACE_DESCRIPTION"</span>,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>         <span class="st">"age"</span> <span class="ot">=</span> <span class="st">"SUSPECT_REPORTED_AGE"</span>,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>         <span class="st">"arrested"</span> <span class="ot">=</span> <span class="st">"SUSPECT_ARRESTED_FLAG"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(race) <span class="sc">|&gt;</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">stops_total=</span><span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
-<section id="rename-the-variables" class="level2" data-number="9">
-<h2 data-number="9" class="anchored" data-anchor-id="rename-the-variables"><span class="header-section-number">9</span> Rename the variables</h2>
-<p><code>rename()</code> the variables to yell less (optional)</p>
-<div class="cell">
-<details>
-<summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sqf_2021 <span class="sc">|&gt;</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE)<span class="sc">|&gt;</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"sex"</span> <span class="ot">=</span> <span class="st">"SUSPECT_SEX"</span>,</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>         <span class="st">"race"</span> <span class="ot">=</span> <span class="st">"SUSPECT_RACE_DESCRIPTION"</span>,</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>         <span class="st">"age"</span> <span class="ot">=</span> <span class="st">"SUSPECT_REPORTED_AGE"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-</section>
-<section id="tally-up-all-of-the-people-by-race." class="level2" data-number="10">
-<h2 data-number="10" class="anchored" data-anchor-id="tally-up-all-of-the-people-by-race."><span class="header-section-number">10</span> Tally up all of the people by race.</h2>
+<section id="find-the-percent-stopped-by-race" class="level2" data-number="13">
+<h2 data-number="13" class="anchored" data-anchor-id="find-the-percent-stopped-by-race"><span class="header-section-number">13</span> Find the percent stopped by race</h2>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -340,24 +400,28 @@ hint
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>hint:</strong> Make a <code>count()</code> of <code>race</code></p>
+<p><strong>hint:</strong> Add another variable maybe <code>percent_stopped</code> that find the proportion of total stops to <code>summarize()</code>.</p>
 </div>
 </div>
 </div>
 <div class="cell">
 <details>
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>sqf_2021 <span class="sc">|&gt;</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE)<span class="sc">|&gt;</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"sex"</span> <span class="ot">=</span> <span class="st">"SUSPECT_SEX"</span>,</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>         <span class="st">"race"</span> <span class="ot">=</span> <span class="st">"SUSPECT_RACE_DESCRIPTION"</span>,</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>         <span class="st">"age"</span> <span class="ot">=</span> <span class="st">"SUSPECT_REPORTED_AGE"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(race) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>sqf_2021 <span class="sc">|&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)<span class="sc">|&gt;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"sex"</span> <span class="ot">=</span> <span class="st">"SUSPECT_SEX"</span>,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>         <span class="st">"race"</span> <span class="ot">=</span> <span class="st">"SUSPECT_RACE_DESCRIPTION"</span>,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>         <span class="st">"age"</span> <span class="ot">=</span> <span class="st">"SUSPECT_REPORTED_AGE"</span>,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>         <span class="st">"arrested"</span> <span class="ot">=</span> <span class="st">"SUSPECT_ARRESTED_FLAG"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(race) <span class="sc">|&gt;</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">stops_by_race =</span> <span class="fu">n</span>(),</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">percent_stopped =</span> <span class="fu">n</span>() <span class="sc">/</span> total_stops <span class="sc">*</span><span class="dv">100</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
-<section id="make-your-variables-more-readable" class="level2" data-number="11">
-<h2 data-number="11" class="anchored" data-anchor-id="make-your-variables-more-readable"><span class="header-section-number">11</span> Make your variables more readable</h2>
+<section id="find-the-percent-arrested" class="level2" data-number="14">
+<h2 data-number="14" class="anchored" data-anchor-id="find-the-percent-arrested"><span class="header-section-number">14</span> Find the percent arrested</h2>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -370,25 +434,29 @@ hint
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>hint:</strong> <code>rename</code> the column <code>n</code> to <code>total</code></p>
+<p><strong>hint:</strong> Add a <code>percent_arrested</code> variable by adding to <code>summarize()</code>.</p>
 </div>
 </div>
 </div>
 <div class="cell">
 <details>
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>sqf_2021 <span class="sc">|&gt;</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE)<span class="sc">|&gt;</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"sex"</span> <span class="ot">=</span> <span class="st">"SUSPECT_SEX"</span>,</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>         <span class="st">"race"</span> <span class="ot">=</span> <span class="st">"SUSPECT_RACE_DESCRIPTION"</span>,</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>         <span class="st">"age"</span> <span class="ot">=</span> <span class="st">"SUSPECT_REPORTED_AGE"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(race) <span class="sc">|&gt;</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"total"</span> <span class="ot">=</span> <span class="st">"n"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>sqf_2021 <span class="sc">|&gt;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)<span class="sc">|&gt;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"sex"</span> <span class="ot">=</span> <span class="st">"SUSPECT_SEX"</span>,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>         <span class="st">"race"</span> <span class="ot">=</span> <span class="st">"SUSPECT_RACE_DESCRIPTION"</span>,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>         <span class="st">"age"</span> <span class="ot">=</span> <span class="st">"SUSPECT_REPORTED_AGE"</span>,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>         <span class="st">"arrested"</span> <span class="ot">=</span> <span class="st">"SUSPECT_ARRESTED_FLAG"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(race) <span class="sc">|&gt;</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">stops_by_race =</span> <span class="fu">n</span>(),</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">percent_stopped =</span> <span class="fu">n</span>() <span class="sc">/</span> total_stops <span class="sc">*</span><span class="dv">100</span>,</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">percent_arrested =</span> <span class="fu">sum</span>(arrested)<span class="sc">/</span><span class="fu">n</span>() <span class="sc">*</span><span class="dv">100</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
-<section id="add-in-the-percent-colummn" class="level2" data-number="12">
-<h2 data-number="12" class="anchored" data-anchor-id="add-in-the-percent-colummn"><span class="header-section-number">12</span> Add in the percent colummn</h2>
+<section id="order-the-percent_arrested-column" class="level2" data-number="15">
+<h2 data-number="15" class="anchored" data-anchor-id="order-the-percent_arrested-column"><span class="header-section-number">15</span> Order the <code>percent_arrested</code> column</h2>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -401,26 +469,30 @@ hint
 </div>
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>hint:</strong> Add a <code>percentage</code> column with <code>mutate()</code></p>
+<p><strong>hint:</strong> <code>arrange()</code> the <code>percent_arrested</code> column so that they are in order.</p>
 </div>
 </div>
 </div>
 <div class="cell">
 <details>
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>sqf_2021 <span class="sc">|&gt;</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE)<span class="sc">|&gt;</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"sex"</span> <span class="ot">=</span> <span class="st">"SUSPECT_SEX"</span>,</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>         <span class="st">"race"</span> <span class="ot">=</span> <span class="st">"SUSPECT_RACE_DESCRIPTION"</span>,</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>         <span class="st">"age"</span> <span class="ot">=</span> <span class="st">"SUSPECT_REPORTED_AGE"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(race) <span class="sc">|&gt;</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"total"</span> <span class="ot">=</span> <span class="st">"n"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">percentage =</span> total<span class="sc">/</span><span class="fu">sum</span>(total) <span class="sc">*</span> <span class="dv">100</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>sqf_2021 <span class="sc">|&gt;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)<span class="sc">|&gt;</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"sex"</span> <span class="ot">=</span> <span class="st">"SUSPECT_SEX"</span>,</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>         <span class="st">"race"</span> <span class="ot">=</span> <span class="st">"SUSPECT_RACE_DESCRIPTION"</span>,</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>         <span class="st">"age"</span> <span class="ot">=</span> <span class="st">"SUSPECT_REPORTED_AGE"</span>,</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>         <span class="st">"arrested"</span> <span class="ot">=</span> <span class="st">"SUSPECT_ARRESTED_FLAG"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(race) <span class="sc">|&gt;</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">stops_by_race =</span> <span class="fu">n</span>(),</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">percent_stopped =</span> <span class="fu">n</span>() <span class="sc">/</span> total_stops <span class="sc">*</span><span class="dv">100</span>,</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">percent_arrested =</span> <span class="fu">sum</span>(arrested)<span class="sc">/</span><span class="fu">n</span>() <span class="sc">*</span><span class="dv">100</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">|&gt;</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(percent_arrested)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
-<section id="order-the-percent-column" class="level2" data-number="13">
-<h2 data-number="13" class="anchored" data-anchor-id="order-the-percent-column"><span class="header-section-number">13</span> Order the percent column</h2>
+<section id="make-a-bar-graph" class="level2" data-number="16">
+<h2 data-number="16" class="anchored" data-anchor-id="make-a-bar-graph"><span class="header-section-number">16</span> Make a bar graph</h2>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -433,22 +505,118 @@ hint
 </div>
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>hint:</strong> <code>arrange()</code> the percent column so that they are in order.</p>
+<p><strong>hint:</strong> pipe <code>|&gt;</code> the data_frame above into <code>ggplot()</code> choose <code>x= race</code>, <code>y= percent_arrested</code> for your aesthetics. The pipe that into <code>geom_col()</code>. Add <code>+theme_minimal()</code> to make it clean.</p>
 </div>
 </div>
 </div>
 <div class="cell">
 <details>
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>sqf_2021 <span class="sc">|&gt;</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE)<span class="sc">|&gt;</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"sex"</span> <span class="ot">=</span> <span class="st">"SUSPECT_SEX"</span>,</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>         <span class="st">"race"</span> <span class="ot">=</span> <span class="st">"SUSPECT_RACE_DESCRIPTION"</span>,</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>         <span class="st">"age"</span> <span class="ot">=</span> <span class="st">"SUSPECT_REPORTED_AGE"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(race) <span class="sc">|&gt;</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"total"</span> <span class="ot">=</span> <span class="st">"n"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">percentage =</span> total<span class="sc">/</span><span class="fu">sum</span>(total) <span class="sc">*</span> <span class="dv">100</span>) <span class="sc">|&gt;</span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(percentage)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>sqf_2021 <span class="sc">|&gt;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)<span class="sc">|&gt;</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"sex"</span> <span class="ot">=</span> <span class="st">"SUSPECT_SEX"</span>,</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>         <span class="st">"race"</span> <span class="ot">=</span> <span class="st">"SUSPECT_RACE_DESCRIPTION"</span>,</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>         <span class="st">"age"</span> <span class="ot">=</span> <span class="st">"SUSPECT_REPORTED_AGE"</span>,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>         <span class="st">"arrested"</span> <span class="ot">=</span> <span class="st">"SUSPECT_ARRESTED_FLAG"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(race) <span class="sc">|&gt;</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">stops_by_race =</span> <span class="fu">n</span>(),</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">percent_stopped =</span> <span class="fu">n</span>() <span class="sc">/</span> total_stops <span class="sc">*</span><span class="dv">100</span>,</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">percent_arrested =</span> <span class="fu">sum</span>(arrested)<span class="sc">/</span><span class="fu">n</span>() <span class="sc">*</span><span class="dv">100</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">|&gt;</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(percent_arrested)<span class="sc">|&gt;</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Make the graph below. The information is being piped from the datafram above. </span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>race,<span class="at">y=</span>percent_arrested)) <span class="sc">+</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()<span class="sc">+</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="extra-2-add-a-bar-that-shows-the-percent-stopped" class="level2" data-number="17">
+<h2 data-number="17" class="anchored" data-anchor-id="extra-2-add-a-bar-that-shows-the-percent-stopped"><span class="header-section-number">17</span> Extra 2: Add a bar that shows the percent stopped</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>hint:</strong> Add another <code>geom_col()</code> with appropriate aesthetics. In my code I also gave the graphs color and nudged them a bit to the left or right.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>sqf_2021 <span class="sc">|&gt;</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)<span class="sc">|&gt;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"sex"</span> <span class="ot">=</span> <span class="st">"SUSPECT_SEX"</span>,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>         <span class="st">"race"</span> <span class="ot">=</span> <span class="st">"SUSPECT_RACE_DESCRIPTION"</span>,</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>         <span class="st">"age"</span> <span class="ot">=</span> <span class="st">"SUSPECT_REPORTED_AGE"</span>,</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>         <span class="st">"arrested"</span> <span class="ot">=</span> <span class="st">"SUSPECT_ARRESTED_FLAG"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(race) <span class="sc">|&gt;</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">stops_by_race =</span> <span class="fu">n</span>(),</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">percent_stopped =</span> <span class="fu">n</span>() <span class="sc">/</span> total_stops <span class="sc">*</span><span class="dv">100</span>,</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">percent_arrested =</span> <span class="fu">sum</span>(arrested)<span class="sc">/</span><span class="fu">n</span>() <span class="sc">*</span><span class="dv">100</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">|&gt;</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(percent_arrested)<span class="sc">|&gt;</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Make the graph below. The information is being piped from the datafram above. </span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x=</span>race,<span class="at">y=</span>percent_arrested), <span class="at">alpha =</span> <span class="fl">0.5</span>,  <span class="at">fill=</span><span class="st">"blue"</span>, <span class="at">width =</span> <span class="fl">0.25</span>, <span class="at">position =</span> <span class="fu">position_nudge</span>(<span class="at">x=</span><span class="fl">0.15</span>))<span class="sc">+</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x=</span>race,<span class="at">y=</span>percent_stopped),<span class="at">alpha=</span><span class="fl">0.5</span>,<span class="at">fill=</span><span class="st">"red"</span>,<span class="at">width =</span> <span class="fl">0.25</span>, <span class="at">position =</span> <span class="fu">position_nudge</span>(<span class="at">x=</span><span class="sc">-</span><span class="fl">0.15</span>))<span class="sc">+</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="extra-3-add-titles-axis-labels-and-a-caption.-also-add-some-text-to-the-black-bar-for-context." class="level2" data-number="18">
+<h2 data-number="18" class="anchored" data-anchor-id="extra-3-add-titles-axis-labels-and-a-caption.-also-add-some-text-to-the-black-bar-for-context."><span class="header-section-number">18</span> Extra 3: Add titles, axis labels, and a caption. Also add some text to the black bar for context.</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>hint:</strong> Use the <code>labs()</code> function for this.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>sqf_2021 <span class="sc">|&gt;</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)<span class="sc">|&gt;</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"sex"</span> <span class="ot">=</span> <span class="st">"SUSPECT_SEX"</span>,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>         <span class="st">"race"</span> <span class="ot">=</span> <span class="st">"SUSPECT_RACE_DESCRIPTION"</span>,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>         <span class="st">"age"</span> <span class="ot">=</span> <span class="st">"SUSPECT_REPORTED_AGE"</span>,</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>         <span class="st">"arrested"</span> <span class="ot">=</span> <span class="st">"SUSPECT_ARRESTED_FLAG"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(race) <span class="sc">|&gt;</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">stops_by_race =</span> <span class="fu">n</span>(),</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">percent_stopped =</span> <span class="fu">n</span>() <span class="sc">/</span> total_stops <span class="sc">*</span><span class="dv">100</span>,</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">percent_arrested =</span> <span class="fu">sum</span>(arrested)<span class="sc">/</span><span class="fu">n</span>() <span class="sc">*</span><span class="dv">100</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">|&gt;</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(percent_arrested)<span class="sc">|&gt;</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Make the graph below. The information is being piped from the datafram above. </span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x=</span>race,<span class="at">y=</span>percent_arrested),   <span class="at">fill=</span><span class="st">"blue"</span>, <span class="at">width =</span> <span class="fl">0.25</span>, <span class="at">position =</span> <span class="fu">position_nudge</span>(<span class="at">x=</span><span class="fl">0.15</span>))<span class="sc">+</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x=</span>race,<span class="at">y=</span>percent_stopped), <span class="at">fill=</span><span class="st">"red"</span>,<span class="at">width =</span> <span class="fl">0.25</span>, <span class="at">position =</span> <span class="fu">position_nudge</span>(<span class="at">x=</span><span class="sc">-</span><span class="fl">0.15</span>))<span class="sc">+</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">y=</span><span class="st">""</span>, </span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Percent Stopped and Percent Arrested"</span>, </span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"The red bars show the percent of people stopped of the total. The blue bars show the percent arrested of each race."</span>)<span class="sc">+</span></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 

@@ -1,0 +1,37 @@
+---
+title: "Post Envelope digestion"
+format: revealjs
+editor: visual
+---
+
+# Have we answered our question?
+
+# Wrangling Functions
+
+All functions come the dplyr which is loaded with the tidyverse. There are many more functions. See the [cheat sheet](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
+
+| function    | does                                          |
+|-------------|-----------------------------------------------|
+| select()    | selects columns from df                       |
+| group_by()  | groups levels of a column for later functions |
+| summarise() | preforms summary operations.                  |
+| rename()    | renames the levels of a column.               |
+
+# Graphing Functions
+
+`ggplot2` handles graphing, it is loaded with the tidyverse. [cheatsheet](https://rstudio.github.io/cheatsheets/html/data-visualization.html?_gl=1*1exy8c6*_ga*MTY5NTk3OTI4Mi4xNjk0NTM1MDIy*_ga_2C0WZ1JHG0*MTY5NzU2NDA5MS41LjEuMTY5NzU2NDEyMS4wLjAuMA..)
+
+| function        | does                                  |
+|-----------------|---------------------------------------|
+| ggplot()        | setsup a plot, needs df and aes()     |
+| geom_col()      | makes column graphs based on aes(x,y) |
+| labs()          | adds labels to graphs.                |
+| theme_minimal() | A theme to clean things up            |
+
+# Operators
+
+| symbol | name                 | operation                                              |
+|-----------------|-----------------|---------------------------------------|
+| \<-    | arrow operator       | saves an object to the variable on the left            |
+| \|\>   | pipe                 | moves an object into the first argument of a function. |
+| \$     | dollar sign operator | Accesses one variable in a dataset.                    |

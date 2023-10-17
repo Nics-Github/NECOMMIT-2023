@@ -1,33 +1,64 @@
 ---
-title: "Presentation"
-author: "Schwab"
+title: "Stop and Frisk"
 format: revealjs
 editor: visual
 ---
 
+# Introduction:
+
+-   name: Nic Schwab
+
+-   SDS department at Smith
+
+-   Math department at Holyoke Community College
+
+-   Develop a Data Science Program at HCC
+
+-   email: nschwab\@smith.edu
+
+# Why Data Science?
+
+-   Math conference for teaching with Inquiry.
+
+-   Math teachers will be the ones teaching data science.
+
+-   Data Science lends itself to inquiry practices and active learning.
+
+# Why R?
+
+Lots of resources available to learn R.
+
+see [Resources](sources/resources.qmd)
+
+Many alternatives
+
+-   [codap](https://codap.concord.org/)
+
+-   [NuMPI](https://numpy.org/) with python
+
+-   [google analytics](https://analytics.google.com/analytics/academy/course/6)
+
 # Stop, Question, Frisk
 
+-   Started in the 1990s
+
 -   New York City Police Practice
+
+    -   Police only need reasonable suspicion.
 
 -   Many articles about the targeting of Black and Latino young men.
 
 -   Studies have shown that this has led to mistrust in the police.
 
-# A bit about me
-
-My name is Nic
-
-I currently teach data science at Smith College.
-
-I normally teach math/data science at Holyoke Community College.
+# More about about me
 
 I'm not Black.
 
 I'm am Hispanic.
 
-I am not from New York City.
+I'm White
 
-# 
+I am not from New York City.
 
 # Race Exists
 
@@ -48,9 +79,7 @@ Let's acknowledge that Race exists and plays a part in the way human being inter
 
     iii. I'll give you the real code.
 
-4.  We'll repeat the process of data transformation with the real code.
-
-5.  Time for questions
+4.  We'll repeat the process of data wrangling in R.
 :::
 
 # Questions so far?
@@ -58,6 +87,8 @@ Let's acknowledge that Race exists and plays a part in the way human being inter
 # The Data
 
 [Here's](https://www.nyc.gov/site/nypd/stats/reports-analysis/stopfrisk.page) NYC's website with the stop and frisk data.
+
+Let's consider 2011 data
 
 ::: nonincremental
 -   Each column is a variable
@@ -69,21 +100,9 @@ Data Dictionaries exist for older data.
 
 New Data variables are more clear.
 
-The variable names are inconsistent.
+The variable names are inconsistent across years.
 
-# A Question
-
-> Are Black, Hispanic, groups more likely to be stopped by police officers than other groups in 2011? Does this change as the total counts of stops decreases to 2021 levels?
-
-# Motivation for question
-
-This Stop and Frisk policing strategy came into force under Michael Bloomberg governor from 2003 to 2013.
-
-During the end of Michael Bloomberg's tenure as governor there was a public out cry of the \_\_\_\_ of this policy.
-
-The policy's discrimination leads to distrust in police.
-
-# Stops in a year
+# SQF History in a graph
 
 ```{r stop-frisk-years}
 #| echo: TRUE
@@ -160,12 +179,25 @@ sqf |>
   
 ```
 
-# Let's take a look at the data frame together.
+# Questions
+
+> ::: incremental
+> 1.  Which racial groups were most likely to be stopped by police officers 2011?
+>
+> 2.  What percent of the stops resulted in an arrest in 2011?
+>
+> 3.  How do the answers to these questions change in 2021?
+> :::
 
 # Here are your data frames
 
-Little envelopes Data 2011
+1.  Little envelopes Data 2011
 
-Little envelopes Data 2021
+-   Put the Data Frames in Order.
 
-Little envelopes Functions
+-   Be sure you can explain the process from one DF to another.
+
+2.  Little envelopes Functions
+
+-   After the frames are in Order put the code arrows between each frame.
+

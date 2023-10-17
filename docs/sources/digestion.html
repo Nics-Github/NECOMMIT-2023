@@ -10,7 +10,7 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.3.353">
 
-  <title>NECOMMIT Fall ’23 - Stop and Frisk</title>
+  <title>NECOMMIT Fall ’23 - Post Envelope digestion</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -324,140 +324,112 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Stop and Frisk</h1>
+  <h1 class="title">Post Envelope digestion</h1>
 
 <div class="quarto-title-authors">
 </div>
 
 </section>
-<section id="introduction" class="title-slide slide level1 center">
-<h1>Introduction:</h1>
-<ul>
-<li><p>name: Nic Schwab</p></li>
-<li><p>SDS department at Smith</p></li>
-<li><p>Math department at Holyoke Community College</p></li>
-<li><p>Develop a Data Science Program at HCC</p></li>
-<li><p>email: nschwab@smith.edu</p></li>
-</ul>
-</section>
-
-<section id="why-data-science" class="title-slide slide level1 center">
-<h1>Why Data Science?</h1>
-<ul>
-<li><p>Math conference for teaching with Inquiry.</p></li>
-<li><p>Math teachers will be the ones teaching data science.</p></li>
-<li><p>Data Science lends itself to inquiry practices and active learning.</p></li>
-</ul>
-</section>
-
-<section id="why-r" class="title-slide slide level1 center">
-<h1>Why R?</h1>
-<p>Lots of resources available to learn R.</p>
-<p>see <a href="sources/resources.qmd">Resources</a></p>
-<p>Many alternatives</p>
-<ul>
-<li><p><a href="https://codap.concord.org/">codap</a></p></li>
-<li><p><a href="https://numpy.org/">NuMPI</a> with python</p></li>
-<li><p><a href="https://analytics.google.com/analytics/academy/course/6">google analytics</a></p></li>
-</ul>
-</section>
-
-<section id="stop-question-frisk" class="title-slide slide level1 center">
-<h1>Stop, Question, Frisk</h1>
-<ul>
-<li><p>Started in the 1990s</p></li>
-<li><p>New York City Police Practice</p>
-<ul>
-<li>Police only need reasonable suspicion.</li>
-</ul></li>
-<li><p>Many articles about the targeting of Black and Latino young men.</p></li>
-<li><p>Studies have shown that this has led to mistrust in the police.</p></li>
-</ul>
-</section>
-
-<section id="more-about-about-me" class="title-slide slide level1 center">
-<h1>More about about me</h1>
-<p>I’m not Black.</p>
-<p>I’m am Hispanic.</p>
-<p>I’m White</p>
-<p>I am not from New York City.</p>
-</section>
-
-<section id="race-exists" class="title-slide slide level1 center">
-<h1>Race Exists</h1>
-<p>Let’s acknowledge that Race exists and plays a part in the way human being interact with each other.</p>
-</section>
-
-<section id="schedule" class="title-slide slide level1 center">
-<h1>Schedule:</h1>
-<div>
-<ol type="1">
-<li class="fragment"><p>Introduce you to the data.</p></li>
-<li class="fragment"><p>Pose a question that I have about stop and frisk.</p></li>
-<li class="fragment"><p>Give you Data Frames with data to answer the question one way.</p>
-<ol type="i">
-<li class="fragment"><p>You’ll order them with a partner.</p></li>
-<li class="fragment"><p>You’ll make up puesdo code to explain data transformations.</p></li>
-<li class="fragment"><p>I’ll give you the real code.</p></li>
-</ol></li>
-<li class="fragment"><p>We’ll repeat the process of data wrangling in R.</p></li>
-</ol>
-</div>
-</section>
-
-<section id="questions-so-far" class="title-slide slide level1 center">
-<h1>Questions so far?</h1>
+<section id="have-we-answered-our-question" class="title-slide slide level1 center">
+<h1>Have we answered our question?</h1>
 
 </section>
 
-<section id="the-data" class="title-slide slide level1 center">
-<h1>The Data</h1>
-<p><a href="https://www.nyc.gov/site/nypd/stats/reports-analysis/stopfrisk.page">Here’s</a> NYC’s website with the stop and frisk data.</p>
-<p>Let’s consider 2011 data</p>
-<div>
-<ul>
-<li><p>Each column is a variable</p></li>
-<li><p>and each row is a stop</p></li>
-</ul>
-</div>
-<p>Data Dictionaries exist for older data.</p>
-<p>New Data variables are more clear.</p>
-<p>The variable names are inconsistent across years.</p>
+<section id="wrangling-functions" class="title-slide slide level1 center">
+<h1>Wrangling Functions</h1>
+<p>All functions come the dplyr which is loaded with the tidyverse. There are many more functions. See the <a href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf">cheat sheet</a></p>
+<table>
+<thead>
+<tr class="header">
+<th>function</th>
+<th>does</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>select()</td>
+<td>selects columns from df</td>
+</tr>
+<tr class="even">
+<td>group_by()</td>
+<td>groups levels of a column for later functions</td>
+</tr>
+<tr class="odd">
+<td>summarise()</td>
+<td>preforms summary operations.</td>
+</tr>
+<tr class="even">
+<td>rename()</td>
+<td>renames the levels of a column.</td>
+</tr>
+</tbody>
+</table>
 </section>
 
-<section id="sqf-history-in-a-graph" class="title-slide slide level1 center">
-<h1>SQF History in a graph</h1>
-
-<img data-src="Presentation_files/figure-revealjs/graph-of-stop-1.png" width="960" class="r-stretch"></section>
-
-<section id="questions" class="title-slide slide level1 center">
-<h1>Questions</h1>
-<blockquote>
-<div>
-<ol type="1">
-<li class="fragment"><p>Which racial groups were most likely to be stopped by police officers 2011?</p></li>
-<li class="fragment"><p>What percent of the stops resulted in an arrest in 2011?</p></li>
-<li class="fragment"><p>How do the answers to these questions change in 2021?</p></li>
-</ol>
-</div>
-</blockquote>
+<section id="graphing-functions" class="title-slide slide level1 center">
+<h1>Graphing Functions</h1>
+<p><code>ggplot2</code> handles graphing, it is loaded with the tidyverse. <a href="https://rstudio.github.io/cheatsheets/html/data-visualization.html?_gl=1*1exy8c6*_ga*MTY5NTk3OTI4Mi4xNjk0NTM1MDIy*_ga_2C0WZ1JHG0*MTY5NzU2NDA5MS41LjEuMTY5NzU2NDEyMS4wLjAuMA..">cheatsheet</a></p>
+<table>
+<thead>
+<tr class="header">
+<th>function</th>
+<th>does</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ggplot()</td>
+<td>setsup a plot, needs df and aes()</td>
+</tr>
+<tr class="even">
+<td>geom_col()</td>
+<td>makes column graphs based on aes(x,y)</td>
+</tr>
+<tr class="odd">
+<td>labs()</td>
+<td>adds labels to graphs.</td>
+</tr>
+<tr class="even">
+<td>theme_minimal()</td>
+<td>A theme to clean things up</td>
+</tr>
+</tbody>
+</table>
 </section>
 
-<section id="here-are-your-data-frames" class="title-slide slide level1 center">
-<h1>Here are your data frames</h1>
-<ol type="1">
-<li>Little envelopes Data 2011</li>
-</ol>
-<ul>
-<li><p>Put the Data Frames in Order.</p></li>
-<li><p>Be sure you can explain the process from one DF to another.</p></li>
-</ul>
-<ol start="2" type="1">
-<li>Little envelopes Functions</li>
-</ol>
-<ul>
-<li>After the frames are in Order put the code arrows between each frame.</li>
-</ul>
+<section id="operators" class="title-slide slide level1 center">
+<h1>Operators</h1>
+<table>
+<colgroup>
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 53%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>symbol</th>
+<th>name</th>
+<th>operation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>&lt;-</td>
+<td>arrow operator</td>
+<td>saves an object to the variable on the left</td>
+</tr>
+<tr class="even">
+<td>|&gt;</td>
+<td>pipe</td>
+<td>moves an object into the first argument of a function.</td>
+</tr>
+<tr class="odd">
+<td>$</td>
+<td>dollar sign operator</td>
+<td>Accesses one variable in a dataset.</td>
+</tr>
+</tbody>
+</table>
 
 <div class="footer footer-default">
 
@@ -674,44 +646,6 @@
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
