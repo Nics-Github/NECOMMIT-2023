@@ -1,5 +1,5 @@
 ---
-title: "NECOMMIT cheat sheet"
+title: "Wrangling 2021 Data"
 author: "Nic Schwab"
 format: 
   html:
@@ -14,9 +14,9 @@ execute:
 
 ## Introduction
 
-This is the 2021 sqf cheat sheet for the 2023 NECOMMIT keynote given on Oct 21,2023.
+This is the second part of the 2023 NECOMMIT keynote given on Oct 21,2023.
 
-Below you will find hints and code to mimic the data analysis we did with the sqf 2021 data. Hints are labeled **hints** and the optional code is folded so it cannot be seen until clicked. We will work in a RScript file.
+Below you will find hints and code to mimic the data analysis we did with the sqf 2011 data on paper. Hints are labeled **hints** and the optional code is folded so it cannot be seen until clicked. We will work in a RScript file.
 
 
 ## Setup

@@ -1,0 +1,64 @@
+---
+title: "Nic Schwab"
+about:
+  id: schwab
+  template: trestles
+  image: "self.jpg"
+  links:
+
+    - icon: github
+      text: GitHub
+      href: https://github.com/Nics-Github
+    - icon: bookmark
+      text: Smith
+      href: https://www.smith.edu/academics/faculty/nicholas-schwab
+---
+
+**Nicholas Schwab** is a visiting lecturer in Statistical and Data Sciences. He is a tenured professor at Holyoke Community College. When not teaching data science, he enjoys rock climbing, running, and reading children's books to his kids.
+
+## Student Hours
+
+**Drop into the office:** Wednesdays and Friday from 9:45am - 10:45am in McConnell 213
+
+**By Appointment** (schedule between 12 hours and 7 days in advance) Tuesday and Thursday 9:00 -- 10:15 am
+
+Please let me know if the above times do not work for your schedule and we can coordinate another time.\
+<!-- Google Calendar Appointment Scheduling begin --> <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+
+```{=html}
+<script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+```
+```{=html}
+<script>
+(function() {
+  var target = document.currentScript;
+  window.addEventListener('load', function() {
+    calendar.schedulingButton.load({
+      url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ1iIHImPBba_fFowl9qbN1tFoRCcEGTpc1nzat2Hys-0tM-MPbMsMIQQwqtBxSMRV2dcFZ9KIZ2?gv=true',
+      color: '#039BE5',
+      label: 'Book an appointment',
+      target,
+    });
+  });
+})();
+</script>
+```
+<!-- end Google Calendar Appointment Scheduling -->
+
+## Education
+
+-   MS in Data Science (\~2026)\
+    [University of Texas at Austin](https://cdso.utexas.edu/msds)\
+    Austin, Texas
+-   MA in Mathematics (2009)\
+    [Appalchain State University](https://mathsci.appstate.edu/)\
+    Boone, NC
+-   BA in Mathematics (2007)\
+    [UC Santa Cruz](https://www.math.ucsc.edu/)\
+    Santa Cruz, CA
+
+## Experience
+
+-   Professor of Mathematics\
+    [Holyoke Community College](https://www.hcc.edu)\
+    Holyoke, MA 2014--2023

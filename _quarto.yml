@@ -20,9 +20,7 @@ website:
   navbar:
  
     left:
-    - text: cheat sheet
-      href: /activity/2021_cheat_sheet.qmd
-    - icon: NYC 
+    - text: NYC 
       href: https://www.nyc.gov/site/nypd/stats/reports-analysis/stopfrisk.page
     - text: R
       href: https://posit.cloud/
