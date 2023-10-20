@@ -80,7 +80,6 @@ sqf_2011 |>
 
 \newpage
 
-
 ```{r recode_race}
 
 sqf_2011$race<-
@@ -104,7 +103,6 @@ sqf_2011 |>
 ```
 
 \newpage
-
 
 ```{r recode_arstmade}
 # There is no missing data for arrestmade. 
@@ -213,21 +211,23 @@ sqf_2011 |>
 ```
 
 ```{r graph2}
-sqf_2011 |> 
-  group_by(race) |>
-  summarise(stops_by_race = n(),
-            percent_stopped = n() / total_stops *100,
-            percent_arrested = sum(arstmade)/n() *100
-  )|>
-  arrange(percent_arrested) |>
-  ggplot()+
-  geom_col(aes(x=race,y=percent_arrested),   fill="blue", width = 0.25, position = position_nudge(x=0.15))+
-  geom_col(aes(x=race,y=percent_stopped), fill="red",width = 0.25, position = position_nudge(x=-0.15))+
-  labs(
-        y="", 
-       title = "Percent Stopped and Percent Arrested",
-       subtitle = "NYC SQF 2011 Data",
-       caption = "The red bars show percent of people stopped of the total.\n The blue bars show the percent arrested by stop.")+
-  theme_minimal()
+# this graph is misleading. 
+
+# sqf_2011 |> 
+#   group_by(race) |>
+#   summarise(stops_by_race = n(),
+#             percent_stopped = n() / total_stops *100,
+#             percent_arrested = sum(arstmade)/n() *100
+#   )|>
+#   arrange(percent_arrested) |>
+#   ggplot()+
+#   geom_col(aes(x=race,y=percent_arrested),   fill="blue", width = 0.25, position = position_nudge(x=0.15))+
+#   geom_col(aes(x=race,y=percent_stopped), fill="red",width = 0.25, position = position_nudge(x=-0.15))+
+#   labs(
+#         y="", 
+#        title = "Percent Stopped and Percent Arrested",
+#        subtitle = "NYC SQF 2011 Data",
+#        caption = "The red bars show percent of people stopped of the total.\n The blue bars show the percent arrested by stop.")+
+#   theme_minimal()
 
 ```

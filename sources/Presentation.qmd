@@ -1,24 +1,23 @@
 ---
 title: "Stop and Frisk"
+subtitle: "An Introduction to Data Wrangling"
 format: revealjs
 editor: visual
 ---
 
-# Introduction:
+# Introduction
 
--   name: Nic Schwab
+-   Nic Schwab
 
 -   SDS department at Smith
 
 -   Math department at Holyoke Community College
 
--   Develop a Data Science Program at HCC
+-   Developing a Data Science Program at HCC
 
--   email: nschwab\@smith.edu
+-   nschwab\@smith.edu
 
 # Why Data Science?
-
--   Math conference for teaching with Inquiry.
 
 -   Math teachers will be the ones teaching data science.
 
@@ -28,15 +27,23 @@ editor: visual
 
 Lots of resources available to learn R.
 
-see [Resources](sources/resources.qmd)
+[Resources](sources/resources.qmd)
 
 Many alternatives
 
--   [codap](https://codap.concord.org/)
+::: columns
+::: {.column width="50%"}
+[![](https://codap.concord.org/wp-content/themes/cc/img/codap-logo.png){width="286"}](https://codap.concord.org/)
 
--   [NuMPI](https://numpy.org/) with python
+![](https://matterly.io/wp-content/uploads/2022/11/Tableau-Emblem-400x225.png){width="289"}
+:::
 
--   [google analytics](https://analytics.google.com/analytics/academy/course/6)
+::: {.column width="50%"}
+![](https://www.python.org/static/img/python-logo.png)
+
+![](https://www.svgrepo.com/show/354012/looker-icon.svg){width="209"}
+:::
+:::
 
 # Stop, Question, Frisk
 
@@ -44,49 +51,51 @@ Many alternatives
 
 -   New York City Police Practice
 
-    -   Police only need reasonable suspicion.
+    -   Police need "[reasonable suspicion](https://supreme.justia.com/cases/federal/us/392/1/)."
 
--   Many articles about the targeting of Black and Latino young men.
+-   Targeting of Black and Latino young men.
 
--   Studies have shown that this has led to mistrust in the police.
+-   Leads to mistrust in the police by these groups.
 
 # More about about me
 
 I'm not Black.
 
-I'm am Hispanic.
+I am Hispanic.
 
-I'm White
+I look White.
 
 I am not from New York City.
 
+In this data analysis I will have limited perspective.
+
 # Race Exists
 
-Let's acknowledge that Race exists and plays a part in the way human being interact with each other.
+Let's acknowledge that the construct of race exists and plays a part in the way human being interact with each other.
 
-# Schedule:
+# Schedule
 
 ::: incremental
 1.  Introduce you to the data.
 
-2.  Pose a question that I have about stop and frisk.
+2.  Pose a question.
 
-3.  Give you Data Frames with data to answer the question one way.
+3.  Give you [data frames]{.underline} with data to answer the question one way.
 
     i.  You'll order them with a partner.
 
-    ii. You'll make up puesdo code to explain data transformations.
+    ii. You'll make up [pseudocode]{.underline} to explain data transformations.
 
     iii. I'll give you the real code.
 
-4.  We'll repeat the process of data wrangling in R.
+4.  We'll repeat the process of for 2021 data in R.
 :::
 
 # Questions so far?
 
 # The Data
 
-[Here's](https://www.nyc.gov/site/nypd/stats/reports-analysis/stopfrisk.page) NYC's website with the stop and frisk data.
+[Here is](https://www.nyc.gov/site/nypd/stats/reports-analysis/stopfrisk.page) NYC's stop and frisk data.
 
 Let's consider 2011 data
 
@@ -96,13 +105,9 @@ Let's consider 2011 data
 -   and each row is a stop
 :::
 
-Data Dictionaries exist for older data.
+*The variable names are inconsistent across years.*
 
-New Data variables are more clear.
-
-The variable names are inconsistent across years.
-
-# SQF History in a graph
+# SQF History
 
 ```{r stop-frisk-years}
 #| echo: TRUE
@@ -161,9 +166,9 @@ sqf <- data.frame(years,stops_frisks)
 sqf |> 
   ggplot(aes(years,stops_frisks)) +
   
-  geom_rect(aes(xmin=2002,xmax=2014,ymin=0,ymax=Inf),fill="#003585",alpha=0.01)+
-  geom_rect(aes(xmin=2014,xmax=2021,ymin=0,ymax=Inf),fill="#FFFFFF",alpha=0.01)+
-  geom_rect(aes(xmin=2021,xmax=2022,ymin=0,ymax=Inf),fill="#FF6600",alpha=0.01)+
+  #geom_rect(aes(xmin=2002,xmax=2014,ymin=0,ymax=Inf),fill="#003585",alpha=0.01)+
+  #geom_rect(aes(xmin=2014,xmax=2021,ymin=0,ymax=Inf),fill="#FFFFFF",alpha=0.01)+
+  #geom_rect(aes(xmin=2021,xmax=2022,ymin=0,ymax=Inf),fill="#FF6600",alpha=0.01)+
   geom_line()+
   xlab("Year")+
   ylab("Citizens Stopped ('000s)")+
@@ -175,29 +180,39 @@ sqf |>
   geom_text(label="de Blasio", x = 2016, y = 40000, color="gray35" ) +
   geom_text(label="Adams", x = 2022, y = 40000, color="gray35" ) +
   geom_text(label=". NYCLU \n suit", x = 2013, y = 650000, color="gray35" ) +
-  geom_vline(xintercept=2012, linetype = 3 )
+  geom_vline(xintercept=2012, linetype = 3 ) +
+  theme(
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    axis.line = element_line(color = "black"),
+    axis.text=element_text(size=12)
   
+  )
 ```
 
 # Questions
 
 > ::: incremental
-> 1.  Which racial groups were most likely to be stopped by police officers 2011?
+> 1.  Which racial groups were most likely to be stopped by police officers in 2011?
 >
-> 2.  What percent of the stops resulted in an arrest in 2011?
+> 2.  What percent of the stops resulted in an arrest by race in 2011?
 >
 > 3.  How do the answers to these questions change in 2021?
+>
+> 4.  You will likely have more questions as we analyze the data.
 > :::
 
-# Here are your data frames
+# Your data frames
 
-1.  Little envelopes Data 2011
+1.  Little envelopes **Data 2011**
 
--   Put the Data Frames in Order.
+-   Put the data frames in order.
 
--   Be sure you can explain the process from one DF to another.
+-   Be sure you can explain the process from one df to another psuedocode
 
-2.  Little envelopes Functions
+-   Questions about the data?
 
--   After the frames are in Order put the code arrows between each frame.
+2.  Little envelope **functions**
 
+-   After the frames are in order put the code arrows between each frame.
+-   Questions about the code?

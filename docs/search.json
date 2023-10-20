@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "NECOMMIT Keynote",
     "section": "",
-    "text": "Presentation\nPaper Activity Wrangle 2011 data.\nPost Paper Digestion\nTechnology Activity Wrangle 2021 data."
+    "text": "SQF An Introduction to Data wrangling\nPaper Activity Wrangle 2011 data.\nLet’s discuss\nTechnology Activity Wrangle 2021 data."
   },
   {
     "objectID": "sources/websites.html",
@@ -60,7 +60,7 @@
     "href": "activity/2021_cheat_sheet.html",
     "title": "Wrangling 2021 Data",
     "section": "",
-    "text": "This is the second part of the 2023 NECOMMIT keynote given on Oct 21,2023.\nBelow you will find hints and code to mimic the data analysis we did with the sqf 2011 data on paper. Hints are labeled hints and the optional code is folded so it cannot be seen until clicked. We will work in a RScript file."
+    "text": "This is the second part of the 2023 NECOMMIT keynote given on Oct 21,2023.\nBelow you will find hints and code to mimic the data analysis we did with the sqf 2011 data on paper with arrows. Hints are labeled hints and the optional code is folded so it cannot be seen until clicked. We will work in a RScript file."
   },
   {
     "objectID": "activity/2021_cheat_sheet.html#introduction",
@@ -81,14 +81,14 @@
     "href": "activity/2021_cheat_sheet.html#install-and-load",
     "title": "Wrangling 2021 Data",
     "section": "3 Install and Load",
-    "text": "3 Install and Load\nFirst we need to install the tidyverse. This is where our functions come from. Do this in the console pane.\n\ninstall.packages(\"tidyverse\")"
+    "text": "3 Install and Load\nFirst we need to install the tidyverse. This is where our functions come from. Do this in the console pane.\n\n# You only need to run this once.\ninstall.packages(\"tidyverse\")"
   },
   {
     "objectID": "activity/2021_cheat_sheet.html#get-the-2021-stop-and-frisk-data",
     "href": "activity/2021_cheat_sheet.html#get-the-2021-stop-and-frisk-data",
     "title": "Wrangling 2021 Data",
     "section": "6 Get the 2021 stop and frisk data",
-    "text": "6 Get the 2021 stop and frisk data\n\nurl_2021 &lt;- \"https://www.nyc.gov/assets/nypd/downloads/excel/analysis_and_planning/stop-question-frisk/sqf-2021.xlsx\"\ndownload.file(url_2021, \"sqf-2021.xlsx\")\nsqf_2021 &lt;- read_excel(\"sqf-2021.xlsx\")\n\n# This line read the total number of rows for the document. \n#. The total number of rows is the total number of stops. \n\ntotal_stops &lt;- nrow(sqf_2021)"
+    "text": "6 Get the 2021 stop and frisk data\n\nurl_2021 <- \"https://www.nyc.gov/assets/nypd/downloads/excel/analysis_and_planning/stop-question-frisk/sqf-2021.xlsx\"\ndownload.file(url_2021, \"sqf-2021.xlsx\")\nsqf_2021 <- read_excel(\"sqf-2021.xlsx\")\n\n# The line below reads the total number of rows for the document. \n#. The total number of rows is the total number of stops. \n\ntotal_stops <- nrow(sqf_2021)"
   },
   {
     "objectID": "activity/2021_cheat_sheet.html#now-we-can-start.",
@@ -102,28 +102,28 @@
     "href": "activity/2021_cheat_sheet.html#recode-your-variables",
     "title": "Wrangling 2021 Data",
     "section": "8 Recode your variables",
-    "text": "8 Recode your variables\nThis is probably the trickiest part:\n\n\nrecode to the race column\n#Recode Suspect_Race_Description to group hispanic\n\nsqf_2021$SUSPECT_RACE_DESCRIPTION&lt;-\n  recode(\n    sqf_2021$SUSPECT_RACE_DESCRIPTION,\n    \"BLACK HISPANIC\" =  \"Hispanic\",\n    \"WHITE HISPANIC\"    = \"Hispanic\",\n    \"BLACK\"=    \"Black\",\n    \"WHITE\"=    \"White\",\n    \"MIDDLE EASTERN/SOUTHWEST ASIAN\"=   \"MESA\",\n    \"ASIAN / PACIFIC ISLANDER\"= \"API\",\n    \"AMERICAN INDIAN/ALASKAN NATIVE\"=   \"AMAN\",\n    \"no data\"=  \"no data\",\n    .default = NA_character_\n  )\n\n\n\n\nrecode to the race column\n# This will recode wether or not someone has been arrested. 1 is yes, 0 is no. \n#This will help us sum values later. \n\nsqf_2021$SUSPECT_ARRESTED_FLAG&lt;-\n  recode(\n    sqf_2021$SUSPECT_ARRESTED_FLAG,\n    \"Y\" =   1,\n    \"N\" = 0\n  )"
+    "text": "8 Recode your variables\nThis is probably the trickiest part:\n\n\nrecode to the race column\n#Recode Suspect_Race_Description to group hispanic, you might think \"Latino\" is a better choice\n\nsqf_2021$SUSPECT_RACE_DESCRIPTION<-\n  recode(\n    sqf_2021$SUSPECT_RACE_DESCRIPTION,\n    \"BLACK HISPANIC\" =  \"Hispanic\",\n    \"WHITE HISPANIC\"    = \"Hispanic\",\n    \"BLACK\"=    \"Black\",\n    \"WHITE\"=    \"White\",\n    \"MIDDLE EASTERN/SOUTHWEST ASIAN\"=   \"MESA\",\n    \"ASIAN / PACIFIC ISLANDER\"= \"API\",\n    \"AMERICAN INDIAN/ALASKAN NATIVE\"=   \"AMAN\",\n    \"no data\"=  \"no data\",\n    .default = NA_character_\n  )\n\n\n\n\nrecode to the SUSPECT_ARRESTED_FLAG column\n# This will recode wether or not someone has been arrested. 1 is yes, 0 is no. \n#This will help us sum values later. \n\nsqf_2021$SUSPECT_ARRESTED_FLAG<-\n  recode(\n    sqf_2021$SUSPECT_ARRESTED_FLAG,\n    \"Y\" =   1,\n    \"N\" = 0\n  )"
   },
   {
     "objectID": "activity/2021_cheat_sheet.html#take-a-look-at-the-data-with-head10",
     "href": "activity/2021_cheat_sheet.html#take-a-look-at-the-data-with-head10",
     "title": "Wrangling 2021 Data",
     "section": "9 Take a look at the data with head(10)",
-    "text": "9 Take a look at the data with head(10)\n\n\nShow the code\nsqf_2021 |&gt;\n  head(10)\n\n# To see only the variable names you can  use \nsqf_2021 |&gt;\n  names()"
+    "text": "9 Take a look at the data with head(10)\n\n\nShow the code\nsqf_2021 |>\n  head(10)\n\n# To see only the variable names you can  use \nsqf_2021 |>\n  names()"
   },
   {
     "objectID": "activity/2021_cheat_sheet.html#select-the-variables",
     "href": "activity/2021_cheat_sheet.html#select-the-variables",
     "title": "Wrangling 2021 Data",
     "section": "10 Select the variables",
-    "text": "10 Select the variables\n\n\n\n\n\n\nhint\n\n\n\n\n\nhint: select() the variables we’re interested SUSPECT_RACE_DESCRIPTION and SUSPECT_REPORTED_AGE\n\n\n\n\n\nShow the code\nsqf_2021 |&gt;\n  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)"
+    "text": "10 Select the variables\n\n\n\n\n\n\nhint\n\n\n\n\n\nhint: select() the variables we’re interested SUSPECT_RACE_DESCRIPTION and SUSPECT_REPORTED_AGE\n\n\n\n\n\nShow the code\nsqf_2021 |>\n  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)"
   },
   {
     "objectID": "activity/2021_cheat_sheet.html#rename-the-variables",
     "href": "activity/2021_cheat_sheet.html#rename-the-variables",
     "title": "Wrangling 2021 Data",
     "section": "11 Rename the variables",
-    "text": "11 Rename the variables\nrename() the variables to yell less (optional)\n\n\nShow the code\nsqf_2021 |&gt;\n  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)|&gt;\n  rename(\"sex\" = \"SUSPECT_SEX\",\n         \"race\" = \"SUSPECT_RACE_DESCRIPTION\",\n         \"age\" = \"SUSPECT_REPORTED_AGE\",\n         \"arrested\" = \"SUSPECT_ARRESTED_FLAG\")"
+    "text": "11 Rename the variables\nrename() the variables to yell less (optional)\n\n\nShow the code\nsqf_2021 |>\n  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)|>\n  rename(\"sex\" = \"SUSPECT_SEX\",\n         \"race\" = \"SUSPECT_RACE_DESCRIPTION\",\n         \"age\" = \"SUSPECT_REPORTED_AGE\",\n         \"arrested\" = \"SUSPECT_ARRESTED_FLAG\")"
   },
   {
     "objectID": "activity/2021_cheat_sheet.html#tally-up-all-of-the-people-by-race.",
@@ -158,28 +158,28 @@
     "href": "activity/2021_cheat_sheet.html#tally-up-all-of-the-stops-by-race.",
     "title": "Wrangling 2021 Data",
     "section": "12 Tally up all of the stops by race.",
-    "text": "12 Tally up all of the stops by race.\n\n\n\n\n\n\nhint\n\n\n\n\n\nhint: group_by(race) and use summarize() to count all of the stops with n().\n\n\n\n\n\nShow the code\nsqf_2021 |&gt;\n  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)|&gt;\n  rename(\"sex\" = \"SUSPECT_SEX\",\n         \"race\" = \"SUSPECT_RACE_DESCRIPTION\",\n         \"age\" = \"SUSPECT_REPORTED_AGE\",\n         \"arrested\" = \"SUSPECT_ARRESTED_FLAG\") |&gt;\n  group_by(race) |&gt;\n  summarise(stops_total=n())"
+    "text": "12 Tally up all of the stops by race.\n\n\n\n\n\n\nhint\n\n\n\n\n\nhint: group_by(race) and use summarize() to count all of the stops with n().\n\n\n\n\n\nShow the code\nsqf_2021 |>\n  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)|>\n  rename(\"sex\" = \"SUSPECT_SEX\",\n         \"race\" = \"SUSPECT_RACE_DESCRIPTION\",\n         \"age\" = \"SUSPECT_REPORTED_AGE\",\n         \"arrested\" = \"SUSPECT_ARRESTED_FLAG\") |>\n  group_by(race) |>\n  summarise(stops_total=n())"
   },
   {
     "objectID": "activity/2021_cheat_sheet.html#find-the-percent-stopped-by-race",
     "href": "activity/2021_cheat_sheet.html#find-the-percent-stopped-by-race",
     "title": "Wrangling 2021 Data",
     "section": "13 Find the percent stopped by race",
-    "text": "13 Find the percent stopped by race\n\n\n\n\n\n\nhint\n\n\n\n\n\nhint: Add another variable maybe percent_stopped that find the proportion of total stops to summarize().\n\n\n\n\n\nShow the code\nsqf_2021 |&gt;\n  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)|&gt;\n  rename(\"sex\" = \"SUSPECT_SEX\",\n         \"race\" = \"SUSPECT_RACE_DESCRIPTION\",\n         \"age\" = \"SUSPECT_REPORTED_AGE\",\n         \"arrested\" = \"SUSPECT_ARRESTED_FLAG\") |&gt;\n  group_by(race) |&gt;\n  summarise(stops_by_race = n(),\n            percent_stopped = n() / total_stops *100\n  )"
+    "text": "13 Find the percent stopped by race\n\n\n\n\n\n\nhint\n\n\n\n\n\nhint: Add another variable maybe percent_stopped that find the proportion of total stops to summarize().\n\n\n\n\n\nShow the code\nsqf_2021 |>\n  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)|>\n  rename(\"sex\" = \"SUSPECT_SEX\",\n         \"race\" = \"SUSPECT_RACE_DESCRIPTION\",\n         \"age\" = \"SUSPECT_REPORTED_AGE\",\n         \"arrested\" = \"SUSPECT_ARRESTED_FLAG\") |>\n  group_by(race) |>\n  summarise(stops_by_race = n(),\n            percent_stopped = n() / total_stops *100\n  )"
   },
   {
     "objectID": "activity/2021_cheat_sheet.html#find-the-percent-arrested",
     "href": "activity/2021_cheat_sheet.html#find-the-percent-arrested",
     "title": "Wrangling 2021 Data",
     "section": "14 Find the percent arrested",
-    "text": "14 Find the percent arrested\n\n\n\n\n\n\nhint\n\n\n\n\n\nhint: Add a percent_arrested variable by adding to summarize().\n\n\n\n\n\nShow the code\nsqf_2021 |&gt;\n  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)|&gt;\n  rename(\"sex\" = \"SUSPECT_SEX\",\n         \"race\" = \"SUSPECT_RACE_DESCRIPTION\",\n         \"age\" = \"SUSPECT_REPORTED_AGE\",\n         \"arrested\" = \"SUSPECT_ARRESTED_FLAG\") |&gt;\n  group_by(race) |&gt;\n  summarise(stops_by_race = n(),\n            percent_stopped = n() / total_stops *100,\n            percent_arrested = sum(arrested)/n() *100\n  )"
+    "text": "14 Find the percent arrested\n\n\n\n\n\n\nhint\n\n\n\n\n\nhint: Add a percent_arrested variable by adding to summarize().\n\n\n\n\n\nShow the code\nsqf_2021 |>\n  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)|>\n  rename(\"sex\" = \"SUSPECT_SEX\",\n         \"race\" = \"SUSPECT_RACE_DESCRIPTION\",\n         \"age\" = \"SUSPECT_REPORTED_AGE\",\n         \"arrested\" = \"SUSPECT_ARRESTED_FLAG\") |>\n  group_by(race) |>\n  summarise(stops_by_race = n(),\n            percent_stopped = n() / total_stops *100,\n            percent_arrested = sum(arrested)/n() *100\n  )"
   },
   {
     "objectID": "activity/2021_cheat_sheet.html#order-the-percent_arrested-column",
     "href": "activity/2021_cheat_sheet.html#order-the-percent_arrested-column",
     "title": "Wrangling 2021 Data",
     "section": "15 Order the percent_arrested column",
-    "text": "15 Order the percent_arrested column\n\n\n\n\n\n\nhint\n\n\n\n\n\nhint: arrange() the percent_arrested column so that they are in order.\n\n\n\n\n\nShow the code\nsqf_2021 |&gt;\n  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)|&gt;\n  rename(\"sex\" = \"SUSPECT_SEX\",\n         \"race\" = \"SUSPECT_RACE_DESCRIPTION\",\n         \"age\" = \"SUSPECT_REPORTED_AGE\",\n         \"arrested\" = \"SUSPECT_ARRESTED_FLAG\") |&gt;\n  group_by(race) |&gt;\n  summarise(stops_by_race = n(),\n            percent_stopped = n() / total_stops *100,\n            percent_arrested = sum(arrested)/n() *100\n  )|&gt;\n  arrange(percent_arrested)"
+    "text": "15 Order the percent_arrested column\n\n\n\n\n\n\nhint\n\n\n\n\n\nhint: arrange() the percent_arrested column so that they are in order.\n\n\n\n\n\nShow the code\nsqf_2021 |>\n  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)|>\n  rename(\"sex\" = \"SUSPECT_SEX\",\n         \"race\" = \"SUSPECT_RACE_DESCRIPTION\",\n         \"age\" = \"SUSPECT_REPORTED_AGE\",\n         \"arrested\" = \"SUSPECT_ARRESTED_FLAG\") |>\n  group_by(race) |>\n  summarise(stops_by_race = n(),\n            percent_stopped = n() / total_stops *100,\n            percent_arrested = sum(arrested)/n() *100\n  )|>\n  arrange(percent_arrested)"
   },
   {
     "objectID": "activity/2021_cheat_sheet.html#make-a-bar-graph",
@@ -207,7 +207,7 @@
     "href": "activity/2021_cheat_sheet.html#open-an-rscript",
     "title": "Wrangling 2021 Data",
     "section": "4 Open an RScript",
-    "text": "4 Open an RScript\n\nFile &gt; New File &gt; R Script\nTo run code in the R script you can highlight it and click \nAll of the following code will be entered into your RScript"
+    "text": "4 Open an RScript\n\nFile > New File > R Script\nTo run code in the R script you can highlight it and click \nAll of the following code will be entered into your RScript"
   },
   {
     "objectID": "activity/2021_cheat_sheet.html#load-the-libraries",
@@ -247,16 +247,16 @@
   {
     "objectID": "sources/digestion.html",
     "href": "sources/digestion.html",
-    "title": "Digestion",
+    "title": "Post Envelope digestion",
     "section": "",
-    "text": "Have we answered our question?\n\n\nFunctions\nAll functions come the dplyr which is loaded with the tidyverse. There are many more functions. See the cheat sheet\n\n\n\nfunction\ndoes\n\n\n\n\nselect()\nselects columns from df\n\n\ngroup_by()\ngroups levels of a column for later functions\n\n\nsummarise()\npreforms summary operations.\n\n\nrename()\nrenames the levels of a column.\n\n\n\n\n\nOperators\n\n\n\n\n\n\n\n\nsymbol\nname\noperation\n\n\n\n\n&lt;-\narrow operator\nsaves an object to the variable on the left\n\n\n|&gt;\npipe\nmoves an object into the first argument of a function.\n\n\n$\ndollar sign operator\nAccesses one variable in a dataset."
+    "text": "Have we answered our question?\n\n\nWrangling Functions\nAll functions come the dplyr which is loaded with the tidyverse. There are many more functions. See the cheat sheet\n\n\n\nfunction\ndoes\n\n\n\n\nselect()\nselects columns from df\n\n\ngroup_by()\ngroups levels of a column for later functions\n\n\nsummarise()\npreforms summary operations.\n\n\nrename()\nrenames the levels of a column.\n\n\n\n\n\nGraphing Functions\nggplot2 handles graphing, it is loaded with the tidyverse. cheatsheet\n\n\n\nfunction\ndoes\n\n\n\n\nggplot()\nsetsup a plot, needs df and aes()\n\n\ngeom_col()\nmakes column graphs based on aes(x,y)\n\n\nlabs()\nadds labels to graphs.\n\n\ntheme_minimal()\nA theme to clean things up\n\n\n\n\n\nOperators\n\n\n\n\n\n\n\n\nsymbol\nname\noperation\n\n\n\n\n<-\narrow operator\nsaves an object to the variable on the left\n\n\n|>\npipe\nmoves an object into the first argument of a function.\n\n\n$\ndollar sign operator\nAccesses one variable in a dataset."
   },
   {
     "objectID": "schwab.html",
     "href": "schwab.html",
     "title": "Nic Schwab",
     "section": "",
-    "text": "Nicholas Schwab is a visiting lecturer in Statistical and Data Sciences. He is a tenured professor at Holyoke Community College. When not teaching data science, he enjoys rock climbing, running, and reading children’s books to his kids."
+    "text": "Nicholas Schwab is a visiting lecturer in Statistical and Data Sciences. He is a tenured professor at Holyoke Community College. When not teaching data science, he enjoys rock climbing, running, and reading children’s books to his kids.\ngithub: Nics-Github\nemail: nschwab@smith.edu"
   },
   {
     "objectID": "schwab.html#student-hours",
@@ -278,5 +278,26 @@
     "title": "Nic Schwab",
     "section": "Experience",
     "text": "Experience\n\nProfessor of Mathematics\nHolyoke Community College\nHolyoke, MA 2014–2023"
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#now-we-can-start",
+    "href": "activity/2021_cheat_sheet.html#now-we-can-start",
+    "title": "Wrangling 2021 Data",
+    "section": "7 Now we can start",
+    "text": "7 Now we can start\nI’d like to the recreate the data analysis we did on paper for 2011 but in R. There are suggested next steps below. You can always copy code to your RScript file."
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#make-a-bar-graph-of-percent-stopped",
+    "href": "activity/2021_cheat_sheet.html#make-a-bar-graph-of-percent-stopped",
+    "title": "Wrangling 2021 Data",
+    "section": "16 Make a bar graph of percent stopped",
+    "text": "16 Make a bar graph of percent stopped\n\n\n\n\n\n\nhint\n\n\n\n\n\nhint: pipe |> the data_frame above into ggplot() choose x= race, y= percent_arrested for your aesthetics. The pipe that into geom_col(). Add +theme_minimal() to make it clean.\n\n\n\n\n\nShow the code\nsqf_2021 |>\n  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)|>\n  rename(\"sex\" = \"SUSPECT_SEX\",\n         \"race\" = \"SUSPECT_RACE_DESCRIPTION\",\n         \"age\" = \"SUSPECT_REPORTED_AGE\",\n         \"arrested\" = \"SUSPECT_ARRESTED_FLAG\") |>\n  group_by(race) |>\n  summarise(stops_by_race = n(),\n            percent_stopped = n() / total_stops *100,\n            percent_arrested = sum(arrested)/n() *100\n  )|>\n  arrange(percent_arrested)|>\n  \n# Make the graph below. The information is being piped from the datafram above. \n  ggplot(aes(x=race,y=percent_stopped)) +\n  geom_col()+\n  theme_minimal()"
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#extra-2-add-titles-axis-labels-and-color-the-graph-red.",
+    "href": "activity/2021_cheat_sheet.html#extra-2-add-titles-axis-labels-and-color-the-graph-red.",
+    "title": "Wrangling 2021 Data",
+    "section": "17 Extra 2: Add titles, axis labels and color the graph red.",
+    "text": "17 Extra 2: Add titles, axis labels and color the graph red.\n\n\n\n\n\n\nhint\n\n\n\n\n\nhint: Use the labs() function for this.\n\n\n\n\n\nShow the code\nsqf_2021 |>\n  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)|>\n  rename(\"sex\" = \"SUSPECT_SEX\",\n         \"race\" = \"SUSPECT_RACE_DESCRIPTION\",\n         \"age\" = \"SUSPECT_REPORTED_AGE\",\n         \"arrested\" = \"SUSPECT_ARRESTED_FLAG\") |>\n  group_by(race) |>\n  summarise(stops_by_race = n(),\n            percent_stopped = n() / total_stops *100,\n            percent_arrested = sum(arrested)/n() *100\n  )|>\n  arrange(percent_arrested)|>\n  \n# Make the graph below. The information is being piped from the datafram above. \n  ggplot()+\n  geom_col(aes(x=race,y=percent_stopped), fill=\"red\",)+\n  labs(\n        y=\"Percent\", \n       title = \"People stopped by race in 2021\", \n  )+\n  theme_minimal()"
   }
 ]

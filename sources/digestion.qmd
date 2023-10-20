@@ -1,10 +1,22 @@
 ---
-title: "Post Envelope digestion"
+title: "Let's Discuss"
 format: revealjs
 editor: visual
 ---
 
 # Have we answered our question?
+
+> 1.  Which racial groups were most likely to be stopped by police officers in 2011?
+>
+> 2.  What percent of the stops resulted in an arrest by race in 2011?
+>
+> 3.  How do the answers to these questions change in 2021?
+
+# Population Estimates [2021](https://www.census.gov/quickfacts/fact/table/newyorkcitynewyork/PST045222)
+
+[![](/images/censusdata2021.png)](https://www.census.gov/quickfacts/fact/table/newyorkcitynewyork#)
+
+[2010 data here](https://www.nyc.gov/assets/planning/download/pdf/data-maps/nyc-population/census2010/pgrhc.pdf)
 
 # Wrangling Functions
 
@@ -31,7 +43,7 @@ All functions come the dplyr which is loaded with the tidyverse. There are many 
 # Operators
 
 | symbol | name                 | operation                                              |
-|-----------------|-----------------|---------------------------------------|
+|-------------------|-------------------|------------------------------------|
 | \<-    | arrow operator       | saves an object to the variable on the left            |
 | \|\>   | pipe                 | moves an object into the first argument of a function. |
 | \$     | dollar sign operator | Accesses one variable in a dataset.                    |

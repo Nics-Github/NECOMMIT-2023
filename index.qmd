@@ -5,10 +5,10 @@ date: "Oct 21,2023"
 
 ---
 
-[Presentation]()
+[SQF An Introduction to Data wrangling](/sources/Presentation.qmd)
 
 Paper Activity Wrangle 2011 data.
 
-[Post Paper Digestion](/sources/digestion.qmd)
+[Let's discuss](/sources/digestion.qmd)
 
 [Technology Activity Wrangle 2021 data.](activity/2021_cheat_sheet.qmd)
