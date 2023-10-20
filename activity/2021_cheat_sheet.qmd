@@ -1,0 +1,363 @@
+---
+title: "Wrangling 2021 Data"
+author: "Nic Schwab"
+format: 
+  html:
+    code-fold: true
+    code-summary: "Show the code"
+    number-sections: true
+    toc: true
+editor: visual
+execute: 
+  eval: false
+---
+
+## Introduction
+
+This is the second part of the 2023 NECOMMIT keynote given on Oct 21,2023.
+
+Below you will find hints and code to mimic the data analysis we did with the sqf 2011 data on paper. Hints are labeled **hints** and the optional code is folded so it cannot be seen until clicked. We will work in a RScript file.
+
+
+## Setup
+
+-   Go to [posit cloud](https://posit.cloud/) and set up an account.
+
+-   Then click New RStudio Project ![](images/new-rstudio-project-02.png){width="200"} and give it a title.
+
+
+
+## Install and Load
+
+First we need to install the `tidyverse`. This is where our functions come from. Do this in the console pane.
+
+```{r install-tidyverse}
+#| code-fold: false
+#| code-summary: "Install the tools we need"
+
+
+install.packages("tidyverse")
+
+
+```
+## Open an RScript
+
+-   File > New File > R Script
+-   To run code in the R script you can highlight it and click ![](./images/Run.png) 
+-   All of the following code will be entered into your RScript
+
+## Load the libraries
+
+```{r get-2011-data}
+#| code-fold: false
+#| code-summary: "Load the tools we need"
+
+library(tidyverse)
+library(readxl)
+```
+
+## Get the 2021 stop and frisk data
+
+```{r get2021-data}
+#| code-fold: false
+#| code-summary: "Download and load and save the data"
+
+
+url_2021 <- "https://www.nyc.gov/assets/nypd/downloads/excel/analysis_and_planning/stop-question-frisk/sqf-2021.xlsx"
+download.file(url_2021, "sqf-2021.xlsx")
+sqf_2021 <- read_excel("sqf-2021.xlsx")
+
+# This line read the total number of rows for the document. 
+#. The total number of rows is the total number of stops. 
+
+total_stops <- nrow(sqf_2021)
+```
+
+## Now we can start. 
+
+I'd like to the recreate the data analysis we did on paper for 2011 but in R. There are suggested next steps below. You can always copy code to your RScript.
+
+## Recode your variables
+
+This is probably the trickiest part:
+
+```{r}
+#| code-fold: true
+#| code-summary: "recode to the race column"
+
+#Recode Suspect_Race_Description to group hispanic
+
+sqf_2021$SUSPECT_RACE_DESCRIPTION<-
+  recode(
+    sqf_2021$SUSPECT_RACE_DESCRIPTION,
+    "BLACK HISPANIC" =	"Hispanic",
+    "WHITE HISPANIC"	= "Hispanic",
+    "BLACK"=	"Black",
+    "WHITE"=	"White",
+    "MIDDLE EASTERN/SOUTHWEST ASIAN"=	"MESA",
+    "ASIAN / PACIFIC ISLANDER"=	"API",
+    "AMERICAN INDIAN/ALASKAN NATIVE"=	"AMAN",
+    "no data"=	"no data",
+    .default = NA_character_
+  )
+```
+
+```{r}
+#| code-fold: true
+#| code-summary: "recode to the race column"
+
+# This will recode wether or not someone has been arrested. 1 is yes, 0 is no. 
+#This will help us sum values later. 
+
+sqf_2021$SUSPECT_ARRESTED_FLAG<-
+  recode(
+    sqf_2021$SUSPECT_ARRESTED_FLAG,
+    "Y" =	1,
+    "N"	= 0
+  )
+```
+
+## Take a look at the data with `head(10)`
+
+```{r}
+
+sqf_2021 |>
+  head(10)
+
+# To see only the variable names you can  use 
+sqf_2021 |>
+  names() 
+
+
+  
+```
+
+## Select the variables
+
+::: {.callout-note collapse="true"}
+# hint
+
+**hint:** select() the variables we're interested `SUSPECT_RACE_DESCRIPTION` and `SUSPECT_REPORTED_AGE`
+:::
+
+
+```{r select21}
+sqf_2021 |>
+  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)
+
+```
+
+## Rename the variables
+
+`rename()` the variables to yell less (optional)
+
+```{r name21}
+sqf_2021 |>
+  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)|>
+  rename("sex" = "SUSPECT_SEX",
+         "race" = "SUSPECT_RACE_DESCRIPTION",
+         "age" = "SUSPECT_REPORTED_AGE",
+         "arrested" = "SUSPECT_ARRESTED_FLAG") 
+
+```
+
+## Tally up all of the stops by race.
+
+::: {.callout-note collapse="true"}
+# hint
+
+**hint:** `group_by(race)` and use `summarize()` to count all of the stops with `n()`.
+:::
+
+```{r stops_total }
+
+sqf_2021 |>
+  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)|>
+  rename("sex" = "SUSPECT_SEX",
+         "race" = "SUSPECT_RACE_DESCRIPTION",
+         "age" = "SUSPECT_REPORTED_AGE",
+         "arrested" = "SUSPECT_ARRESTED_FLAG") |>
+  group_by(race) |>
+  summarise(stops_total=n())
+
+```
+
+## Find the percent stopped by race
+
+::: {.callout-note collapse="true"}
+# hint
+
+**hint:** Add another variable maybe `percent_stopped` that find the proportion of total stops to `summarize()`. 
+:::
+
+
+```{r percent_stopped}
+
+sqf_2021 |>
+  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)|>
+  rename("sex" = "SUSPECT_SEX",
+         "race" = "SUSPECT_RACE_DESCRIPTION",
+         "age" = "SUSPECT_REPORTED_AGE",
+         "arrested" = "SUSPECT_ARRESTED_FLAG") |>
+  group_by(race) |>
+  summarise(stops_by_race = n(),
+            percent_stopped = n() / total_stops *100
+  )
+
+```
+
+## Find the percent arrested
+
+::: {.callout-note collapse="true"}
+# hint
+
+**hint:** Add a `percent_arrested` variable by adding to `summarize()`.
+:::
+
+
+
+```{r percent_arrested}
+
+sqf_2021 |>
+  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)|>
+  rename("sex" = "SUSPECT_SEX",
+         "race" = "SUSPECT_RACE_DESCRIPTION",
+         "age" = "SUSPECT_REPORTED_AGE",
+         "arrested" = "SUSPECT_ARRESTED_FLAG") |>
+  group_by(race) |>
+  summarise(stops_by_race = n(),
+            percent_stopped = n() / total_stops *100,
+            percent_arrested = sum(arrested)/n() *100
+  )
+
+```
+
+## Order the `percent_arrested` column
+
+::: {.callout-note collapse="true"}
+# hint
+
+**hint:** `arrange()` the `percent_arrested` column so that they are in order.
+:::
+
+
+
+```{r arrange}
+
+sqf_2021 |>
+  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)|>
+  rename("sex" = "SUSPECT_SEX",
+         "race" = "SUSPECT_RACE_DESCRIPTION",
+         "age" = "SUSPECT_REPORTED_AGE",
+         "arrested" = "SUSPECT_ARRESTED_FLAG") |>
+  group_by(race) |>
+  summarise(stops_by_race = n(),
+            percent_stopped = n() / total_stops *100,
+            percent_arrested = sum(arrested)/n() *100
+  )|>
+  arrange(percent_arrested)
+
+```
+
+## Make a bar graph
+
+::: {.callout-note collapse="true"}
+# hint
+
+**hint:** pipe `|>` the data_frame above into `ggplot()` choose `x= race`, `y= percent_arrested` for your aesthetics. The pipe that into `geom_col()`. Add `+theme_minimal()` to make it clean.  
+:::
+
+
+```{r plot}
+
+sqf_2021 |>
+  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)|>
+  rename("sex" = "SUSPECT_SEX",
+         "race" = "SUSPECT_RACE_DESCRIPTION",
+         "age" = "SUSPECT_REPORTED_AGE",
+         "arrested" = "SUSPECT_ARRESTED_FLAG") |>
+  group_by(race) |>
+  summarise(stops_by_race = n(),
+            percent_stopped = n() / total_stops *100,
+            percent_arrested = sum(arrested)/n() *100
+  )|>
+  arrange(percent_arrested)|>
+  
+# Make the graph below. The information is being piped from the datafram above. 
+  ggplot(aes(x=race,y=percent_arrested)) +
+  geom_col()+
+  theme_minimal()
+
+```
+## Extra 2: Add a bar that shows the percent stopped
+
+::: {.callout-note collapse="true"}
+# hint
+
+**hint:** Add another `geom_col()` with appropriate aesthetics. In my code I also gave the graphs color and nudged them a bit to the left or right.  
+:::
+
+
+
+
+```{r plot_extra2}
+
+sqf_2021 |>
+  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)|>
+  rename("sex" = "SUSPECT_SEX",
+         "race" = "SUSPECT_RACE_DESCRIPTION",
+         "age" = "SUSPECT_REPORTED_AGE",
+         "arrested" = "SUSPECT_ARRESTED_FLAG") |>
+  group_by(race) |>
+  summarise(stops_by_race = n(),
+            percent_stopped = n() / total_stops *100,
+            percent_arrested = sum(arrested)/n() *100
+  )|>
+  arrange(percent_arrested)|>
+  
+# Make the graph below. The information is being piped from the datafram above. 
+  ggplot() +
+  geom_col(aes(x=race,y=percent_arrested), alpha = 0.5,  fill="blue", width = 0.25, position = position_nudge(x=0.15))+
+  geom_col(aes(x=race,y=percent_stopped),alpha=0.5,fill="red",width = 0.25, position = position_nudge(x=-0.15))+
+  theme_minimal()
+
+```
+
+## Extra 3: Add titles, axis labels, and a caption. Also add some text to the black bar for context. 
+
+::: {.callout-note collapse="true"}
+# hint
+
+**hint:** Use the `labs()` function for this.  
+:::
+
+
+
+
+```{r plot_extra3}
+
+sqf_2021 |>
+  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)|>
+  rename("sex" = "SUSPECT_SEX",
+         "race" = "SUSPECT_RACE_DESCRIPTION",
+         "age" = "SUSPECT_REPORTED_AGE",
+         "arrested" = "SUSPECT_ARRESTED_FLAG") |>
+  group_by(race) |>
+  summarise(stops_by_race = n(),
+            percent_stopped = n() / total_stops *100,
+            percent_arrested = sum(arrested)/n() *100
+  )|>
+  arrange(percent_arrested)|>
+  
+# Make the graph below. The information is being piped from the datafram above. 
+  ggplot()+
+  geom_col(aes(x=race,y=percent_arrested),   fill="blue", width = 0.25, position = position_nudge(x=0.15))+
+  geom_col(aes(x=race,y=percent_stopped), fill="red",width = 0.25, position = position_nudge(x=-0.15))+
+  labs(
+        y="", 
+       title = "Percent Stopped and Percent Arrested", 
+       caption = "The red bars show the percent of people stopped of the total. The blue bars show the percent arrested of each race.")+
+  theme_minimal()
+
+```
+

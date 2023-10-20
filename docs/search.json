@@ -1,0 +1,282 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "NECOMMIT Keynote",
+    "section": "",
+    "text": "Presentation\nPaper Activity Wrangle 2011 data.\nPost Paper Digestion\nTechnology Activity Wrangle 2021 data."
+  },
+  {
+    "objectID": "sources/websites.html",
+    "href": "sources/websites.html",
+    "title": "Websites and Articles",
+    "section": "",
+    "text": "In doing research on the topic of stop and frisk in NYC between the years 2003 and 2022 I came across these sites, which I found useful."
+  },
+  {
+    "objectID": "sources/websites.html#websites",
+    "href": "sources/websites.html#websites",
+    "title": "Websites and Articles",
+    "section": "",
+    "text": "In doing research on the topic of stop and frisk in NYC between the years 2003 and 2022 I came across these sites, which I found useful."
+  },
+  {
+    "objectID": "sources/websites.html#aclu",
+    "href": "sources/websites.html#aclu",
+    "title": "Websites and Articles",
+    "section": "ACLU",
+    "text": "ACLU\nSituationunder Bill De Blasio, 2019\nBackground, 2008\nLawsuit, 2019"
+  },
+  {
+    "objectID": "sources/websites.html#the-economist",
+    "href": "sources/websites.html#the-economist",
+    "title": "Websites and Articles",
+    "section": "The Economist",
+    "text": "The Economist\nBackground, 2012\nBackground, 2012\nBackground, 2012"
+  },
+  {
+    "objectID": "sources/websites.html#new-york-times",
+    "href": "sources/websites.html#new-york-times",
+    "title": "Websites and Articles",
+    "section": "New York Times",
+    "text": "New York Times"
+  },
+  {
+    "objectID": "sources/websites.html#new-york-civil-liberties-union",
+    "href": "sources/websites.html#new-york-civil-liberties-union",
+    "title": "Websites and Articles",
+    "section": "New York Civil Liberties Union",
+    "text": "New York Civil Liberties Union\nData Graphics, 2022\nData Graphics, 2022"
+  },
+  {
+    "objectID": "sources/websites.html#vera",
+    "href": "sources/websites.html#vera",
+    "title": "Websites and Articles",
+    "section": "Vera",
+    "text": "Vera\nOn youth trust of the police"
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html",
+    "href": "activity/2021_cheat_sheet.html",
+    "title": "Wrangling 2021 Data",
+    "section": "",
+    "text": "This is the second part of the 2023 NECOMMIT keynote given on Oct 21,2023.\nBelow you will find hints and code to mimic the data analysis we did with the sqf 2011 data on paper. Hints are labeled hints and the optional code is folded so it cannot be seen until clicked. We will work in a RScript file."
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#introduction",
+    "href": "activity/2021_cheat_sheet.html#introduction",
+    "title": "Wrangling 2021 Data",
+    "section": "",
+    "text": "This is the second part of the 2023 NECOMMIT keynote given on Oct 21,2023.\nBelow you will find hints and code to mimic the data analysis we did with the sqf 2011 data on paper. Hints are labeled hints and the optional code is folded so it cannot be seen until clicked. We will work in a RScript file."
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#setup",
+    "href": "activity/2021_cheat_sheet.html#setup",
+    "title": "Wrangling 2021 Data",
+    "section": "2 Setup",
+    "text": "2 Setup\n\nGo to posit cloud and set up an account.\nThen click New RStudio Project  and give it a title."
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#install-and-load",
+    "href": "activity/2021_cheat_sheet.html#install-and-load",
+    "title": "Wrangling 2021 Data",
+    "section": "3 Install and Load",
+    "text": "3 Install and Load\nFirst we need to install the tidyverse. This is where our functions come from. Do this in the console pane.\n\ninstall.packages(\"tidyverse\")"
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#get-the-2021-stop-and-frisk-data",
+    "href": "activity/2021_cheat_sheet.html#get-the-2021-stop-and-frisk-data",
+    "title": "Wrangling 2021 Data",
+    "section": "6 Get the 2021 stop and frisk data",
+    "text": "6 Get the 2021 stop and frisk data\n\nurl_2021 &lt;- \"https://www.nyc.gov/assets/nypd/downloads/excel/analysis_and_planning/stop-question-frisk/sqf-2021.xlsx\"\ndownload.file(url_2021, \"sqf-2021.xlsx\")\nsqf_2021 &lt;- read_excel(\"sqf-2021.xlsx\")\n\n# This line read the total number of rows for the document. \n#. The total number of rows is the total number of stops. \n\ntotal_stops &lt;- nrow(sqf_2021)"
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#now-we-can-start.",
+    "href": "activity/2021_cheat_sheet.html#now-we-can-start.",
+    "title": "Wrangling 2021 Data",
+    "section": "7 Now we can start.",
+    "text": "7 Now we can start.\nI’d like to the recreate the data analysis we did on paper for 2011 but in R. There are suggested next steps below. You can always copy code to your RScript."
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#recode-your-variables",
+    "href": "activity/2021_cheat_sheet.html#recode-your-variables",
+    "title": "Wrangling 2021 Data",
+    "section": "8 Recode your variables",
+    "text": "8 Recode your variables\nThis is probably the trickiest part:\n\n\nrecode to the race column\n#Recode Suspect_Race_Description to group hispanic\n\nsqf_2021$SUSPECT_RACE_DESCRIPTION&lt;-\n  recode(\n    sqf_2021$SUSPECT_RACE_DESCRIPTION,\n    \"BLACK HISPANIC\" =  \"Hispanic\",\n    \"WHITE HISPANIC\"    = \"Hispanic\",\n    \"BLACK\"=    \"Black\",\n    \"WHITE\"=    \"White\",\n    \"MIDDLE EASTERN/SOUTHWEST ASIAN\"=   \"MESA\",\n    \"ASIAN / PACIFIC ISLANDER\"= \"API\",\n    \"AMERICAN INDIAN/ALASKAN NATIVE\"=   \"AMAN\",\n    \"no data\"=  \"no data\",\n    .default = NA_character_\n  )\n\n\n\n\nrecode to the race column\n# This will recode wether or not someone has been arrested. 1 is yes, 0 is no. \n#This will help us sum values later. \n\nsqf_2021$SUSPECT_ARRESTED_FLAG&lt;-\n  recode(\n    sqf_2021$SUSPECT_ARRESTED_FLAG,\n    \"Y\" =   1,\n    \"N\" = 0\n  )"
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#take-a-look-at-the-data-with-head10",
+    "href": "activity/2021_cheat_sheet.html#take-a-look-at-the-data-with-head10",
+    "title": "Wrangling 2021 Data",
+    "section": "9 Take a look at the data with head(10)",
+    "text": "9 Take a look at the data with head(10)\n\n\nShow the code\nsqf_2021 |&gt;\n  head(10)\n\n# To see only the variable names you can  use \nsqf_2021 |&gt;\n  names()"
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#select-the-variables",
+    "href": "activity/2021_cheat_sheet.html#select-the-variables",
+    "title": "Wrangling 2021 Data",
+    "section": "10 Select the variables",
+    "text": "10 Select the variables\n\n\n\n\n\n\nhint\n\n\n\n\n\nhint: select() the variables we’re interested SUSPECT_RACE_DESCRIPTION and SUSPECT_REPORTED_AGE\n\n\n\n\n\nShow the code\nsqf_2021 |&gt;\n  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)"
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#rename-the-variables",
+    "href": "activity/2021_cheat_sheet.html#rename-the-variables",
+    "title": "Wrangling 2021 Data",
+    "section": "11 Rename the variables",
+    "text": "11 Rename the variables\nrename() the variables to yell less (optional)\n\n\nShow the code\nsqf_2021 |&gt;\n  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)|&gt;\n  rename(\"sex\" = \"SUSPECT_SEX\",\n         \"race\" = \"SUSPECT_RACE_DESCRIPTION\",\n         \"age\" = \"SUSPECT_REPORTED_AGE\",\n         \"arrested\" = \"SUSPECT_ARRESTED_FLAG\")"
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#tally-up-all-of-the-people-by-race.",
+    "href": "activity/2021_cheat_sheet.html#tally-up-all-of-the-people-by-race.",
+    "title": "NECOMMIT cheat sheet",
+    "section": "10 Tally up all of the people by race.",
+    "text": "10 Tally up all of the people by race.\n\n\n\n\n\n\nhint\n\n\n\n\n\nhint: Make a count() of race\n\n\n\n\n\nShow the code\nsqf_2021 |&gt;\n  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE)|&gt;\n  rename(\"sex\" = \"SUSPECT_SEX\",\n         \"race\" = \"SUSPECT_RACE_DESCRIPTION\",\n         \"age\" = \"SUSPECT_REPORTED_AGE\") |&gt;\n  count(race)"
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#make-your-variables-more-readable",
+    "href": "activity/2021_cheat_sheet.html#make-your-variables-more-readable",
+    "title": "NECOMMIT cheat sheet",
+    "section": "11 Make your variables more readable",
+    "text": "11 Make your variables more readable\n\n\n\n\n\n\nhint\n\n\n\n\n\nhint: rename the column n to total\n\n\n\n\n\nShow the code\nsqf_2021 |&gt;\n  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE)|&gt;\n  rename(\"sex\" = \"SUSPECT_SEX\",\n         \"race\" = \"SUSPECT_RACE_DESCRIPTION\",\n         \"age\" = \"SUSPECT_REPORTED_AGE\") |&gt;\n  count(race) |&gt;\n  rename(\"total\" = \"n\")"
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#add-in-the-percent-colummn",
+    "href": "activity/2021_cheat_sheet.html#add-in-the-percent-colummn",
+    "title": "NECOMMIT cheat sheet",
+    "section": "12 Add in the percent colummn",
+    "text": "12 Add in the percent colummn\n\n\n\n\n\n\nhint\n\n\n\n\n\nhint: Add a percentage column with mutate()\n\n\n\n\n\nShow the code\nsqf_2021 |&gt;\n  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE)|&gt;\n  rename(\"sex\" = \"SUSPECT_SEX\",\n         \"race\" = \"SUSPECT_RACE_DESCRIPTION\",\n         \"age\" = \"SUSPECT_REPORTED_AGE\") |&gt;\n  count(race) |&gt;\n  rename(\"total\" = \"n\") |&gt;\n  mutate(percentage = total/sum(total) * 100)"
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#order-the-percent-column",
+    "href": "activity/2021_cheat_sheet.html#order-the-percent-column",
+    "title": "NECOMMIT cheat sheet",
+    "section": "13 Order the percent column",
+    "text": "13 Order the percent column\n\n\n\n\n\n\nhint\n\n\n\n\n\nhint: arrange() the percent column so that they are in order.\n\n\n\n\n\nShow the code\nsqf_2021 |&gt;\n  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE)|&gt;\n  rename(\"sex\" = \"SUSPECT_SEX\",\n         \"race\" = \"SUSPECT_RACE_DESCRIPTION\",\n         \"age\" = \"SUSPECT_REPORTED_AGE\") |&gt;\n  count(race) |&gt;\n  rename(\"total\" = \"n\") |&gt;\n  mutate(percentage = total/sum(total) * 100) |&gt;\n  arrange(percentage)"
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#tally-up-all-of-the-stops-by-race.",
+    "href": "activity/2021_cheat_sheet.html#tally-up-all-of-the-stops-by-race.",
+    "title": "Wrangling 2021 Data",
+    "section": "12 Tally up all of the stops by race.",
+    "text": "12 Tally up all of the stops by race.\n\n\n\n\n\n\nhint\n\n\n\n\n\nhint: group_by(race) and use summarize() to count all of the stops with n().\n\n\n\n\n\nShow the code\nsqf_2021 |&gt;\n  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)|&gt;\n  rename(\"sex\" = \"SUSPECT_SEX\",\n         \"race\" = \"SUSPECT_RACE_DESCRIPTION\",\n         \"age\" = \"SUSPECT_REPORTED_AGE\",\n         \"arrested\" = \"SUSPECT_ARRESTED_FLAG\") |&gt;\n  group_by(race) |&gt;\n  summarise(stops_total=n())"
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#find-the-percent-stopped-by-race",
+    "href": "activity/2021_cheat_sheet.html#find-the-percent-stopped-by-race",
+    "title": "Wrangling 2021 Data",
+    "section": "13 Find the percent stopped by race",
+    "text": "13 Find the percent stopped by race\n\n\n\n\n\n\nhint\n\n\n\n\n\nhint: Add another variable maybe percent_stopped that find the proportion of total stops to summarize().\n\n\n\n\n\nShow the code\nsqf_2021 |&gt;\n  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)|&gt;\n  rename(\"sex\" = \"SUSPECT_SEX\",\n         \"race\" = \"SUSPECT_RACE_DESCRIPTION\",\n         \"age\" = \"SUSPECT_REPORTED_AGE\",\n         \"arrested\" = \"SUSPECT_ARRESTED_FLAG\") |&gt;\n  group_by(race) |&gt;\n  summarise(stops_by_race = n(),\n            percent_stopped = n() / total_stops *100\n  )"
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#find-the-percent-arrested",
+    "href": "activity/2021_cheat_sheet.html#find-the-percent-arrested",
+    "title": "Wrangling 2021 Data",
+    "section": "14 Find the percent arrested",
+    "text": "14 Find the percent arrested\n\n\n\n\n\n\nhint\n\n\n\n\n\nhint: Add a percent_arrested variable by adding to summarize().\n\n\n\n\n\nShow the code\nsqf_2021 |&gt;\n  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)|&gt;\n  rename(\"sex\" = \"SUSPECT_SEX\",\n         \"race\" = \"SUSPECT_RACE_DESCRIPTION\",\n         \"age\" = \"SUSPECT_REPORTED_AGE\",\n         \"arrested\" = \"SUSPECT_ARRESTED_FLAG\") |&gt;\n  group_by(race) |&gt;\n  summarise(stops_by_race = n(),\n            percent_stopped = n() / total_stops *100,\n            percent_arrested = sum(arrested)/n() *100\n  )"
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#order-the-percent_arrested-column",
+    "href": "activity/2021_cheat_sheet.html#order-the-percent_arrested-column",
+    "title": "Wrangling 2021 Data",
+    "section": "15 Order the percent_arrested column",
+    "text": "15 Order the percent_arrested column\n\n\n\n\n\n\nhint\n\n\n\n\n\nhint: arrange() the percent_arrested column so that they are in order.\n\n\n\n\n\nShow the code\nsqf_2021 |&gt;\n  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)|&gt;\n  rename(\"sex\" = \"SUSPECT_SEX\",\n         \"race\" = \"SUSPECT_RACE_DESCRIPTION\",\n         \"age\" = \"SUSPECT_REPORTED_AGE\",\n         \"arrested\" = \"SUSPECT_ARRESTED_FLAG\") |&gt;\n  group_by(race) |&gt;\n  summarise(stops_by_race = n(),\n            percent_stopped = n() / total_stops *100,\n            percent_arrested = sum(arrested)/n() *100\n  )|&gt;\n  arrange(percent_arrested)"
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#make-a-bar-graph",
+    "href": "activity/2021_cheat_sheet.html#make-a-bar-graph",
+    "title": "Wrangling 2021 Data",
+    "section": "16 Make a bar graph",
+    "text": "16 Make a bar graph\n\n\n\n\n\n\nhint\n\n\n\n\n\nhint: pipe |&gt; the data_frame above into ggplot() choose x= race, y= percent_arrested for your aesthetics. The pipe that into geom_col(). Add +theme_minimal() to make it clean.\n\n\n\n\n\nShow the code\nsqf_2021 |&gt;\n  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)|&gt;\n  rename(\"sex\" = \"SUSPECT_SEX\",\n         \"race\" = \"SUSPECT_RACE_DESCRIPTION\",\n         \"age\" = \"SUSPECT_REPORTED_AGE\",\n         \"arrested\" = \"SUSPECT_ARRESTED_FLAG\") |&gt;\n  group_by(race) |&gt;\n  summarise(stops_by_race = n(),\n            percent_stopped = n() / total_stops *100,\n            percent_arrested = sum(arrested)/n() *100\n  )|&gt;\n  arrange(percent_arrested)|&gt;\n  \n# Make the graph below. The information is being piped from the datafram above. \n  ggplot(aes(x=race,y=percent_arrested)) +\n  geom_col()+\n  theme_minimal()"
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#extra-2-add-a-bar-that-shows-the-percent-stopped",
+    "href": "activity/2021_cheat_sheet.html#extra-2-add-a-bar-that-shows-the-percent-stopped",
+    "title": "Wrangling 2021 Data",
+    "section": "17 Extra 2: Add a bar that shows the percent stopped",
+    "text": "17 Extra 2: Add a bar that shows the percent stopped\n\n\n\n\n\n\nhint\n\n\n\n\n\nhint: Add another geom_col() with appropriate aesthetics. In my code I also gave the graphs color and nudged them a bit to the left or right.\n\n\n\n\n\nShow the code\nsqf_2021 |&gt;\n  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)|&gt;\n  rename(\"sex\" = \"SUSPECT_SEX\",\n         \"race\" = \"SUSPECT_RACE_DESCRIPTION\",\n         \"age\" = \"SUSPECT_REPORTED_AGE\",\n         \"arrested\" = \"SUSPECT_ARRESTED_FLAG\") |&gt;\n  group_by(race) |&gt;\n  summarise(stops_by_race = n(),\n            percent_stopped = n() / total_stops *100,\n            percent_arrested = sum(arrested)/n() *100\n  )|&gt;\n  arrange(percent_arrested)|&gt;\n  \n# Make the graph below. The information is being piped from the datafram above. \n  ggplot() +\n  geom_col(aes(x=race,y=percent_arrested), alpha = 0.5,  fill=\"blue\", width = 0.25, position = position_nudge(x=0.15))+\n  geom_col(aes(x=race,y=percent_stopped),alpha=0.5,fill=\"red\",width = 0.25, position = position_nudge(x=-0.15))+\n  theme_minimal()"
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#extra-3-add-titles-axis-labels-and-a-caption",
+    "href": "activity/2021_cheat_sheet.html#extra-3-add-titles-axis-labels-and-a-caption",
+    "title": "NECOMMIT cheat sheet",
+    "section": "18 Extra 3: Add titles, axis labels, and a caption",
+    "text": "18 Extra 3: Add titles, axis labels, and a caption\n\n\n\n\n\n\nhint\n\n\n\n\n\nhint: Use the labs() function for this.\n\n\n\n\n\nShow the code\nsqf_2021 |&gt;\n  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)|&gt;\n  rename(\"sex\" = \"SUSPECT_SEX\",\n         \"race\" = \"SUSPECT_RACE_DESCRIPTION\",\n         \"age\" = \"SUSPECT_REPORTED_AGE\",\n         \"arrested\" = \"SUSPECT_ARRESTED_FLAG\") |&gt;\n  group_by(race) |&gt;\n  summarise(stops_by_race = n(),\n            percent_stopped = n() / total_stops *100,\n            percent_arrested = sum(arrested)/n() *100\n  )|&gt;\n  arrange(percent_arrested)|&gt;\n  \n# Make the graph below. The information is being piped from the datafram above. \n  ggplot()+\n  geom_col(aes(x=race,y=percent_arrested), alpha = 0.5,  fill=\"blue\", width = 0.25, position = position_nudge(x=0.15))+\n  geom_col(aes(x=race,y=percent_stopped),alpha=0.5,fill=\"red\",width = 0.25, position = position_nudge(x=-0.15))+\n  labs(\n        y=\"\", \n       title = \"Percent Stopped and Percent Arrested\", \n       caption = \"The red bars show the percent of people stopped of the total. The blue bars show the percent arrested of each race.\")+\n  theme_minimal()"
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#open-an-rscript",
+    "href": "activity/2021_cheat_sheet.html#open-an-rscript",
+    "title": "Wrangling 2021 Data",
+    "section": "4 Open an RScript",
+    "text": "4 Open an RScript\n\nFile &gt; New File &gt; R Script\nTo run code in the R script you can highlight it and click \nAll of the following code will be entered into your RScript"
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#load-the-libraries",
+    "href": "activity/2021_cheat_sheet.html#load-the-libraries",
+    "title": "Wrangling 2021 Data",
+    "section": "5 Load the libraries",
+    "text": "5 Load the libraries\n\nlibrary(tidyverse)\nlibrary(readxl)"
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#extra-3-add-titles-axis-labels-and-a-caption.-also-add-some-text-to-the-black-bar-for-context.",
+    "href": "activity/2021_cheat_sheet.html#extra-3-add-titles-axis-labels-and-a-caption.-also-add-some-text-to-the-black-bar-for-context.",
+    "title": "Wrangling 2021 Data",
+    "section": "18 Extra 3: Add titles, axis labels, and a caption. Also add some text to the black bar for context.",
+    "text": "18 Extra 3: Add titles, axis labels, and a caption. Also add some text to the black bar for context.\n\n\n\n\n\n\nhint\n\n\n\n\n\nhint: Use the labs() function for this.\n\n\n\n\n\nShow the code\nsqf_2021 |&gt;\n  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)|&gt;\n  rename(\"sex\" = \"SUSPECT_SEX\",\n         \"race\" = \"SUSPECT_RACE_DESCRIPTION\",\n         \"age\" = \"SUSPECT_REPORTED_AGE\",\n         \"arrested\" = \"SUSPECT_ARRESTED_FLAG\") |&gt;\n  group_by(race) |&gt;\n  summarise(stops_by_race = n(),\n            percent_stopped = n() / total_stops *100,\n            percent_arrested = sum(arrested)/n() *100\n  )|&gt;\n  arrange(percent_arrested)|&gt;\n  \n# Make the graph below. The information is being piped from the datafram above. \n  ggplot()+\n  geom_col(aes(x=race,y=percent_arrested),   fill=\"blue\", width = 0.25, position = position_nudge(x=0.15))+\n  geom_col(aes(x=race,y=percent_stopped), fill=\"red\",width = 0.25, position = position_nudge(x=-0.15))+\n  labs(\n        y=\"\", \n       title = \"Percent Stopped and Percent Arrested\", \n       caption = \"The red bars show the percent of people stopped of the total. The blue bars show the percent arrested of each race.\")+\n  theme_minimal()"
+  },
+  {
+    "objectID": "credits.html",
+    "href": "credits.html",
+    "title": "NECOMMIT Fall '23",
+    "section": "",
+    "text": "Lindsay Porier of Smith College for pointing me to this data.\nMany of the ideas for teaching Data Wrangling with paper cam from Chris Malone of Winona State University."
+  },
+  {
+    "objectID": "sources/websites.html#dan-nguyens-blog",
+    "href": "sources/websites.html#dan-nguyens-blog",
+    "title": "Websites and Articles",
+    "section": "Dan Nguyen’s Blog",
+    "text": "Dan Nguyen’s Blog\nBackground, 2019"
+  },
+  {
+    "objectID": "sources/Presentation.html",
+    "href": "sources/Presentation.html",
+    "title": "Stop and Frisk",
+    "section": "",
+    "text": "Introduction:\n\nname: Nic Schwab\nSDS department at Smith\nMath department at Holyoke Community College\nDevelop a Data Science Program at HCC\nemail: nschwab@smith.edu\n\n\n\nWhy Data Science?\n\nMath conference for teaching with Inquiry.\nMath teachers will be the ones teaching data science.\nData Science lends itself to inquiry practices and active learning.\n\n\n\nWhy R?\nLots of resources available to learn R.\nsee Resources\nMany alternatives\n\ncodap\nNuMPI with python\ngoogle analytics\n\n\n\nStop, Question, Frisk\n\nStarted in the 1990s\nNew York City Police Practice\n\nPolice only need reasonable suspicion.\n\nMany articles about the targeting of Black and Latino young men.\nStudies have shown that this has led to mistrust in the police.\n\n\n\nMore about about me\nI’m not Black.\nI’m am Hispanic.\nI’m White\nI am not from New York City.\n\n\nRace Exists\nLet’s acknowledge that Race exists and plays a part in the way human being interact with each other.\n\n\nSchedule:\n\n\nIntroduce you to the data.\nPose a question that I have about stop and frisk.\nGive you Data Frames with data to answer the question one way.\n\nYou’ll order them with a partner.\nYou’ll make up puesdo code to explain data transformations.\nI’ll give you the real code.\n\nWe’ll repeat the process of data wrangling in R.\n\n\n\n\nQuestions so far?\n\n\nThe Data\nHere’s NYC’s website with the stop and frisk data.\nLet’s consider 2011 data\n\n\nEach column is a variable\nand each row is a stop\n\n\nData Dictionaries exist for older data.\nNew Data variables are more clear.\nThe variable names are inconsistent across years.\n\n\nSQF History in a graph\n\n# Read in each csv file. This is a lot \n\n# With purr csv\n\nfile_paths_csv &lt;- fs::dir_ls(\"../data/2003_2015_csv_files\")\n\nfile_contents_csv&lt;- file_paths_csv |&gt;\n  map(function (path){\n    read_csv(path)\n  })\n\n# with purr excel\n\nfile_paths_xl &lt;- fs::dir_ls(\"../data/2016_2022_xl_files\")\n\nfile_contents_xl&lt;- file_paths_xl |&gt;\n  map(function (path){\n    read_excel(path)\n  })\n\n# https://www.youtube.com/watch?v=An1bUIg-nVM\n\n#See the number of rows i.e stops in each year\npre_2016 &lt;- sapply(file_contents_csv, nrow)\npost_2016 &lt;- sapply(file_contents_xl, nrow)\n\n\nyears &lt;- c(2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022 )\nstops_frisks &lt;- c(160851, 313523, 398191, 506491, 472096, 540302, 581168,  601285, 685724, 532911,  191851, 45787, 22563, 12405, 11629,  11008,   13459,9544 , 8947,  15102)  \n\nsqf &lt;- data.frame(years,stops_frisks)\n\n\n\nsqf |&gt; \n  ggplot(aes(years,stops_frisks)) +\n  \n  geom_rect(aes(xmin=2002,xmax=2014,ymin=0,ymax=Inf),fill=\"#003585\",alpha=0.01)+\n  geom_rect(aes(xmin=2014,xmax=2021,ymin=0,ymax=Inf),fill=\"#FFFFFF\",alpha=0.01)+\n  geom_rect(aes(xmin=2021,xmax=2022,ymin=0,ymax=Inf),fill=\"#FF6600\",alpha=0.01)+\n  geom_line()+\n  xlab(\"Year\")+\n  ylab(\"Citizens Stopped ('000s)\")+\n  labs(title=\"\")+\n  theme_minimal()+\n  scale_y_continuous(breaks = c(0,350000,700000), labels = c(\"0\",\"350\",\"700\"))+\n  scale_x_continuous(breaks = c(2003,2013,2022))+\n  geom_text(label=\"Bloomberg\", x = 2004.5, y = 40000, color=\"gray35\" ) +\n  geom_text(label=\"de Blasio\", x = 2016, y = 40000, color=\"gray35\" ) +\n  geom_text(label=\"Adams\", x = 2022, y = 40000, color=\"gray35\" ) +\n  geom_text(label=\". NYCLU \\n suit\", x = 2013, y = 650000, color=\"gray35\" ) +\n  geom_vline(xintercept=2012, linetype = 3 )\n\n\n\n\n\n\nQuestions\n\n\n\nWhich racial groups were most likely to be stopped by police officers 2011?\nWhat percent of the stops resulted in an arrest in 2011?\nHow do the answers to these questions change in 2021?\n\n\n\n\n\nHere are your data frames\n\nLittle envelopes Data 2011\n\n\nPut the Data Frames in Order.\nBe sure you can explain the process from one DF to another.\n\n\nLittle envelopes Functions\n\n\nAfter the frames are in Order put the code arrows between each frame."
+  },
+  {
+    "objectID": "sources/digestion.html",
+    "href": "sources/digestion.html",
+    "title": "Digestion",
+    "section": "",
+    "text": "Have we answered our question?\n\n\nFunctions\nAll functions come the dplyr which is loaded with the tidyverse. There are many more functions. See the cheat sheet\n\n\n\nfunction\ndoes\n\n\n\n\nselect()\nselects columns from df\n\n\ngroup_by()\ngroups levels of a column for later functions\n\n\nsummarise()\npreforms summary operations.\n\n\nrename()\nrenames the levels of a column.\n\n\n\n\n\nOperators\n\n\n\n\n\n\n\n\nsymbol\nname\noperation\n\n\n\n\n&lt;-\narrow operator\nsaves an object to the variable on the left\n\n\n|&gt;\npipe\nmoves an object into the first argument of a function.\n\n\n$\ndollar sign operator\nAccesses one variable in a dataset."
+  },
+  {
+    "objectID": "schwab.html",
+    "href": "schwab.html",
+    "title": "Nic Schwab",
+    "section": "",
+    "text": "Nicholas Schwab is a visiting lecturer in Statistical and Data Sciences. He is a tenured professor at Holyoke Community College. When not teaching data science, he enjoys rock climbing, running, and reading children’s books to his kids."
+  },
+  {
+    "objectID": "schwab.html#student-hours",
+    "href": "schwab.html#student-hours",
+    "title": "Nic Schwab",
+    "section": "Student Hours",
+    "text": "Student Hours\nDrop into the office: Wednesdays and Friday from 9:45am - 10:45am in McConnell 213\nBy Appointment (schedule between 12 hours and 7 days in advance) Tuesday and Thursday 9:00 – 10:15 am\nPlease let me know if the above times do not work for your schedule and we can coordinate another time."
+  },
+  {
+    "objectID": "schwab.html#education",
+    "href": "schwab.html#education",
+    "title": "Nic Schwab",
+    "section": "Education",
+    "text": "Education\n\nMS in Data Science (~2026)\nUniversity of Texas at Austin\nAustin, Texas\nMA in Mathematics (2009)\nAppalchain State University\nBoone, NC\nBA in Mathematics (2007)\nUC Santa Cruz\nSanta Cruz, CA"
+  },
+  {
+    "objectID": "schwab.html#experience",
+    "href": "schwab.html#experience",
+    "title": "Nic Schwab",
+    "section": "Experience",
+    "text": "Experience\n\nProfessor of Mathematics\nHolyoke Community College\nHolyoke, MA 2014–2023"
+  }
+]
