@@ -47,7 +47,7 @@ All functions come the dplyr which is loaded with the tidyverse. There are many 
 # Operators
 
 | symbol | name                 | operation                                              |
-|-------------------|-------------------|-----------------------------------|
+|--------|----------------------|--------------------------------------------------------|
 | \<-    | arrow operator       | saves an object to the variable on the left            |
 | \|\>   | pipe                 | moves an object into the first argument of a function. |
 | \$     | dollar sign operator | Accesses one variable in a dataset.                    |

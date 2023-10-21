@@ -1,14 +1,24 @@
 ---
 title: "NECOMMIT Keynote"
 subtitle: "Wrangling Stop and Frisk Data"
+format: 
+  html:
+    toc: false
+
 date: "Oct 21,2023"
 
 ---
 
-[SQF An Introduction to Data wrangling](/sources/Presentation.qmd)
+This keynote will introduce data wrangling and visualization in R. It will do this via the New York Stop and Frisk Data from 2011 and 2021. We will use tools in the `tidyverse`. 
 
-Paper Activity Wrangle 2011 data.
+### [1. SQF An Introduction to Data wrangling](/sources/Presentation.qmd)
 
-[Let's discuss](/sources/digestion.qmd)
+### 2. Paper Activity Wrangle 2011 data.
 
-[Technology Activity Wrangle 2021 data.](activity/2021_cheat_sheet.qmd)
+### [3. Let's discuss](/sources/digestion.qmd)
+
+### [4. Technology Activity Wrangle 2021 data.](activity/2021_cheat_sheet.qmd)
+
+
+
+Please see credits below for the shoulders I am standing on. 

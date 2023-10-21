@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "NECOMMIT Keynote",
     "section": "",
-    "text": "SQF An Introduction to Data wrangling\nPaper Activity Wrangle 2011 data.\nLet’s discuss\nTechnology Activity Wrangle 2021 data."
+    "text": "This keynote will introduce data wrangling and visualization in R. It will do this via the New York Stop and Frisk Data from 2011 and 2021. We will use tools in the tidyverse.\n\n1. SQF An Introduction to Data wrangling\n\n\n2. Paper Activity Wrangle 2011 data.\n\n\n3. Let’s discuss\n\n\n4. Technology Activity Wrangle 2021 data.\nPlease see credits below for the shoulders I am standing on."
   },
   {
     "objectID": "sources/websites.html",
@@ -341,5 +341,26 @@
     "title": "Wrangling 2021 Data",
     "section": "18 Interpretation",
     "text": "18 Interpretation"
+  },
+  {
+    "objectID": "index.html#sqf-an-introduction-to-data-wrangling",
+    "href": "index.html#sqf-an-introduction-to-data-wrangling",
+    "title": "NECOMMIT Keynote",
+    "section": "SQF An Introduction to Data wrangling",
+    "text": "SQF An Introduction to Data wrangling\nPaper Activity Wrangle 2011 data."
+  },
+  {
+    "objectID": "index.html#lets-discuss",
+    "href": "index.html#lets-discuss",
+    "title": "NECOMMIT Keynote",
+    "section": "Let’s discuss",
+    "text": "Let’s discuss"
+  },
+  {
+    "objectID": "index.html#technology-activity-wrangle-2021-data.",
+    "href": "index.html#technology-activity-wrangle-2021-data.",
+    "title": "NECOMMIT Keynote",
+    "section": "Technology Activity Wrangle 2021 data.",
+    "text": "Technology Activity Wrangle 2021 data.\nPlease see credits below for the shoulders I am standing on."
   }
 ]
