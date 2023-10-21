@@ -23,11 +23,12 @@ editor: visual
 
 -   Data Science lends itself to inquiry practices and active learning.
 
+
 # Why R?
 
-Lots of resources available to learn R.
+Lots of [resources](sources/resources.qmd) available to learn R.
 
-[Resources](sources/resources.qmd)
+- Statistics
 
 Many alternatives
 
@@ -53,8 +54,6 @@ Many alternatives
 
     -   Police need "[reasonable suspicion](https://supreme.justia.com/cases/federal/us/392/1/)."
 
--   Targeting of Black and Latino young men.
-
 -   Leads to mistrust in the police by these groups.
 
 # More about about me
@@ -71,7 +70,7 @@ In this data analysis I will have limited perspective.
 
 # Race Exists
 
-Let's acknowledge that the construct of race exists and plays a part in the way human being interact with each other.
+This is an acknowledgement that the construct of race exists and plays a part in the way human being interact with each other.
 
 # Schedule
 
@@ -208,11 +207,12 @@ sqf |>
 
 -   Put the data frames in order.
 
--   Be sure you can explain the process from one df to another psuedocode
+-   Be sure you can explain the process from one df to another. "psuedocode"
 
 -   Questions about the data?
 
 2.  Little envelope **functions**
 
 -   After the frames are in order put the code arrows between each frame.
+
 -   Questions about the code?

@@ -18,11 +18,15 @@ This is the second part of the 2023 NECOMMIT keynote given on Oct 21,2023.
 
 Below you will find hints and code to mimic the data analysis we did with the sqf 2011 data on paper with arrows. Hints are labeled **hints** and the optional code is folded so it cannot be seen until clicked. We will work in a RScript file.
 
+Let's get set up together.
+
 ## Setup
 
 -   Go to [posit cloud](https://posit.cloud/) and set up an account.
 
--   Then click New RStudio Project ![](images/new-rstudio-project-02.png){width="200"} and give it a title.
+-   Then click **New RStudio Project** and give it a title.
+
+    ![](images/new-rstudio-project-02.png){width="200"}
 
 ## Install and Load
 
@@ -30,7 +34,9 @@ First we need to install the `tidyverse`. This is where our functions come from.
 
 ```{r install-tidyverse}
 #| code-fold: false
+#| eval: false
 #| code-summary: "Install the tools we need"
+
 
 # You only need to run this once.
 install.packages("tidyverse")
@@ -41,7 +47,13 @@ install.packages("tidyverse")
 ## Open an RScript
 
 -   File \> New File \> R Script
--   To run code in the R script you can highlight it and click ![](./images/Run.png)
+
+![](/images/new-r-script.png)
+
+-   To run code in the R script you can [highlight]{.underline} it and click
+
+    ![](./images/Run.png)
+
 -   All of the following code will be entered into your RScript
 
 ## Load the libraries
@@ -71,7 +83,7 @@ sqf_2021 <- read_excel("sqf-2021.xlsx")
 total_stops <- nrow(sqf_2021)
 ```
 
-## Now we can start
+## Start Wrangling
 
 I'd like to the recreate the data analysis we did on paper for 2011 but in R. There are suggested next steps below. You can always copy code to your RScript file.
 
@@ -221,7 +233,7 @@ sqf_2021 |>
   group_by(race) |>
   summarise(stops_by_race = n(),
             percent_stopped = n() / total_stops *100,
-            percent_arrested = sum(arrested)/n() *100
+            percent_arrested = sum(arrested)/stops_by_race *100
   )
 
 ```
@@ -281,7 +293,7 @@ sqf_2021 |>
 
 ```
 
-## Extra 2: Add titles, axis labels and color the graph red.
+## Extra: Add titles, axis labels and color the graph red
 
 ::: {.callout-note collapse="true"}
 # hint
@@ -314,3 +326,5 @@ sqf_2021 |>
   theme_minimal()
 
 ```
+
+## Interpretation

@@ -60,7 +60,7 @@
     "href": "activity/2021_cheat_sheet.html",
     "title": "Wrangling 2021 Data",
     "section": "",
-    "text": "This is the second part of the 2023 NECOMMIT keynote given on Oct 21,2023.\nBelow you will find hints and code to mimic the data analysis we did with the sqf 2011 data on paper with arrows. Hints are labeled hints and the optional code is folded so it cannot be seen until clicked. We will work in a RScript file."
+    "text": "This is the second part of the 2023 NECOMMIT keynote given on Oct 21,2023.\nBelow you will find hints and code to mimic the data analysis we did with the sqf 2011 data on paper with arrows. Hints are labeled hints and the optional code is folded so it cannot be seen until clicked. We will work in a RScript file.\nLet’s get set up together."
   },
   {
     "objectID": "activity/2021_cheat_sheet.html#introduction",
@@ -74,7 +74,7 @@
     "href": "activity/2021_cheat_sheet.html#setup",
     "title": "Wrangling 2021 Data",
     "section": "2 Setup",
-    "text": "2 Setup\n\nGo to posit cloud and set up an account.\nThen click New RStudio Project  and give it a title."
+    "text": "2 Setup\n\nGo to posit cloud and set up an account.\nThen click New RStudio Project and give it a title."
   },
   {
     "objectID": "activity/2021_cheat_sheet.html#install-and-load",
@@ -172,7 +172,7 @@
     "href": "activity/2021_cheat_sheet.html#find-the-percent-arrested",
     "title": "Wrangling 2021 Data",
     "section": "14 Find the percent arrested",
-    "text": "14 Find the percent arrested\n\n\n\n\n\n\nhint\n\n\n\n\n\nhint: Add a percent_arrested variable by adding to summarize().\n\n\n\n\n\nShow the code\nsqf_2021 |>\n  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)|>\n  rename(\"sex\" = \"SUSPECT_SEX\",\n         \"race\" = \"SUSPECT_RACE_DESCRIPTION\",\n         \"age\" = \"SUSPECT_REPORTED_AGE\",\n         \"arrested\" = \"SUSPECT_ARRESTED_FLAG\") |>\n  group_by(race) |>\n  summarise(stops_by_race = n(),\n            percent_stopped = n() / total_stops *100,\n            percent_arrested = sum(arrested)/n() *100\n  )"
+    "text": "14 Find the percent arrested\n\n\n\n\n\n\nhint\n\n\n\n\n\nhint: Add a percent_arrested variable by adding to summarize().\n\n\n\n\n\nShow the code\nsqf_2021 |>\n  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)|>\n  rename(\"sex\" = \"SUSPECT_SEX\",\n         \"race\" = \"SUSPECT_RACE_DESCRIPTION\",\n         \"age\" = \"SUSPECT_REPORTED_AGE\",\n         \"arrested\" = \"SUSPECT_ARRESTED_FLAG\") |>\n  group_by(race) |>\n  summarise(stops_by_race = n(),\n            percent_stopped = n() / total_stops *100,\n            percent_arrested = sum(arrested)/stops_by_race *100\n  )"
   },
   {
     "objectID": "activity/2021_cheat_sheet.html#order-the-percent_arrested-column",
@@ -207,7 +207,7 @@
     "href": "activity/2021_cheat_sheet.html#open-an-rscript",
     "title": "Wrangling 2021 Data",
     "section": "4 Open an RScript",
-    "text": "4 Open an RScript\n\nFile > New File > R Script\nTo run code in the R script you can highlight it and click \nAll of the following code will be entered into your RScript"
+    "text": "4 Open an RScript\n\nFile > New File > R Script\n\n\n\nTo run code in the R script you can highlight it and click\n\nAll of the following code will be entered into your RScript"
   },
   {
     "objectID": "activity/2021_cheat_sheet.html#load-the-libraries",
@@ -299,5 +299,47 @@
     "title": "Wrangling 2021 Data",
     "section": "17 Extra 2: Add titles, axis labels and color the graph red.",
     "text": "17 Extra 2: Add titles, axis labels and color the graph red.\n\n\n\n\n\n\nhint\n\n\n\n\n\nhint: Use the labs() function for this.\n\n\n\n\n\nShow the code\nsqf_2021 |>\n  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)|>\n  rename(\"sex\" = \"SUSPECT_SEX\",\n         \"race\" = \"SUSPECT_RACE_DESCRIPTION\",\n         \"age\" = \"SUSPECT_REPORTED_AGE\",\n         \"arrested\" = \"SUSPECT_ARRESTED_FLAG\") |>\n  group_by(race) |>\n  summarise(stops_by_race = n(),\n            percent_stopped = n() / total_stops *100,\n            percent_arrested = sum(arrested)/n() *100\n  )|>\n  arrange(percent_arrested)|>\n  \n# Make the graph below. The information is being piped from the datafram above. \n  ggplot()+\n  geom_col(aes(x=race,y=percent_stopped), fill=\"red\",)+\n  labs(\n        y=\"Percent\", \n       title = \"People stopped by race in 2021\", \n  )+\n  theme_minimal()"
+  },
+  {
+    "objectID": "sources/resources.html",
+    "href": "sources/resources.html",
+    "title": "NECOMMIT Fall '23",
+    "section": "",
+    "text": "Resources for learning R for undergrads\nBelow are a list of resources which I have found useful. Please feel free to ask me about any of these or share ones you know about.\n\n\nData Science\nModern Dive\n\nThis book has both basic data analysis and statistics. Its got nice examples but there aren’t many homework problems.\n\nModern Data Science with R\n\nThis book is a complete data science and statistics text with R. Many good problems, especially if you like baseball.\n\nR for Data Science\n\nI find this to be a great reference manual.\n\n\n\nStatistics\nProject Mosaic\n\nThe mosaic package was made by faculty to offer a bridge into R via statistics. I have taught with it many times in introductory statistics.\nStatistical Modeling: A Fresh Approach by Daniel Kaplan\n\nI have not used this text, but it has a booklet on R to acompany it.\n\nA Student’s Guide to R\n\nThis is a helpful resource to learning what functions in the mosaic package do.\n\nR tutorials\n\nI made some learnr tutorials to show how to use the mosaic package with for Intro stats. The examples come from OpenIntroStats 4th edition. They are beta, if you want to collaborate on them let me know.\n\n\nIntroduction to Modern Statistics\n\nThis book uses infer which is a more professional tool than mosaic.\nI am currently teaching with this text. website\n\n\n\nProgramming\nHands on programming with R\n\nThis is the next text I plan to read through. Its been recommended several times.\n\n\n\nData Science Course Website.\n\nBen Baumer\nLindsay Poirier\nShiya Cao\nMe\n\n\n\nStatistics Course Websites.\nMe(excuse the many typos, its the first semester with this text)"
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#start-wrangling",
+    "href": "activity/2021_cheat_sheet.html#start-wrangling",
+    "title": "Wrangling 2021 Data",
+    "section": "7 Start Wrangling",
+    "text": "7 Start Wrangling\nI’d like to the recreate the data analysis we did on paper for 2011 but in R. There are suggested next steps below. You can always copy code to your RScript file."
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#extra-add-titles-axis-labels-and-color-the-graph-red.",
+    "href": "activity/2021_cheat_sheet.html#extra-add-titles-axis-labels-and-color-the-graph-red.",
+    "title": "Wrangling 2021 Data",
+    "section": "17 Extra: Add titles, axis labels and color the graph red.",
+    "text": "17 Extra: Add titles, axis labels and color the graph red.\n\n\n\n\n\n\nhint\n\n\n\n\n\nhint: Use the labs() function for this.\n\n\n\n\n\nShow the code\nsqf_2021 |>\n  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)|>\n  rename(\"sex\" = \"SUSPECT_SEX\",\n         \"race\" = \"SUSPECT_RACE_DESCRIPTION\",\n         \"age\" = \"SUSPECT_REPORTED_AGE\",\n         \"arrested\" = \"SUSPECT_ARRESTED_FLAG\") |>\n  group_by(race) |>\n  summarise(stops_by_race = n(),\n            percent_stopped = n() / total_stops *100,\n            percent_arrested = sum(arrested)/n() *100\n  )|>\n  arrange(percent_arrested)|>\n  \n# Make the graph below. The information is being piped from the datafram above. \n  ggplot()+\n  geom_col(aes(x=race,y=percent_stopped), fill=\"red\",)+\n  labs(\n        y=\"Percent\", \n       title = \"People stopped by race in 2021\", \n  )+\n  theme_minimal()"
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#interpretation.",
+    "href": "activity/2021_cheat_sheet.html#interpretation.",
+    "title": "Wrangling 2021 Data",
+    "section": "18 Interpretation.",
+    "text": "18 Interpretation."
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#extra-add-titles-axis-labels-and-color-the-graph-red",
+    "href": "activity/2021_cheat_sheet.html#extra-add-titles-axis-labels-and-color-the-graph-red",
+    "title": "Wrangling 2021 Data",
+    "section": "17 Extra: Add titles, axis labels and color the graph red",
+    "text": "17 Extra: Add titles, axis labels and color the graph red\n\n\n\n\n\n\nhint\n\n\n\n\n\nhint: Use the labs() function for this.\n\n\n\n\n\nShow the code\nsqf_2021 |>\n  select(SUSPECT_SEX, SUSPECT_RACE_DESCRIPTION, SUSPECT_REPORTED_AGE, SUSPECT_ARRESTED_FLAG)|>\n  rename(\"sex\" = \"SUSPECT_SEX\",\n         \"race\" = \"SUSPECT_RACE_DESCRIPTION\",\n         \"age\" = \"SUSPECT_REPORTED_AGE\",\n         \"arrested\" = \"SUSPECT_ARRESTED_FLAG\") |>\n  group_by(race) |>\n  summarise(stops_by_race = n(),\n            percent_stopped = n() / total_stops *100,\n            percent_arrested = sum(arrested)/n() *100\n  )|>\n  arrange(percent_arrested)|>\n  \n# Make the graph below. The information is being piped from the datafram above. \n  ggplot()+\n  geom_col(aes(x=race,y=percent_stopped), fill=\"red\",)+\n  labs(\n        y=\"Percent\", \n       title = \"People stopped by race in 2021\", \n  )+\n  theme_minimal()"
+  },
+  {
+    "objectID": "activity/2021_cheat_sheet.html#interpretation",
+    "href": "activity/2021_cheat_sheet.html#interpretation",
+    "title": "Wrangling 2021 Data",
+    "section": "18 Interpretation",
+    "text": "18 Interpretation"
   }
 ]

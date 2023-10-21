@@ -191,7 +191,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#open-an-rscript" id="toc-open-an-rscript" class="nav-link" data-scroll-target="#open-an-rscript"><span class="toc-section-number">4</span>  Open an RScript</a></li>
   <li><a href="#load-the-libraries" id="toc-load-the-libraries" class="nav-link" data-scroll-target="#load-the-libraries"><span class="toc-section-number">5</span>  Load the libraries</a></li>
   <li><a href="#get-the-2021-stop-and-frisk-data" id="toc-get-the-2021-stop-and-frisk-data" class="nav-link" data-scroll-target="#get-the-2021-stop-and-frisk-data"><span class="toc-section-number">6</span>  Get the 2021 stop and frisk data</a></li>
-  <li><a href="#now-we-can-start" id="toc-now-we-can-start" class="nav-link" data-scroll-target="#now-we-can-start"><span class="toc-section-number">7</span>  Now we can start</a></li>
+  <li><a href="#start-wrangling" id="toc-start-wrangling" class="nav-link" data-scroll-target="#start-wrangling"><span class="toc-section-number">7</span>  Start Wrangling</a></li>
   <li><a href="#recode-your-variables" id="toc-recode-your-variables" class="nav-link" data-scroll-target="#recode-your-variables"><span class="toc-section-number">8</span>  Recode your variables</a></li>
   <li><a href="#take-a-look-at-the-data-with-head10" id="toc-take-a-look-at-the-data-with-head10" class="nav-link" data-scroll-target="#take-a-look-at-the-data-with-head10"><span class="toc-section-number">9</span>  Take a look at the data with <code>head(10)</code></a></li>
   <li><a href="#select-the-variables" id="toc-select-the-variables" class="nav-link" data-scroll-target="#select-the-variables"><span class="toc-section-number">10</span>  Select the variables</a></li>
@@ -201,7 +201,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#find-the-percent-arrested" id="toc-find-the-percent-arrested" class="nav-link" data-scroll-target="#find-the-percent-arrested"><span class="toc-section-number">14</span>  Find the percent arrested</a></li>
   <li><a href="#order-the-percent_arrested-column" id="toc-order-the-percent_arrested-column" class="nav-link" data-scroll-target="#order-the-percent_arrested-column"><span class="toc-section-number">15</span>  Order the <code>percent_arrested</code> column</a></li>
   <li><a href="#make-a-bar-graph-of-percent-stopped" id="toc-make-a-bar-graph-of-percent-stopped" class="nav-link" data-scroll-target="#make-a-bar-graph-of-percent-stopped"><span class="toc-section-number">16</span>  Make a bar graph of percent stopped</a></li>
-  <li><a href="#extra-2-add-titles-axis-labels-and-color-the-graph-red." id="toc-extra-2-add-titles-axis-labels-and-color-the-graph-red." class="nav-link" data-scroll-target="#extra-2-add-titles-axis-labels-and-color-the-graph-red."><span class="toc-section-number">17</span>  Extra 2: Add titles, axis labels and color the graph red.</a></li>
+  <li><a href="#extra-add-titles-axis-labels-and-color-the-graph-red" id="toc-extra-add-titles-axis-labels-and-color-the-graph-red" class="nav-link" data-scroll-target="#extra-add-titles-axis-labels-and-color-the-graph-red"><span class="toc-section-number">17</span>  Extra: Add titles, axis labels and color the graph red</a></li>
+  <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation"><span class="toc-section-number">18</span>  Interpretation</a></li>
   </ul>
 </nav>
     </div>
@@ -235,12 +236,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
 <p>This is the second part of the 2023 NECOMMIT keynote given on Oct 21,2023.</p>
 <p>Below you will find hints and code to mimic the data analysis we did with the sqf 2011 data on paper with arrows. Hints are labeled <strong>hints</strong> and the optional code is folded so it cannot be seen until clicked. We will work in a RScript file.</p>
+<p>Let’s get set up together.</p>
 </section>
 <section id="setup" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="setup"><span class="header-section-number">2</span> Setup</h2>
 <ul>
 <li><p>Go to <a href="https://posit.cloud/">posit cloud</a> and set up an account.</p></li>
-<li><p>Then click New RStudio Project <img src="images/new-rstudio-project-02.png" class="img-fluid" width="200"> and give it a title.</p></li>
+<li><p>Then click <strong>New RStudio Project</strong> and give it a title.</p>
+<p><img src="images/new-rstudio-project-02.png" class="img-fluid" width="200"></p></li>
 </ul>
 </section>
 <section id="install-and-load" class="level2" data-number="3">
@@ -255,8 +258,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 data-number="4" class="anchored" data-anchor-id="open-an-rscript"><span class="header-section-number">4</span> Open an RScript</h2>
 <ul>
 <li>File &gt; New File &gt; R Script</li>
-<li>To run code in the R script you can highlight it and click <img src="./images/Run.png" class="img-fluid"></li>
-<li>All of the following code will be entered into your RScript</li>
+</ul>
+<p><img src="../images/new-r-script.png" class="img-fluid"></p>
+<ul>
+<li><p>To run code in the R script you can <u>highlight</u> it and click</p>
+<p><img src="./images/Run.png" class="img-fluid"></p></li>
+<li><p>All of the following code will be entered into your RScript</p></li>
 </ul>
 </section>
 <section id="load-the-libraries" class="level2" data-number="5">
@@ -279,8 +286,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>total_stops <span class="ot">&lt;-</span> <span class="fu">nrow</span>(sqf_2021)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="now-we-can-start" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="now-we-can-start"><span class="header-section-number">7</span> Now we can start</h2>
+<section id="start-wrangling" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="start-wrangling"><span class="header-section-number">7</span> Start Wrangling</h2>
 <p>I’d like to the recreate the data analysis we did on paper for 2011 but in R. There are suggested next steps below. You can always copy code to your RScript file.</p>
 </section>
 <section id="recode-your-variables" class="level2" data-number="8">
@@ -472,7 +479,7 @@ hint
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(race) <span class="sc">|&gt;</span></span>
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">stops_by_race =</span> <span class="fu">n</span>(),</span>
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">percent_stopped =</span> <span class="fu">n</span>() <span class="sc">/</span> total_stops <span class="sc">*</span><span class="dv">100</span>,</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">percent_arrested =</span> <span class="fu">sum</span>(arrested)<span class="sc">/</span><span class="fu">n</span>() <span class="sc">*</span><span class="dv">100</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">percent_arrested =</span> <span class="fu">sum</span>(arrested)<span class="sc">/</span>stops_by_race <span class="sc">*</span><span class="dv">100</span></span>
 <span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
@@ -554,8 +561,8 @@ hint
 </details>
 </div>
 </section>
-<section id="extra-2-add-titles-axis-labels-and-color-the-graph-red." class="level2" data-number="17">
-<h2 data-number="17" class="anchored" data-anchor-id="extra-2-add-titles-axis-labels-and-color-the-graph-red."><span class="header-section-number">17</span> Extra 2: Add titles, axis labels and color the graph red.</h2>
+<section id="extra-add-titles-axis-labels-and-color-the-graph-red" class="level2" data-number="17">
+<h2 data-number="17" class="anchored" data-anchor-id="extra-add-titles-axis-labels-and-color-the-graph-red"><span class="header-section-number">17</span> Extra: Add titles, axis labels and color the graph red</h2>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -598,6 +605,9 @@ hint
 <span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
+</section>
+<section id="interpretation" class="level2" data-number="18">
+<h2 data-number="18" class="anchored" data-anchor-id="interpretation"><span class="header-section-number">18</span> Interpretation</h2>
 
 
 </section>

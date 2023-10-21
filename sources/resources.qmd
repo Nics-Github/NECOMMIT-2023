@@ -1,0 +1,63 @@
+# Resources for learning R for undergrads
+
+Below are a list of resources which I have found useful. Please feel free to ask me about any of these or share ones you know about.  
+
+# Data Science 
+
+[Modern Dive](https://moderndive.com/)
+
+  - This book has both basic data analysis and statistics. Its got nice examples but there aren't many homework problems. 
+  
+[Modern Data Science with R](https://mdsr-book.github.io/mdsr3e/)
+
+  - This book is a complete data science and statistics text with R. Many good problems, especially if you like baseball.
+  
+[R for Data Science](https://r4ds.had.co.nz/introduction.html)
+
+  - I find this to be a great reference manual.
+
+# Statistics
+
+[Project Mosaic](https://www.mosaic-web.org/)
+
+  - The mosaic package was made by faculty to offer a bridge into R via statistics. I have taught with it many times in introductory statistics. 
+
+  - [Statistical Modeling: A Fresh Approach by Daniel Kaplan](https://dtkaplan.github.io/SM2-bookdown/)
+  
+    - I have not used this text, but it has a booklet on R to acompany it. 
+  
+  - [A Student’s Guide to R](https://github.com/ProjectMOSAIC/LittleBooks/raw/master/StudentGuide/MOSAIC-StudentGuide.pdf)
+  
+      - This is a helpful resource to learning what functions in the mosaic package do. 
+  
+  - [R tutorials](https://github.com/Nics-Github/MTH142Rtutorials)
+    
+      - I made some learnr tutorials to show how to use the mosaic package with for Intro stats. The examples come from [OpenIntroStats 4th edition](https://www.openintro.org/book/os/). They are beta, if you want to collaborate on them let me know. 
+      
+[Introduction to Modern Statistics](https://openintro-ims.netlify.app/)  
+
+  - This book uses [infer](https://www.tidyverse.org/blog/2021/08/infer-1-0-0/#getting-to-know-infer) which is a more professional tool than mosaic.
+  
+  - I am currently teaching with this text. [website](https://nics-github.github.io/sds220/) 
+
+# Programming
+
+[Hands on programming with R](https://rstudio-education.github.io/hopr/)
+
+  - This is the next text I plan to read through. Its been recommended several times. 
+  
+# Data Science Course Website.
+
+  - [Ben Baumer](https://beanumber.github.io/sds192/schedule.html)
+  
+  - [Lindsay Poirier](https://sds-192-intro-fall22.github.io/sds-192-public-website-quarto/)
+  
+  - [Shiya Cao](https://scao53.github.io/sds192spring2023/#Lec_01:_Fri_12740)
+  
+  - [Me](https://nics-github.github.io/SDS192/)
+
+# Statistics Course Websites. 
+  
+  [Me](https://nics-github.github.io/sds220/)(excuse the many typos, its the first semester with this text)
+  
+  

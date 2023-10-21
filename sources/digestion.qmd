@@ -18,6 +18,10 @@ editor: visual
 
 [2010 data here](https://www.nyc.gov/assets/planning/download/pdf/data-maps/nyc-population/census2010/pgrhc.pdf)
 
+# Interpretations
+
+What are some interpretations of the data frame we have at the end of our wrangling.
+
 # Wrangling Functions
 
 All functions come the dplyr which is loaded with the tidyverse. There are many more functions. See the [cheat sheet](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
@@ -35,7 +39,7 @@ All functions come the dplyr which is loaded with the tidyverse. There are many 
 
 | function        | does                                  |
 |-----------------|---------------------------------------|
-| ggplot()        | setsup a plot, needs df and aes()     |
+| ggplot()        | sets up a plot, needs df and aes()    |
 | geom_col()      | makes column graphs based on aes(x,y) |
 | labs()          | adds labels to graphs.                |
 | theme_minimal() | A theme to clean things up            |
@@ -43,7 +47,7 @@ All functions come the dplyr which is loaded with the tidyverse. There are many 
 # Operators
 
 | symbol | name                 | operation                                              |
-|-------------------|-------------------|------------------------------------|
+|-------------------|-------------------|-----------------------------------|
 | \<-    | arrow operator       | saves an object to the variable on the left            |
 | \|\>   | pipe                 | moves an object into the first argument of a function. |
 | \$     | dollar sign operator | Accesses one variable in a dataset.                    |
