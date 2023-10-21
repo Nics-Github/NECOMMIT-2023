@@ -23,12 +23,11 @@ editor: visual
 
 -   Data Science lends itself to inquiry practices and active learning.
 
-
 # Why R?
 
 Lots of [resources](sources/resources.qmd) available to learn R.
 
-- Statistics
+-   Statistics
 
 Many alternatives
 

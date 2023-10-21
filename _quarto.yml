@@ -32,9 +32,9 @@ website:
     - icon: github
       href: https://github.com/Nics-Github/NECOMMIT-2023
     - text: Resources 
-      href: /sources/resources.qmd
+      href: /sources/resources.html
     - text: Sources
-      href: /sources/websites.qmd
+      href: /sources/websites.html
     
     - text: Schwab
       href: schwab.qmd
